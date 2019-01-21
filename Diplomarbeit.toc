@@ -1,0 +1,38 @@
+\contentsline {section}{\numberline {1}Lineare Differenzen-Gleichungen}{5}
+\contentsline {subsection}{\numberline {1.1}Vorbemerkung}{5}
+\contentsline {subsection}{\numberline {1.2}Die Differenzen-Rechnung}{5}
+\contentsline {subsection}{\numberline {1.3}Allgemeines \"uber lineare Differenzen-Gleichungen}{8}
+\contentsline {subsection}{\numberline {1.4}Lineare Gleichungen mit konstanten Koeffizienten}{13}
+\contentsline {subsection}{\numberline {1.5}Der Hauptsatz f\"ur lineare Rekursionen mit konstanten Koeffizienten}{15}
+\contentsline {section}{\numberline {2}Grundlagen der allgemeinen Theorie von Dirichlet-Reihen}{17}
+\contentsline {subsection}{\numberline {2.1}Vorbemerkung}{18}
+\contentsline {subsection}{\numberline {2.2}Die elementare Theorie der Konvergenz von Dirichlet-Reihen}{18}
+\contentsline {subsection}{\numberline {2.3}Die Bestimmung der Konvergenzabszisse}{22}
+\contentsline {subsection}{\numberline {2.4}Absolute Konvergenz einer Dirichlet-Reihe}{24}
+\contentsline {subsection}{\numberline {2.5}Vergleich der Konvergenz von Dirichlet- und Potenzreihe}{26}
+\contentsline {section}{\numberline {3}Die Menge $\mathfrak R^{l}$ und die Klasse $\zeta $}{28}
+\contentsline {subsection}{\numberline {3.1}Vorbemerkung}{28}
+\contentsline {subsection}{\numberline {3.2}Die Menge $\mathfrak R^{l}$}{32}
+\contentsline {subsubsection}{\numberline {3.2.1}Ganzzahligkeit}{33}
+\contentsline {subsubsection}{\numberline {3.2.2}Festlegung des Wachstums}{37}
+\contentsline {subsubsection}{\numberline {3.2.3}Positivit\"at}{37}
+\contentsline {subsubsection}{\numberline {3.2.4}Zusammenfassung: Eine Teilmenge $\mathfrak C^{l}$ von $\mathfrak R^{l}$}{40}
+\contentsline {subsection}{\numberline {3.3}Die Klasse $\zeta $}{40}
+\contentsline {section}{\numberline {4}Elementare Eigenschaften der Klasse $\zeta $}{41}
+\contentsline {subsection}{\numberline {4.1}Vorbemerkung}{41}
+\contentsline {subsection}{\numberline {4.2}Analytische Fortsetzbarkeit der Elemente von $\zeta $}{42}
+\contentsline {subsection}{\numberline {4.3}Diskussion der Singularit\"aten}{51}
+\contentsline {subsubsection}{\numberline {4.3.1}Konstruktion von Elementen $\zeta _{\{a\}}\in \zeta $ mit regelm\"a\IeC {\ss }igem Polverhalten auf der reellen Achse}{59}
+\contentsline {subsection}{\numberline {4.4}Das Verhalten der Elemente der Klasse $\zeta $ in der rechten Halbebene}{63}
+\contentsline {subsection}{\numberline {4.5}Anmerkungen}{67}
+\contentsline {subsubsection}{\numberline {4.5.1}\"Uber die trivialen Nullstellen der Fibonacci Zeta-Funktion}{67}
+\contentsline {subsubsection}{\numberline {4.5.2}Nahe Verwandte von $\zeta _{\{F\}}$}{75}
+\contentsline {section}{\numberline {5}Die Klasse $\zeta $ und Hypertranszendenz}{79}
+\contentsline {subsection}{\numberline {5.1}Vorbemerkung}{79}
+\contentsline {subsection}{\numberline {5.2}Die Hypertranszendez f\"ur Dirichlet-Reihen im Allgemeinen}{80}
+\contentsline {subsection}{\numberline {5.3}Hypertranszendente Elemente der Klasse $\zeta $}{81}
+\contentsline {section}{\numberline {6}Anhang}{84}
+\contentsline {subsection}{\numberline {6.1}Ergebnisse der Funktionentheorie}{84}
+\contentsline {subsection}{\numberline {6.2}Ergebnisse der Analysis}{85}
+\contentsline {section}{\numberline {7}Verzeichnis der verwendeten Symbole}{88}
+\contentsline {section}{\numberline {8}Literaturverzeichnis}{89}

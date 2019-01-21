@@ -1,0 +1,3361 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{ngerman}
+\usepackage{floatflt}
+\usepackage{graphicx}
+\usepackage{ntheorem}
+%\usepackage{mathabx}
+%\usepackage[thmmarks, thref]{ntheorem}
+\usepackage{amsmath, amssymb}
+%\usepackage[amsmath, thmmarks, thref]{ntheorem}
+%\usepackage{verbatim}
+\usepackage{fancyhdr}
+%\renewcommand{\subsectionmark}[\thepage]{\markright{{#1}}}
+\textheight220mm
+\headheight 28pt
+\textwidth160mm
+\oddsidemargin0mm
+\evensidemargin0mm
+\topmargin0mm
+\pagestyle{headings}
+\fancyhead[R]{\sectionmark}
+\newcommand{\F}{\mathbb F}
+\newcommand{\f}{\mathbb f}
+\newcommand{\K}{\mathbb K}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcounter{Hilfssatz}
+\newcounter{Definition}
+\newcounter{Satz}
+\newcounter{Lemma}
+\newcounter{Tautologie}
+\newcounter{Hauptsatz}
+\newcounter{Beispiel}
+\newcounter{Korollar}
+\newcounter{Folgerung}
+
+\makeatletter
+  \@addtoreset{Folgerung}{subsection}
+\makeatother
+\newenvironment{Folgerung}{
+\medskip
+        
+        \setlength{\parindent}{0pt}
+        \addtocounter{Folgerung}{1}
+        \textbf{\textsf{Folgerung \thesubsection.\theFolgerung}:}\\}{
+        \nopagebreak
+        \vspace{-1.0ex}
+        \bigskip
+        
+}
+\makeatletter
+  \@addtoreset{Beispiel}{subsection}
+\makeatother
+\newenvironment{Beispiel}{
+\medskip
+        
+        \setlength{\parindent}{0pt}
+        \addtocounter{Beispiel}{1}
+        \textbf{\textsf{Beispiel \thesubsection.\theBeispiel}:}\\}{
+        \nopagebreak
+        \vspace{-1.0ex}
+        \bigskip
+        
+}
+\makeatletter
+  \@addtoreset{Hauptsatz}{subsection}
+\makeatother
+\newenvironment{Hauptsatz}{
+\medskip
+       
+        \setlength{\parindent}{0pt}
+        \addtocounter{Hauptsatz}{1}
+        \textbf{\textsf{Hauptsatz \thesubsection.\theHauptsatz}:}\\}{
+        \nopagebreak
+        \vspace{-1.0ex}
+        \bigskip\\
+        
+}
+\makeatletter
+  \@addtoreset{Hilfssatz}{subsection}
+\makeatother
+\newenvironment{Hilfssatz}{
+\medskip
+        
+        \setlength{\parindent}{0pt}
+        \addtocounter{Hilfssatz}{1}
+        \textbf{\textsf{Hilfssatz \thesubsection.\theHilfssatz}:}\\}{
+        \nopagebreak
+        \vspace{-1.0ex}
+        \bigskip\\
+        
+}
+\makeatletter
+  \@addtoreset{Satz}{subsection}
+\makeatother
+\newenvironment{Satz}{
+\medskip
+        
+        \setlength{\parindent}{0pt}
+        \nopagebreak
+        \addtocounter{Satz}{1}
+        \textbf{\textsf{Satz \thesubsection.\theSatz}:}}{
+        \vspace{-1.0ex}
+        \bigskip
+        \vspace*{5pt}
+        
+}
+\setlength{\parindent}{0pt}
+\newenvironment{proof}{
+\bigskip
+        
+        \setlength{\parindent}{0pt}
+        \textbf{Beweis:}\\}{
+        \nopagebreak
+        \vspace{-1.0ex}
+        \begin{flushright}
+             $\square$
+        \end{flushright}
+        \bigskip
+        
+}
+\setlength{\parindent}{0pt}
+\makeatletter
+  \@addtoreset{Definition}{subsection}
+\makeatother
+\newenvironment{Definition}{
+\bigskip
+        
+        \setlength{\parindent}{0pt}
+        \addtocounter{Definition}{1}
+        \textbf{\textsf{Definition \thesubsection.\theDefinition}:}\\}{
+        \nopagebreak
+        \vspace{-1.0ex}
+        \bigskip
+        
+}
+\setlength{\parindent}{0pt}
+\makeatletter
+  \@addtoreset{Lemma}{subsection}
+\makeatother
+\newenvironment{Lemma}{
+\bigskip
+        
+        \setlength{\parindent}{0pt}
+        \addtocounter{Lemma}{1}
+        \textbf{\textsf{Lemma \thesubsection.\theLemma}:}}{
+        \nopagebreak
+        \vspace{-1.0ex}
+        \bigskip
+        
+        
+}
+\makeatletter
+  \@addtoreset{Tautologie}{subsection}
+\makeatother
+\newenvironment{Tautologie}{
+\medskip
+        
+        \setlength{\parindent}{0pt}
+        \addtocounter{Tautologie}{1}
+        \textbf{\textsf{Tautologie \thesubsection.\theTautologie}:}\\}{
+        \nopagebreak
+        \vspace{-1.0ex}
+        \smallskip
+        
+}
+\setlength{\parindent}{0pt}
+\makeatletter
+  \@addtoreset{Korollar}{subsection}
+\makeatother
+\newenvironment{Korollar}{
+\bigskip
+        
+        \setlength{\parindent}{0pt}
+        \addtocounter{Korollar}{1}
+        \textbf{\textsf{Korollar \thesubsection.\theKorollar}:}\\}{
+        \nopagebreak
+        \vspace{-1.0ex}
+        \bigskip
+        
+        
+}
+\usepackage{lastpage}% F\"ur die Verweise innerhalb des  Symbolverzeichnisses
+
+\usepackage{nomencl} % Symbolverzeichnis
+\let\symb\nomenclature %% Es genuegt \symb statt \nomenclature zu  schreiben
+\setlength{\nomlabelwidth}{.25\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+\setlength{\nomitemsep}{-\parsep}\renewcommand{\nomname}
+{Symbolverzeichnis}
+
+\setlength{\nomitemsep}{-\parsep}
+
+\makenomenclature
+
+
+
+%Bsp für reelle Zahlen
+\begin{document}
+       
+\begin{titlepage}
+\thispagestyle{empty} \enlargethispage{1.4in}
+
+\begin{center}
+
+%\rule[1ex]{157.5mm}{0.5mm}
+
+\LARGE\bf Bayerische\\
+Julius-Maximilians-Universität\\ Würzburg\\
+
+
+\vfill
+
+\rm Institut für Mathematik
+
+
+\begin{figure}
+	    \centering
+	    \includegraphics[width=0.2\textwidth]{Logo.png}
+\end{figure}
+
+\vfill
+
+\Huge \bf Analytische Eigenschaften gewisser zu linearen Rekursionen assoziierten Dirichlet-Reihen
+
+\vfill
+
+\Large Diplomarbeit \\ [1ex] von \\ [1ex]
+Michael Krasser
+
+\vfill
+
+Betreuer:  Prof.\,Dr.~Jörn~Steuding
+
+\vfill
+
+Würzburg, September 2010
+
+%\rule[-1ex]{157.5mm}{0.5mm}
+
+\vfill
+
+\end{center}
+
+\end{titlepage}
+
+\newpage
+\section*{Vorwort}
+Diese Arbeit entstand während des Winter- und des Sommersemesters 09/10. Für die Anregung und Ermutigung, mich mit diesem Thema auseinanderzusetzen, für die wertvollen Impulse und seine permanente Unterstützung möchte ich Herrn Prof. Dr. Jörn Steuding meinen besonderen Dank aussprechen.
+\par
+\vspace{5mm}
+\par
+Insbesondere möchte ich mich bei meinen lieben Eltern, Dr. Walter und Cornelia Krasser, und lieben Großeltern Dr. Konrad und Gisela Mahlo für die Ermöglichung dieses Studiums bedanken.
+\pagebreak
+\section*{Zusammenfassung}
+Gegenstand des Interesses in dieser Arbeit ist die Konstruktion und Untersuchung einer speziellen Klasse von Dirichlet-Reihen. Aufbauend auf der Arbeit von Navas \cite{L.Navas} über die Fibonacci Zeta-Funktion
+\begin{align*}
+\zeta_{\{F\}}(s)=\sum_{n=1}^{\infty}F_{n}^{-s},
+\end{align*}
+wird in den ersten drei Kapiteln das Ziel forciert, dem Leser einen sinnvollen Begriff von Dirichlet-Reihen der allgemeinen Form
+\begin{align*}
+\zeta_{\{a\}}(s)=\sum_{n=1}^{\infty}a_{n}^{-s}, a_{n}\in\N,
+\end{align*}
+wobei die Folge $\left(a_{n}\right)_{n\in\N}$ durch eine lineare und homogene Gleichung $l$-ter Ordnung mit konstanten Koeffizienten festgelegt ist, zu vermitteln. Zunächst werden hierfür in ausführlicher Form die notwendigen Kenntnisse über Differenzen-Gleichungen und Dirichlet-Reihen bereitgestellt, um dann in Kapitel $3$ diese beiden Begriffe, in dem Fall, dass die Differenzen-Gleichung linear und homogen ist, zu vermählen.
+\par
+Die nachfolgenden Kapitel befassen sich dann einenteils mit dem Versuch, die von Navas in \cite{L.Navas} und von Steuding in \cite{Steuding} entdeckten analytischen Eigenschaften von $\zeta_{\{F\}}$ auf obige Dirichlet-Reihen $\zeta_{\{a\}}$ zu verallgemeinern und andernteils werden neue analytische Eigenschaften gesucht:
+\par
+Zunächst wird sich zeigen, dass die Existenz einer analytischen Fortsetzung von $\zeta_{\{a\}}$ in die gesamte komplexe Ebene ${\C}$, unter gewissen Zusatzbedingungen an die rekurrente Folge $\{a\}$, stets gesichert ist. Anschließend werden Sigularitäten dieser analytischen Fortsetzung gesucht, klassifiziert und in gewissen Fällen unter ihnen Beziehungen aufgedeckt. Dabei wird sich zeigen, dass trotz der an die Rekursion $\{a\}$ gestellten Restriktionen, die analytische Fortsetzung der damit assoziierten Zeta-Funktion $\zeta_{\{a\}}$  ein recht chaotisches Verhalten besitzen kann. Dadurch motiviert, wird nach Zeta-Funktionen $\zeta_{\{a\}}$ gesucht, die auf der reellen Achse einer gewissen Regelmäßigkeit unterliegen. Desweiteren wird sich zeigen, dass allgemeine Dirichlet-Reihen der Gestalt
+\begin{align*}
+f(s)=\sum_{n=1}^{\infty}b_{n}^{-s},
+\end{align*}
+innerhalb ihrer Konvergenzhalbebene $\mathbb H_{\sigma_{0}}$ unter der Bedingung $b_{n}\geq 1$ für alle $n\in\N$, keine Nullstelle besitzen können. Außerdem wird ein Versuch unternommen, die verblüffende Äquidistanz der trivialen Nullstellen von $\zeta_{\{F\}}$ zu erklären, um so auf ihre vorrangige Stellung unter der Menge obiger Dirichlet-Reihen hinzuweisen.
+\par 
+Abschließend wird, auf Grund von Steudings Arbeit \cite{Steuding}, der Begriff der Hypertranszendenz erklärt und ein Kriterium geliefert, aus welchem sich hypertranszendente Dirichlet-Reihen $\zeta_{\{a\}}$ konstruieren lassen.
+\pagebreak 
+\tableofcontents
+\pagebreak
+\section{Lineare Differenzen-Gleichungen}$\label{Lineare Differenzengleichungen}$
+\subsection{Vorbemerkung}
+In diesem Kapitel betrachten wir in elementarer Form lineare Differenzen-Gleichungen und stellen ein Konzept zur Lösung für den Fall, dass die lineare Differenzen-Gleichung homogen ist und nur konstante Koeffizienten besitzt, bereit. Wenn nicht anders erwähnt, ist der Inhalt des Kapitels in ausführlicher Form unter \cite{Kelley}, Kapitel 2 und Kapitel 3 zu finden.
+\subsection{Die Differenzen-Rechnung}
+Wir stellen hier einige
+Werkzeuge bereit, welche im Umgang mit Differenzen-Gleichungen äußerst
+nützlich sind.
+\begin{Definition}
+Sei $y(t)$ eine Funktion einer reellen oder komplexen Veränderlichen $t$.
+\par
+Der \textbf{Differenzen-Operator} $\Delta\label{Delta}$ wird durch
+\begin{align*}
+\Delta y(t)=y(t+1)-y(t)
+\end{align*} 
+definiert.
+\end{Definition}
+Die Schrittweite 1 bei der Definition des Differenzen-Operators spielt dabei keine Rolle:
+\par
+Besäße der Differenzen-Operator die Schrittweite $h$, also
+\begin{align*}
+\Delta y(t) = y(t+h)-y(t),
+\end{align*}
+dann setzten wir $t=sh$ und $y(th) = z(t)$. Wir erhalten dann:
+\begin{align*}
+\Delta y(t) &= y(h(s+1))-y(hs)\\
+            &=z(s+1)-z(s)\\
+            &=\Delta z(s).
+\end{align*}
+Im Folgenden ist für uns die Funktion $y(t)$ stets über einer unendlichen Menge der Gestalt $a,a+1,a+2,\ldots$ definiert, wobei
+$a$ immer eine reelle oder komplexe Zahl ist.
+Analog können wir Differenzen-Operatoren höherer Ordnung durch die rekursive Definition
+\begin{align*}
+\Delta^{n}:=\Delta(\Delta^{n-1})
+\end{align*}
+betrachten:
+\pagebreak
+\begin{Satz}
+\par
+Sei $n\in\N$. Dann gilt:
+\begin{align*}
+\Delta^{n}y(t)=\sum_{k=0}^{n}(-1)^{k}\binom{n}{k}y(t+n-k).
+\end{align*}
+\end{Satz}
+\begin{proof}
+Durch vollständige Induktion:
+\par
+\textbf{(IA):}\,Sei $n=1$. Offensichtlich ist die Aussage erfüllt.
+\par
+\textbf{(IV):}\,Die Aussage sei nun bereits für ein $n\in\N$ bewiesen.
+\par
+\textbf{(IS):}\,Schluss von $n$ auf $n+1$:
+\begin{align*}
+\Delta^{n+1}y(t)&\,\,=\Delta \left(\Delta^{n}y(t)\right)\\
+                &\stackrel{\text{\textbf{(IV)}}}{=}\Delta\left(\sum_{k=0}^{n}(-1)^{k}\binom{n}{k}y(t+n-k)\right)\\
+                &\,\,=\sum_{k=0}^{n}(-1)^{k}\binom{n}{k}y(t+n+1-k)-y(t+n-k))\\
+                &\,\,=y(t+n+1)+\sum_{k=1}^{n}(-1)^{k}\binom{n}{k}y(t+n+1-k)\\
+                &\,\,\qquad+\sum_{k=1}^{n}(-1)^{k}\binom{n}{k-1}y(t+n+1-k)+(-1)^{n+1}y(t)\\
+                &\,\,=y(t+n+1)+\sum_{k=1}^{n}(-1)^{k}\binom{n+1}{k}y(t+n+1-k)+(-1)^{n+1}y(t)\\
+                &\,\,=\sum_{k=0}^{n+1}(-1)^{k}\binom{n+1}{k}y(t+n+1-k).
+\end{align*}
+\end{proof}
+Ein weiterer Operator, der oft im Zusammenhang mit dem Differenzen-Operator verwendet wird, ist der Shift-Operator.
+\begin{Definition}
+Der \textbf{Shift-Operator} $E\label{shiftoperator}$ wird durch
+\begin{align*}
+Ey(t)=y(t+1)
+\end{align*}
+definiert.
+\end{Definition}
+Bezeichnet $I$ den Identitäts-Operator, also $Iy(t)=y(t)\label{Identitätsoperator}$, erhalten wir
+\begin{align*}
+\Delta=E-I.
+\end{align*}
+Außerdem gilt die Gleichung
+\begin{align}
+\Delta^{n}y(t)&=\sum_{k=0}^{n}(-I)^{k}\binom{n}{k}E^{n-k}y(t)=(E-I)^{n}.\label{Headphase}
+\end{align}
+Wir geben nun einige Eigenschaften von $\Delta$ wieder:
+\begin{Satz}
+\par
+\textbf{a)}\,$\Delta^{m}(\Delta^{n}y(t))=\Delta^{m+n}y(t)$ für $m,n\in\N$,\\
+\textbf{b)}\,$\Delta(y(t)+z(t))=\Delta y(t)+\Delta z(t)$,\\
+\textbf{c)}\,$\Delta(Cy(t))=C\Delta y(t)$ falls $C$ konstant,\\
+\textbf{d)}\,$\Delta(y(t)z(t))=y(t)\Delta z(t)+E(z(t))\Delta y(t)$,\\
+\textbf{e)}\,$\Delta\left(\frac{y(t)}{z(t)}\right)=\frac{z(t)\Delta y(t)-y(t)\Delta z(t)}{z(t)Ez(t)}$.
+\end{Satz}
+\begin{proof}
+\textbf{a)}\,Folgt unmittelbar durch Anwendung der rekursiven Definition von $\Delta$.
+\par
+\textbf{b)}
+\begin{align*}
+\Delta(y(t)+z(t))=y(t+1)+z(t+1)-(y(t)+z(t))=\Delta y(t)+\Delta z(t).
+\end{align*}
+\textbf{c)}\,trivial.
+\par
+\textbf{d)}
+\begin{align*}
+\Delta(y(t)z(t))&=y(t+1)z(t+1)-y(t)z(t)\\
+                &=z(t+1)(\Delta(y(t))+y(t))-y(t)z(t)\\
+                &=E(z(t))\Delta y(t) + y(t)\Delta z(t).
+\end{align*}
+\textbf{e)}
+\begin{align*}
+\Delta\left(\frac{y(t)}{z(t)}\right)&=\frac{y(t+1)}{z(t+1)}-\frac{y(t)}{z(t)}\\
+                                    &=\frac{y(t+1)z(t)-y(t)z(t)-\left(y(t)z(t+1)-y(t)z(t)\right)}{z(t)Ez(t)}\\
+                                    &=\frac{z(t)\Delta y(t)-y(t)\Delta z(t)}{z(t)Ez(t)}.
+\end{align*}
+\end{proof}
+Wir wenden nun den Differenzen-Operator auf Potenzen an:
+\pagebreak
+\begin{Lemma}
+\par
+Seien $n,k\in\N$, dann gilt für $0\leq k\leq n-1$:
+\begin{align*}
+\Delta^{n}t^{k}=0.
+\end{align*}
+\end{Lemma}
+\begin{proof}
+Wegen Satz 1.2.2 a) müssen wir nur $\Delta^{n}t^{n-1}=0$ beweisen, denn für $1\leq k \leq n$ gilt:
+\begin{align*}
+\Delta^{n}t^{n-k}=\Delta^{k-1}\left(\Delta^{n-k+1}t^{n-k}\right).
+\end{align*}
+\par
+\textbf{(IA):}\,Sei $n=1$. Dann ist die Aussage offensichtlich erfüllt.
+\par
+\textbf{(IV):}\,Die Aussage sei nun bereits für ein $n\in\N$ bewiesen.
+\par
+\textbf{(IS):}\,Schluss von $n$ auf $n+1$:
+\begin{align*}
+\Delta^{n+1}t^{n}&\,\,=\Delta^{n} (\Delta(t^{n}))\\
+                 &\,\,=\Delta^{n}\left(\Delta(t^{n-1})t + E t^{n-1}\Delta t\right)\\
+                 &\,\,=\Delta^{n} \left(((t+1)^{n-1}-t^{n-1})t + E t^{n-1}\right)\\
+                 &\,\,=\Delta^{n}\left(\sum_{k=0}^{n-2}\binom{n-1}{k}t^{k+1}+ E t^{n-1}\right)\\
+                 &\,\,=\sum_{k=0}^{n-2}\binom{n-1}{k}\Delta^{n}t^{k+1}+\Delta^{n}\left(\sum_{k=0}^{n-2}\binom{n-1}{k}t^{k}\right)\\
+                 &\stackrel{\text{\textbf{(IV)}}}{=}0.   
+\end{align*} 
+\end{proof}
+\subsection{Allgemeines über lineare Differenzen-Gleichungen}$\label{Vorbemerkung}$
+\begin{Definition}
+Eine \textbf{lineare Differenzen-Gleichung}$\label{lineare GleichungL}$ der \textbf{Ordnung} $l+1,\,l\in\N$ ist eine Gleichung der Form 
+\begin{align}
+p_{l}(t)y(t+l)+ \ldots +p_{0}(t)y(t)= r(t),\label{lineare Gleichung}
+\end{align}
+wobei $p_{0}(t),\ldots,p_{l}(t)$ und $r(t)$ als bekannt vorausgesetzt werden und $p_{0}(t),\,p_{l}(t)\neq0$ für alle $t$ gilt.
+Falls $r(t)\not\equiv0$, sagt man Gl. (\ref{lineare Gleichung}) ist \textbf{inhomogen}, sonst \textbf{homogen}. 
+\end{Definition}
+Wir werden später noch den Zusammenhang zwischen Gl. $(\ref{lineare Gleichung})$ und der zugehörigen homogenen Gleichung
+\begin{align}
+p_{l}(t)y(t+l)+ \ldots +p_{0}(t)y(t)=0 \label{homogene lineare Gleichung}
+\end{align}
+betrachten. 
+\newpage
+\begin{Satz}
+\par
+$p_{0},\ldots,p_{l}$ und $r(t)$ seien für $t=a,a+1,\ldots$ definiert. Außerdem gelte $p_{0}(t),\,p_{l}\neq0$ für alle $t$.
+Dann existiert für jedes $t_{0}\in\{a,a+1,\ldots\}$ und beliebige Zahlen $y_{0},\ldots,y_{l-1}$ genau eine Funktion $y(t)$,
+welche für $t=a,a+1,\ldots$  Gl.$(\ref{lineare Gleichung})$ genügt und $y(t_{0}+k)=y_{k}$ für $k=0,\,1,\ldots,l-1$ erfüllt.
+\end{Satz}
+\begin{proof}
+Der Beweis erfolgt durch Iteration:
+\par
+Auf Grund der Voraussetzung $p_{l}(t)\neq0$ für alle $t=a,\,a+1,\ldots$, gilt:
+\begin{align*}
+y(t_{0}+l)=\frac{r(t_{0})-p_{l-1}(t_{0})y_{l-1} - \ldots - p_{0}(t_{0})y_{0}}{p_{l}(t_{0})}.
+\end{align*}
+Damit wird die Lösung $y(t)$ für $t = t_{0}+l$ durch die $l$ bekannten Werte $y_{0},\ldots,y_{l-1}$ eindeutig festgelegt. Wir können dann für $t > t_{0}+l$ dieselbe Argumentation verwenden.
+\par
+Analog ist $y(t)$ - auf Grund von $p_{0}(t)\neq0$ - auch für $t<t_{0}$ eindeutig festgelegt.
+\end{proof}
+Wir charakterisieren nun die allgemeine Lösung von Gl.$(\ref{lineare Gleichung})$ durch eine Folge von Sätzen: 
+\begin{Satz}
+\par
+\textbf{a)}\,Die Menge der Lösungen von Gl.$(\ref{homogene lineare Gleichung})$ ist ein linearer Unterraum des Raums aller
+\par $\,\,\,\,\,$ Lösungen von Gl.$(\ref{lineare Gleichung})$.
+\par 
+\textbf{b)}\,Sei $u(t)$ eine Lösung Gl.$(\ref{homogene lineare Gleichung})$ und $v(t)$ eine Lösung von Gl.$(\ref{lineare Gleichung})$, dann ist $u(t)+v(t)$
+\par
+$\,\,\,\,\,$ eine Lösung von Gl.$(\ref{homogene lineare Gleichung})$.
+\par
+\textbf{c)}\,Seien $y_{1}(t)$ und $y_{2}(t)$ Lösungen von Gl.$(\ref{lineare Gleichung})$, dann ist $y_{1}(t)-y_{2}(t)$
+eine Lösung von Gl.$(\ref{homogene lineare Gleichung})$. 
+\end{Satz}
+\begin{proof}
+Wir erhalten analog zur Theorie linearer Gleichungssyteme alle Aussagen durch einfaches Einsetzen.
+\end{proof}
+\begin{Korollar}
+Ist $z(t)$ eine Lösung von Gl.$(\ref{lineare Gleichung})$, dann hat jede Lösung $y(t)$ von Gl.$(\ref{lineare Gleichung})$
+die Gestalt
+\begin{align*}
+y(t)=z(t)+u(t),
+\end{align*}
+wobei $u(t)$ eine Lösung von Gl.$(\ref{homogene lineare Gleichung})$ ist.
+\begin{flushright}
+             $\square$
+\end{flushright} 
+\end{Korollar}
+Eine Folgerung aus Korollar 1.3.1 ist nun, dass das Problem der Auffindung aller Lösungen von Gl.$(\ref{lineare Gleichung})$
+in zwei kleinere Probleme zerfällt:
+\begin{itemize}
+\item Bestimme alle Lösungen von Gl.$(\ref{homogene lineare Gleichung})$.
+\item Finde eine Lösung von Gl.$(\ref{lineare Gleichung})$. 
+\end{itemize}
+Bei der Betrachtung des ersten Problems benötigen wir zuerst ein paar Definitionen:
+\begin{Definition}
+Die Menge der Funktionen $\{u_{1}(t),\ldots,u_{l}(t)\}$ heißt \textbf{linear abhängig} auf der Menge
+\par
+$t=a,\,a+1,\ldots$, wenn es Konstanten $C_{1},\ldots,C_{l}$,\,$C_{i}\neq0$ für mindestens ein $i\in\{1,\ldots,l\}$ gibt, sodass
+\begin{align*}
+C_{1}u_{1}(t)+C_{2}u_{2}(t)+\ldots + C_{l}u_{l}(t)=0
+\end{align*}
+für $t=a,\,a+1,\ldots$ gilt.
+\par
+Andernfalls bezeichnen wir die Menge der Funktionen als \textbf{linear unabhängig}$\label{linear abhängig}$.
+\end{Definition}
+Wir werden nun eine Matrix definieren, welche bei der Behandlung von linearen Gleichungen sehr nützlich ist:
+\begin{Definition}
+Die \textbf{Matrix von Casorati} für die Funktionen $u_{1},\ldots,u_{l}$ wird definiert durch
+$$
+W(t)\label{Matrix von Casorati}=
+\left(
+\begin{array}{llll}
+u_{1}(t) & u_{2}(t) & \ldots & u_{l}(t) \\
+u_{1}(t+1) & u_{2}(t+1) & \ldots & u_{l}(t+1) \\
+\vdots & \vdots & \ddots & \vdots \\
+u_{1}(t+l-1) & u_{2}(t+l-1) & \ldots & u_{l}(t+l-1) \\
+\end{array}
+\right).
+$$
+Die Determinante
+\begin{align*} 
+\omega(t)=\text{det}W(t)
+\end{align*}
+nennen wir dann die \textbf{Casorati-Determinante}.
+\end{Definition}
+Die Casorati-Determinante spielt bei der Untersuchung von linearen Gleichungen dieselbe Rolle wie die Wronski-Determinante bei linearen Differentialgleichungen:
+\begin{Satz}
+\par
+Seien $u_{1}(t),\dots,u_{l}(t),\,t=a,\,a+1, \ldots\,,$ Lösungen von Gl.$(\ref{homogene lineare Gleichung})$.
+\par
+Dann sind äquivalent:
+\par
+\textbf{a)}\,Die Menge $\{u_{1}(t),\dots,u_{l}(t)\}$  ist linear abhängig für $t=a,\,a+1, \ldots\,$,
+\par
+\textbf{b)}\,$\omega(t)=0$ für mindestens ein $t$,
+\par
+\textbf{c)}\,$\omega(t)=0$ für alle $t$.
+\end{Satz}
+\begin{proof}
+\textbf{a)}$\Rightarrow$\textbf{c)}: Nach Definition 1.3.2 existieren Konstanten $C_{1},\ldots, C_{l}$, nicht alle gleich Null,
+\par
+sodass
+\begin{align*}
+           C_{1}u_{1}(t)+C_{2}u_{2}(t)+\ldots+C_{l}u_{l}(t)&=0,\\
+     C_{1}u_{1}(t+1)+C_{2}u_{2}(t+1)+\ldots+C_{l}u_{l}(t+1)&=0,\\
+                                                           &\,\,\,\vdots\\
+C_{1}u_{1}(t+l-1)+C_{2}u_{2}(t+l-1)+\ldots+C_{l}u_{l}(t+l-1)&=0,
+\end{align*}
+für $t=a,\,a+1,\ldots\,$ gilt.
+Besitzt nun dieses lineare Gleichungssystem eine nicht-triviale Lösung $C_{1},\ldots, C_{l}$, so gilt
+$\omega(t)=0$\, für alle $t$.
+\par
+\vspace{0.2cm}
+\textbf{b)}$\Rightarrow$\textbf{c)}: Wir nehmen nun an, dass $\omega(t_{0})=0$ gilt.
+Folglich existieren Konstanten $C_{1},\ldots, C_{l}$, nicht alle gleich Null, mit
+\begin{align*}
+           C_{1}u_{1}(t_{0})+C_{2}u_{2}(t_{0})+\ldots+C_{l}u_{l}(t_{0})&=0,\\
+     C_{1}u_{1}(t_{0}+1)+C_{2}u_{2}(t_{0}+1)+\ldots+C_{l}u_{l}(t_{0}+1)&=0,\\
+                                                           &\,\,\,\vdots\\
+C_{1}u_{1}(t_{0}+l-1)+C_{2}u_{2}(t_{0}+l-1)+\ldots+C_{l}u_{l}(t_{0}+l-1)&=0.
+\end{align*}
+Setze 
+\begin{align*}
+u(t)=C_{1}u_{1}(t)+C_{2}u_{2}(t)+\ldots+C_{l}u_{l}(t).
+\end{align*}
+Nach Satz 1.3.2 a) ist $u(t)$ dann eine Lösung von Gl.$(\ref{homogene lineare Gleichung})$, mit
+\begin{align*}
+u(t_{0})=u(t_{0}+1)=u(t_{0}+2)=\ldots=u(t_{0}+l-1)=0.
+\end{align*}
+Aus Satz 1.3.1 erhalten wir sofort, dass $u(t)=0$ für $t=a,\,a+1,\ldots$, also \textbf{c)} gilt.
+Insgesamt folgt dann auch, dass die Menge $\{u_{1}(t),\ldots,u_{l}(t)\}$ linear abhängig ist, also \textbf{c)}$\Rightarrow$\textbf{a)}.
+\end{proof}
+Eine weitere schöne Eigenschaft der Lösungsmenge von Gl.$(\ref{homogene lineare Gleichung})$ liefert der nächste Satz: 
+\begin{Satz}
+\par
+Seien $u_{1}(t),\ldots,u_{l}(t)$ linear unabhängige Lösungen von Gl.$(\ref{homogene lineare Gleichung})$.
+Dann läßt sich jede weitere Lösung $u(t)$  von Gl.$(\ref{homogene lineare Gleichung})$ in der Form
+\begin{align*}
+u(t) = C_{1}u_{1}(t)+C_{2}u_{2}(t)+\ldots+C_{l}u_{l}(t),
+\end{align*}
+mit gewissen Konstanten $C_{1},\,C_{2},\ldots,C_{l}$, darstellen.
+\end{Satz}
+\begin{proof}
+Nach Voraussetzung gilt $\omega(t)\neq0$ für $t=a,\,a+1,\ldots$.
+Damit besitzt das lineare Gleichungssystem
+\begin{align*}
+\left(\sum_{i=1}^{l}C_{i}u_{i}(a+j-1) = u(a+j-1)\right)_{1\leq j\leq l},
+\end{align*}
+\newpage
+genau eine Lösung $C_{1},\ldots,C_{l}$.
+Mit Satz 1.3.1 folgt die Behauptung.
+\end{proof}
+Wir werden jetzt eine Lösung von Gl.$(\ref{lineare Gleichung})$ bestimmen.
+Dabei ist der Ansatz über die Methode der \textbf{Variation der Veränderlichen} eine Lösung von Gl.$(\ref{lineare Gleichung})$ zu finden, naheliegend:
+\begin{Satz}
+\par
+Seien $u_{1}(t),\ldots,u_{l}(t)$ linear unabhängige Lösungen von Gl.$(\ref{homogene lineare Gleichung})$ und $a_{1}(t),\ldots,a_{l}(t)$ Lösungen der Matrix-Gleichung
+$$
+W(t+1)
+\left(
+\begin{array}{llll}
+\Delta a_{1}(t)\\
+\vdots \\
+\Delta a_{l}(t)  \\
+\end{array}
+\right)
+=
+\left(
+\begin{array}{llll}
+0\\
+\vdots \\
+0\\
+\frac{r(t)}{p_{l}(t)}\\
+\end{array}
+\right).
+$$
+Dann ist
+\begin{align}
+y(t)=a_{1}(t)u_{1}(t)+\ldots+a_{l}(t)u_{l}(t)\label{speziell}
+\end{align}
+eine Lösung von Gl.$(\ref{lineare Gleichung})$.
+\end{Satz} 
+\begin{proof}
+Sei $1\leq m\leq l-1$.
+Wir betrachten nun Gl.$(\ref{speziell})$ an den Punkten $t+1,\,t+2,\ldots,t+l-1$:
+\begin{align*}
+y(t+m)&=a_{1}(t+m)u_{1}(t+m)+\ldots+a_{l}(t+m)u_{l}(t+m)\\
+      &=\sum_{i=1}^{l}(\Delta (a_{i}(t+m-1))u_{i}(t+m)+a_{i}(t+m-1)u_{i}(t+m))\\
+      &=\sum_{i=1}^{l}(\Delta (a_{i}(t+m-2))u_{i}(t+m)+a_{i}(t+m-2)u_{i}(t+m))\\
+      &\,\,\,\vdots\\
+      &=\sum_{i=1}^{l}a_{i}(t)u_{i}(t+m).
+\end{align*}
+Völlig analog erhalten wir
+\begin{align*}
+y(t+l)&=\sum_{i=1}^{l}(\Delta (a_{i}(t))u_{i}(t+l)+a_{i}(t)u_{i}(t+l))\\
+      &=\frac{r(t)}{p_{l}(t)} + \sum_{i=1}^{l}a_{i}(t)u_{i}(t+l).
+\end{align*}
+Nun substituieren wir für $0\leq m \leq l$ den Ausdruck $y(t+m)$ in Gl.$(\ref{lineare Gleichung})$, sortieren nach den Termen $a_{1}(t),\ldots,a_{l}(t)$ um, und erhalten
+\begin{align*}
+p_{l}(t)y(t+l)+ \ldots +p_{0}(t)y(t)
+&=p_{l}(t)\left(\frac{r(t)}{p_{l}(t)} + \sum_{i=1}^{l}a_{i}(t)u_{i}(t+l)\right)+\\
+&\qquad+\ldots+p_{0}(t)\left(\sum_{i=1}^{l}a_{i}(t)u_{i}(t)\right)\\
+&=r(t)+a_{1}(t)[p_{l}(t)u_{1}(t+l)+\ldots+p_{0}(t)u_{1}(t)]+\\
+&\qquad+a_{2}(t)[p_{l}(t)u_{1}(t+l)+\ldots+p_{0}(t)u_{2}(t)]+\\
+&\,\,\,\vdots\\
+&\qquad+a_{l}(t)[p_{l}(t)u_{l}(t+l)+\ldots+p_{0}(t)u_{l}(t)].
+\end{align*}
+Da nach Voraussetzung jeder Ausdruck in eckigen Klammern Gl.$(\ref{homogene lineare Gleichung})$ genügt, folgt die Behauptung.
+\end{proof}
+\subsection{Lineare Gleichungen mit konstanten Koeffizienten}
+Wir wenden uns nun dem speziellen Problem zu, die linear unabhängigen Lösungen von Gl.$(\ref{homogene lineare Gleichung})$ unter der Bedingung, dass alle Koeffizientenfunktionen $p_{0}(t),\ldots,p_{l}(t)$ konstant sind, also $p_{i}(t)=p_{i}$ für $i=0,\ldots,l$, zu finden. Desweiteren gelte $p_{0},\,p_{l}\neq0$, 
+dann können wir beide Seiten von Gl.$(\ref{homogene lineare Gleichung})$ durch $p_{l}$ teilen und erhalten
+\begin{align}
+y(t+l)+ \tilde{p}_{l-1}y(t+l-1)+ \ldots +\tilde{p}_{0}y(t)=0\label{homogene lineare Gleichung konst.}
+\end{align}
+mit $\tilde{p}_{i}=\frac{p_{i}}{p_{l}}$. 
+Nun führen wir einige - im Folgenden wichtige - Begriffe ein:
+\begin{Definition}
+\textbf{a)}\,Das \textbf{charakteristisches Polynom} $P$ der Gl.$(\ref{homogene lineare Gleichung konst.})$ wird definiert durch
+\begin{align}
+P(\varphi)=\varphi^{l}+\tilde{p}_{l-1}\varphi^{l-1}+\ldots+\tilde{p}_{0}.\label{Feuer}
+\end{align}
+\par
+\textbf{b)}\,Die Gleichung $\varphi^{l}+\tilde{p}_{l-1}\varphi^{l-1}+\ldots+\tilde{p}_{0}=0$ heißt \textbf{charakteristische Gleichung}
+\par
+$\,\,\,\,\,$ der Gl.$(\ref{homogene lineare Gleichung konst.})$.
+\par
+\textbf{c)}\,Die Nullstellen $\varphi_{1},\ldots,\varphi_{k}$ der charakteristischen Gleichung nennen wir die
+\par
+$\,\,\,\,\,$ \textbf{charkteristischen Wurzeln}.\label{charkteristische Wurzeln}
+\end{Definition}
+\vspace{0.5cm}
+Das charakteristische Polynom besitzt dann nach dem Fundamentalsatz der Algebra die eindeutige Darstellung
+\begin{align}
+P(z)=\prod_{i=1}^{k}\left(z-\varphi_{i}\right)^{\sigma_{i}},\label{Ball}
+\end{align}
+wobei $\sigma_{i}$ für $1\leq i \leq k$ die Vielfachheit der charakteristischen Wurzel $\varphi_{i}$ angibt und $\sum_{i=1}^{k}\sigma_{i}=l$ gilt.
+Zusätzlich übernehmen wir noch einen Begriff aus \cite{Graham}:
+\begin{Definition}
+Die  charakteristischen Wurzeln von Gl.$(\ref{homogene lineare Gleichung konst.})$ seien dem Betrage nach geordnet:
+\begin{align*}
+|\varphi_{1}|\geq|\varphi_{2}|\geq\ldots\geq|\varphi_{k}|.
+\end{align*}  
+Dann nennen wir diejenigen $r$ Wurzeln
+\begin{align*}
+|\varphi_{1}|=\ldots=|\varphi_{r}|>|\varphi_{r+1}|\geq|\varphi_{r+2}|\geq\ldots\geq|\varphi_{k}|,
+\end{align*}
+vom größten Betrage die \textbf{dominanten Wurzeln}.
+\end{Definition}
+Mit Hilfe des Shift-Operators $E$ läßt sich Gl.$(\ref{homogene lineare Gleichung konst.})$ folgendermaßen schreiben:
+\begin{align}
+(E^{l}+ \tilde{p}_{l-1}E^{l-1}+\ldots+\tilde{p}_{0})u(t)=0.\label{Shift-Operator auf homogene lineare Gleichung konst.}
+\end{align}
+Unter Berücksichtigung des Fundamentalsatzes der Algebra erhalten wir für Gl.$(\ref{Shift-Operator auf homogene lineare Gleichung konst.})$ dann
+\begin{align*}
+(E-\varphi_{1})^{\sigma_{1}}\cdot\ldots\cdot(E-\varphi_{k})^{\sigma_{k}}u(t)=0,
+\end{align*}
+wobei $\sigma_{1}+\ldots+\sigma_{k}=l$ gilt.
+Wegen $\tilde{p}_{0}\neq0$ sind dabei alle charakteristischen Wurzeln von Null verschieden.
+Wir müssen nun zuerst die Gleichung
+\begin{align}
+(E-\varphi_{1})^{\sigma_{1}}u(t)=0\label{2.0}
+\end{align}
+lösen. Offensichtlich ist dann jede Lösung von Gl.$(\ref{2.0})$ auch eine Lösung von
+Gl.$(\ref{Shift-Operator auf homogene lineare Gleichung konst.})$.
+Für $\sigma_{1}=1$ vereinfacht sich Gl.$(\ref{2.0})$ zu $u(t+1)=\varphi_{1}u(t)$, 
+welche dann die Lösung $u(t)=\varphi_{1}^{t}$ besitzt.
+Sei nun $\sigma_{1}>1$. Wir substituieren in Gl.$(\ref{Shift-Operator auf homogene lineare Gleichung konst.})$
+\begin{align*}
+u(t)=\varphi_{1}^{t}v(t)
+\end{align*}
+und berechnen mit Hilfe von Gl.$(\ref{Headphase})$ und Lemma 1.2.1:
+\begin{align*}
+(E-\varphi_{1})^{\sigma_{1}}\varphi_{1}^{t}v(t)&=\sum_{i=0}^{\sigma_{1}}\binom{\sigma_{1}}{i}(-\varphi_{1})^{\sigma_{1}-i}E^{i}\varphi_{1}^{t}v(t)\\
+                                               &=\sum_{i=0}^{\sigma_{1}}\binom{\sigma_{1}}{i}(-\varphi_{1})^{\sigma_{1}-i}
+                                               \varphi_{1}^{t} E^{i}v(t)\\
+                                              &= (\varphi_{1})^{\sigma_{1}+t}\sum_{i=0}^{\sigma_{1}}
+                                              \binom{\sigma_{1}}{i}(-1)^{\sigma_{1}-i} E^{i}v(t)\\
+                                              &=(\varphi_{1})^{\sigma_{1}+t}(E-1)^{\sigma_{1}}v(t)\\
+                                              &=(\varphi_{1})^{\sigma_{1}+t}\Delta^{\sigma_{1}}v(t)\\
+                                              &=0,
+\end{align*}
+für $v(t)=1,\,t,\,t^{2},\ldots,t^{\sigma_{1}-1}$.
+Folglich besitzt Gl.$(\ref{2.0})$ insgesamt $\sigma_{1}$
+Lösungen $\varphi^{t}_{1},\,t\varphi^{t}_{1},\ldots$\\
+$\ldots, t^{\sigma_{1}-1}\varphi^{t}_{1}$.
+Dabei sehen wir leicht, dass diese Lösungen linear unabhängig sind:
+\par
+Angenommen die Funktionen $\varphi^{t}_{1},\,\ldots,t^{\sigma_{1}-1}\varphi^{t}_{1}$ sind linear abhängig, dann existieren Konstanten $C_{1},\ldots,C_{\sigma_{1}}$, nicht alle gleich Null, mit
+\begin{align*}
+\tilde{p}(t)&:=\sum_{i=1}^{\sigma_{1}}C_{i}t^{\sigma_{1}-i}\varphi_{1}^{t}\\
+            &=\varphi_{1}^{t}\sum_{i=1}^{\sigma_{1}}C_{i}t^{\sigma_{1}-i}\\
+            &=0
+\end{align*}
+für alle $t$.
+Mit dem Fundamentalsatz der Algebra folgt $C_{1}=C_{2}=\ldots$\\
+$\ldots=C_{\sigma_{1}}=0$.
+Wenden wir nun obige Vorgehensweise auf jeden der Faktoren
+\begin{align*}
+(E-\varphi_{i})^{\sigma_{i}},\qquad 1\leq i\leq k,
+\end{align*}
+an, erhalten wir insgesamt $l$  Lösungen
+$\varphi^{t}_{1},\ldots,t^{\sigma_{1}-1}\varphi^{t}_{1},\,\varphi^{t}_{2},\ldots,t^{\sigma_{2}-1}\varphi^{t}_{2},\,\varphi^{t}_{k},\ldots,t^{\sigma_{k}-1}\varphi^{t}_{k}$.
+\par
+Sind alle Wurzeln von Gl.$(\ref{homogene lineare Gleichung konst.})$ einfach, also $\sigma_{i}=1$ für $1\leq i\leq k$, 
+so können wir aus den Anfangsbedingungen schnell die allgemeine Lösung bestimmen. Besitzt dagegen Gl.$(\ref{homogene lineare Gleichung konst.})$ aber nur $k$ < $l$ paarweise verschiedene Wurzeln $\varphi_{i}$ mit zugehörigen 
+Vielfachheiten $1\leq \sigma_{i}\leq l $, so benötigen wir weitere $l-k$ linear unabhängige Lösungen um die allgemeine Lösung zu bestimmen. Der folgende Abschnitt behandelt einen Hauptsatz, den wir \cite{Poonen} entnehmen und welcher uns nun ein Verfahren zur Konstruktion der $l-k$ linear unabhängigen Lösungen von Gl.$(\ref{homogene lineare Gleichung konst.})$ aus den bekannten $k$-Lösungen von Gl.$(\ref{homogene lineare Gleichung konst.})$ liefert: 
+\subsection{Der Hauptsatz für lineare Rekursionen mit konstanten Koeffizienten}
+\begin{Hauptsatz}
+Das charakteristisches Polynom der Gl.$(\ref{homogene lineare Gleichung konst.})$ und die zugehörigen charakteristischen Wurzeln $\varphi_{i}$ mit Vielfachheiten $\sigma_{i}$,\,$(1\leq i \leq k)$ seien wie in Definition 1.4.1.
+Dann gilt:
+\par
+\textbf{i)}\,Für $1\leq i\leq k$ existieren eindeutig bestimmte Polynome $g_{i}(n)$, Grad$(g_{i})\leq \sigma_{i}-1$, sodass
+\begin{align}
+y(n)=\sum_{i=1}^{k}g_{i}(n)\varphi_{i}^{n}.\label{Hauptsatz}
+\end{align}
+\textbf{ii)}\,Seien $\varphi_{1},\ldots,\varphi_{k}$ paarweise verschiedene Zahlen in ${\C}$ und $\sigma_{1},\ldots,\sigma_{k}$ positive ganze Zahlen mit $\sum_{i=1}^{k}\sigma_{i}=l$. Die Zahlen $\tilde{p}_{0},\ldots,\tilde{p}_{l-1}$ seien durch Gl.$(\ref{Feuer})$ und Gl.$(\ref{Ball})$ definiert. Außerdem seien für $1\leq i \leq k$ Polynome $g_{i}$  mit Grad$(g_{i})\leq \sigma_{i}$ gewählt. Dann erfüllt die durch 
+\begin{align*}
+y(n)=\sum_{i=1}^{k}g_{i}(n)\varphi_{i}^{n}
+\end{align*}
+definierte Funktion Gl.$(\ref{homogene lineare Gleichung konst.})$.
+\end{Hauptsatz}
+\begin{proof}
+\vspace{0.1cm}
+\par
+\textbf{Bemerkung:}\\
+Bedauerlicherweise besitzt der Verfasser dieser Arbeit keinen Zugang zu einem allgemeinen Beweis dieses Hauptsatzes. Wir wollen aber zumindest einen Beweis für den Fall, dass die charakteristischen Wurzeln $\varphi_{i}$ alle vom Betrag her paarweise verschieden sind, angeben.
+\par
+\vspace{0.5cm}
+\textbf{i)}\,Wir wissen bereits, dass die Funktionen 
+$\varphi^{t}_{1},\ldots,t^{\sigma_{1}-1}\varphi^{t}_{1},\,\varphi^{t}_{2},\ldots,t^{\sigma_{2}-1}\varphi^{t}_{2},\,\varphi^{t}_{k},\ldots,t^{\sigma_{k}-1}\varphi^{t}_{k}$ Lösungen von  Gl.$(\ref{homogene lineare Gleichung konst.})$ sind. Angenommen diese Lösungen sind linear unabhängig, dann garantiert uns Satz 1.3.4, dass sich jede weitere Lösung von Gl.$(\ref{homogene lineare Gleichung konst.})$ als Linearkombination dieser Funktionen darstellen lässt. Damit folgt dann schon \textbf{ii)}. Außerdem können wir die Konstanten dieser Linearkombination aus gegeben $l$ Anfangsbedingungen eindeutig bestimmen und Satz 1.3.1 liefert uns die Eindeutigkeit dieser Linearkombination als Lösung von Gl.$(\ref{homogene lineare Gleichung konst.})$.
+Wir müssen also lediglich die lineare Unabhängigkeit der Lösungen
+\begin{align*} \varphi^{t}_{1},\ldots,t^{\sigma_{1}-1}\varphi^{t}_{1},\,\varphi^{t}_{2},\ldots,t^{\sigma_{2}-1}\varphi^{t}_{2},\,\varphi^{t}_{k},\ldots,t^{\sigma_{k}-1}\varphi^{t}_{k}
+\end{align*}
+von  Gl.$(\ref{homogene lineare Gleichung konst.})$ überprüfen.
+Angenommen die Funktionen
+sind linear abhängig,
+dann existieren
+für $1\leq i\leq k$,\,$1\leq j \leq \sigma_{i}$, Konstanten $C_{ij}$,
+nicht alle gleich Null, mit 
+\begin{align}
+\sum_{i=1}^{k}\sum_{j=1}^{\sigma_{i}}C_{ij}t^{\sigma_{i}-j}\varphi^{t}_{i} =0.
+\label{Beweislu}
+\end{align}
+Zunächst bestimmen wir
+\begin{align*}
+\left|\varphi_{i_{1}}\right|=\max_{1\leq i \leq k}\left|\varphi_{i}\right|.
+\end{align*}
+Nach Voraussetzung können wir beide Seiten von Gl.$(\ref{Beweislu})$ durch $\varphi_{i_{1}}^{t}$ teilen und erhalten:
+\begin{align}
+\sum_{\substack{i=1\\i\neq
+i_{1}}}^{k}\sum_{j=1}^{\sigma_{i}}C_{ij}t^{\sigma_{i}-j}\left(\frac{\varphi_{i}}{\varphi_{i_{1}}}\right)^{t}+\sum_{j=1}^{\sigma_{i_{1}}}C_{i_{1}j}t^{\sigma_{i_{1}}-j}=0.\label{Limeslu}
+\end{align}
+Für $t\to+\infty$ verschwindet die Doppelsumme auf der linken Seite von Gl.$(\ref{Limeslu})$.
+\par
+Damit muss aber 
+\begin{align*}
+\sum_{j=1}^{\sigma_{i_{1}}}C_{i_{1}j}t^{\sigma_{i_{1}}-j}=0
+\end{align*}
+ für alle $t$ gelten, was $C_{i_{1}1}=C_{i_{1}2}=\ldots=C_{i_{1}\sigma_{i_{1}}}=0$ impliziert.
+Damit reduziert sich Gl.$(\ref{Beweislu})$ zu
+\begin{align*}
+\sum_{\substack{i=1\\i\neq i_{1}}}^{k}\sum_{j=1}^{\sigma_{i}}C_{ij}t^{\sigma_{i}-j}\varphi^{t}_{i} =0.
+\end{align*}
+Wir bestimmen nun
+\begin{align*}
+\left|\varphi_{i_{2}}\right|=\max_{1\leq i \leq k,i\neq i_{1}}\left|\varphi_{i}\right|
+\end{align*}
+und verfahren analog.
+Insgesamt erhalten wir so nach $k$ Schritten $C_{ij}=0$ für $1\leq i\leq k$,\\
+$1\leq j \leq \sigma_{i}$, also die lineare Unabhängigkeit der Funktionen\\
+$\varphi^{t}_{1},\ldots,t^{\sigma_{1}-1}\varphi^{t}_{1},\,\varphi^{t}_{2},\ldots,t^{\sigma_{2}-1}\varphi^{t}_{2},\,\varphi^{t}_{k},\ldots,t^{\sigma_{k}-1}\varphi^{t}_{k}$.
+\end{proof}
+\begin{Korollar}
+Das charakteristische Polynom der Gl.$(\ref{homogene lineare Gleichung konst.})$ und die zugehörigen charakteristischen Wurzeln $\varphi_{i}$ mit Vielfachheiten $\sigma_{i}=1$,\,$(1\leq i \leq l)$ seien wie in Definition 1.4.1.
+Dann gilt:
+\par
+\textbf{i)}\,Für $1\leq i\leq l$ existieren eindeutig bestimmte Konstanten $\alpha_{i}$, sodass
+\begin{align}
+y(n)=\sum_{i=1}^{l}\alpha_{i}\varphi_{i}^{n}.\label{Koro}
+\end{align}
+\textbf{ii)}\,Seien $\varphi_{1},\ldots,\varphi_{l}$ paarweise verschiedene Zahlen in ${\C}$. Die Zahlen $\tilde{p}_{0},\ldots,\tilde{p}_{l-1}$ seien durch Gl.$(\ref{Feuer})$ und Gl.$(\ref{Ball})$ definiert. Außerdem seien für $1\leq i \leq l$ Konstanten $\alpha_{i}$ gewählt. Dann erfüllt die durch 
+\begin{align*}
+y(n)=\sum_{i=1}^{l}\alpha_{i}\varphi_{i}^{n}
+\end{align*}
+definierte Funktion Gl.$(\ref{homogene lineare Gleichung konst.})$.
+\begin{flushright}
+             $\square$
+\end{flushright}
+\end{Korollar}
+\section{Grundlagen der allgemeinen Theorie von Dirichlet-Reihen}
+$\label{Dirichlet}$
+Für dieses Kapitel wurde $\cite{Hardy}$ Kapitel I und Kapitel II 3-11 als Quelle benutzt.
+\subsection{Vorbemerkung}
+Der Gegenstand unseres Interesses in diesem Kapitel sind Reihen der Gestalt
+\begin{align}
+f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s},\label{Dirichle}
+\end{align}
+wobei $(\lambda_{n})_{n\in \N}$ eine Folge reeller und monoton wachsender Zahlen ist, mit
+$$
+\lim_{n \to \infty}\lambda_{n}=+\infty
+$$
+und $s=\sigma+it$\label{komplex} eine komplexe Variable mit Realteil $\sigma$ und Imaginärteil $t$ bezeichnet. 
+Desweiteren sei $(a_{n})_{n\in\N}$ eine Folge beliebiger komplexer oder reeller Zahlen.
+Reihen der Gestalt ($\ref{Dirichle}$) nennen wir Dirichlet-Reihen der $\textbf{Gattung}\, (\lambda_{n})$.
+Falls $\lambda_{n}=n$ für alle $n\in\N$, ist $f(s)$ eine Potenzreihe in $e^{-s}$ und falls $\lambda_{n}=\log(n)$ für alle $n\in\N$, so nennen wir
+\begin{align*}
+f(s)=\sum_{n=1}^{\infty}a_{n}n^{-s}
+\end{align*}
+eine \textbf{gewöhnliche} Dirichlet-Reihe.
+\vspace{0.5cm}
+\par
+Für das Folgende ist es nun hilfreich gleich ein paar Notationen festzuhalten:
+\par
+Im Folgenden bezeichne $\left\lfloor x \right\rfloor$ (\textbf{Gauß-Klammer})\label{Gaus-Klammer} die größte ganze Zahl $\leq x$.
+Desweiteren verstehen wir unter $\sum_{\alpha}^{\beta}f(n)$  die Summe aller Werte $f(n)$ mit $\alpha\leq n \leq\beta$, also $\left\lfloor \alpha\right\rfloor \leq n \leq \left\lfloor \beta \right\rfloor$ oder 
+$\left\lfloor \alpha\right\rfloor < n \leq \left\lfloor \beta \right\rfloor$ je nachdem ob $\alpha\in{\Z}$ oder nicht.
+Außerdem setzen wir $A(x):=\sum_{1}^{x}a_{n}$ und $A(x,y):=\sum_{x}^{y}a_{n}$\label{Summen}, sowie $\tilde{\Delta}\label{tildedelta} a_{n}:=a_{n}-a_{n+1}$.
+\par
+Mit
+$$
+\sigma_{0}:=\inf\{\sigma\in \mathbb{R};\exists t\in\mathbb{R}:|f(s)|<\infty\}\label{Konvergenzabszisse}
+$$
+kennzeichnen wir die \textbf{Konvergenzabszisse} von $f$ und verstehen unter der Geraden $\sigma=\sigma_{0}$ die zugehörige \textbf{Konvergenzlinie}.
+\par
+Unter
+$$
+W(s_{0},\alpha):=\left\{s_{0} + re^{i\varphi};0\leq r,0\leq\alpha\leq\frac{\pi}{2},\left|\varphi\right|<\alpha \right\}\label{Winkelhalbebene},
+$$
+verstehen wir eine Ebene im Punkt $s_{0}$ mit Öffnungswinkel $\alpha$, die wir als \textbf{Winkel-Ebene} bezeichnen.
+Außerdem folgen wir Landau im Gebrauch der Symbole $\textbf{o}$ und $\textbf{O}$:
+\par
+Sei $\Phi$ eine positive Funktion einer Variablen.
+Dann schreiben wir $f=o(\Phi)$ falls der Ausdruck $\frac{f}{\Phi}$ gegen Null strebt
+und $f=O(\Phi)$ falls $\frac{|f|}{\Phi}$ beschränkt ist.\label{Landau}
+$\label{Dirichletkonvergenz}$
+\subsection{Die elementare Theorie der Konvergenz von Dirichlet-Reihen}
+Viele der nun folgenden Resultate bauen auf folgenden Lemmata auf:
+\newpage
+\begin{Lemma}(\textbf{Abels partielle Summation})
+\par
+Es gilt folgende Identität: 
+\begin{equation}
+\sum_{x}^{y}a_{n} f(n) = \sum_{x}^{y-1}A(x,n)\tilde{\Delta} f(n) + A(x,y)f(\left\lfloor y \right\rfloor).\label{2.1.1}
+\end{equation}
+\begin{proof}
+Mit Hilfe obiger Notationen können wir für alle $n\in\N$ schreiben:
+\begin{align*}
+f(n)&=\tilde{\Delta}f(n)+f(n+1),\\
+a_{n}&=A(x,n)-A(x,n-1).
+\end{align*}
+Damit können wir folgendermaßen umformen:
+\begin{align*}
+\sum_{x}^{y}a_{n} f(n) &= \sum_{x}^{y}\left(A(x,n)-A(x,n-1)\right)\left(\tilde{\Delta} f(n) + f(n+1)\right)\\
+&=\sum_{x}^{y}A(x,n)\tilde{\Delta} f(n)+ \sum_{x}^{y}A(x,n)f(n+1) - \left(\sum_{x}^{y}A(x,n-1)\left(\tilde{\Delta}f(n)+f(n+1)\right)\right)\\
+&=\sum_{x}^{y}A(x,n)\tilde{\Delta} f(n)+ \sum_{x}^{y}A(x,n)f(n+1) - \sum_{x}^{y}A(x,n-1)f(n) \\
+&=\sum_{x}^{y-1}A(x,n)\tilde{\Delta} f(n) + A(x,y)\left(\tilde{\Delta} f(\left\lfloor y\right\rfloor)+f(\left\lfloor y\right\rfloor+1)\right) + \sum_{x}^{y-1}A(x,n)f(n+1) -\\
+&\qquad-\sum_{x}^{y}A(x,n-1)f(n)\\
+%&=\sum_{x}^{y-1}A(x,n)\tilde{\Delta} f(n) + A(x,y)f(\left\lfloor y\right\rfloor)-\sum_{x}^{y}A(x,n-1)f(n)\\
+&=\sum_{x}^{y-1}A(x,n)\tilde{\Delta} f(n) + A(x,y) f(\left\lfloor y\right\rfloor) + 
+\sum_{x+1}^{y}A(x,n-1)f(n)-\sum_{x}^{y}A(x,n-1)f(n)\\
+&=\sum_{x}^{y-1}A(x,n)\tilde{\Delta} f(n) + A(x,y) f(\left\lfloor y\right\rfloor) + 
+\sum_{x}^{x+1}A(x,n-1)f(n).
+\end{align*}
+Da die letzte Summe sich nur über diejenigen $n\in\N$ mit $n\leq n-1$ erstreckt, verschwindet sie identisch.
+Damit folgt die Behauptung.
+\end{proof}
+\end{Lemma}
+\begin{Lemma}
+\par
+Sei $\sigma \neq 0$, dann gilt:
+\begin{equation}
+\left|\tilde{\Delta} e^{-\lambda_{n}s}\right|\leq \frac{|s|}{\sigma}\tilde{\Delta} e^{-\lambda_{n}\sigma}.\label{2.1.2}
+\end{equation}
+\begin{proof}
+Wir schätzen einfach nach oben ab:
+\newpage
+\begin{align*}
+\left|\tilde{\Delta} e^{-\lambda_{n}s}\right|=\left| e^{-\lambda_{n}s}-e^{-\lambda_{n+1}s}\right|=\left|\int_{\lambda_{n}}^{\lambda_{n+1}}se^{-us}du\right|
+\leq|s|\int_{\lambda_{n}}^{\lambda_{n+1}}e^{-u\sigma}du = \frac{|s|}{\sigma}\tilde{\Delta} e^{-\lambda_{n}\sigma}.
+\end{align*}
+\end{proof}
+\end{Lemma}
+Wir werden nun die beiden wichtigsten Sätze aus der elementaren Theorie der Konvergenz von Dirichlet-Reihen beweisen:
+\begin{Satz}
+\par
+Konvergiert die Dirichlet-Reihe $f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}$ in $s_{1}=\sigma_{1}+it_{1}$, dann konvergiert sie auch in jedem $s\in\C$ dessen Realteil größer als $\sigma_{1}$ ist.
+\end{Satz}
+Die Aussage dieses Satzes ist in dem folgenden, allgemeineren und weniger elementaren Satz enthalten:
+\begin{Satz}
+\par
+Falls die Dirichlet-Reihe $f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}$ in $s=s_{0}$ konvergiert, so konvergiert sie in jeder Winkel-Ebene 
+$W(s_{0},\alpha)$ gleichmäßig und ist als Grenzwert einer Folge holomorpher Funktionen selbst holomorph.
+\end{Satz}$\label{KHs}$
+\begin{proof}
+O.B.d.A. sei $s_{0}=0$. Andernfalls betrachte $\tilde f(\tilde s):=\sum_{n=1}^{\infty}\tilde a_{n}n^{-\tilde s}$, mit $\tilde a_{n}:=a_{n}n^{-s_{0}}$ und $\tilde s:=s-s_{0}$.
+Mit Gl.($\ref{2.1.1}$) folgt
+\begin{align*}
+\sum_{n=m}^{k}a_{n}e^{-\lambda_{n}s} = \sum_{n=m}^{k-1}A(m,n)\tilde{\Delta} e^{-\lambda_{n}s} + A(m,k)e^{-\lambda_{k}s}.
+\end{align*}
+Sei nun $\epsilon>0$ vorgegeben, dann kann man ein $m_{0}\in\N$ wählen mit $\lambda_{n}>0$ und 
+$\left|A(m,n)\right|\leq\epsilon \cos\alpha$ für $m_{0}\leq m \leq n$. Setze nun $\varphi=\text{arg}(s)$, dann gilt für $\alpha$ mit $\cos\alpha\leq cos\varphi =\frac{\sigma}{|s|}$ wegen Gl.($\ref{2.1.2}$):
+\begin{align*}
+\left|\sum_{n=m}^{k}a_{n}e^{-\lambda_{n}s}\right|&\,\,\,\,\,\leq \sum_{n=m}^{k-1}\left|A(m,n)\tilde{\Delta} e^{-\lambda_{n}s}\right| + \left|A(m,k)e^{-\lambda_{k}s}\right|\\
+&\,\,\,\,\,\leq \sum_{n=m}^{k-1}\epsilon \cos\alpha\left|\tilde{\Delta} e^{-\lambda_{n}s}\right|
++\epsilon \cos\alpha e^{-\lambda_{n}\sigma}\\
+&\stackrel{\text{(Gl.\ref{2.1.2})}}{\leq} \epsilon \left(\sum_{n=m}^{k-1}\tilde{\Delta} e^{-\lambda_{n}\sigma} + e^{-\lambda_{k}\sigma}\right)\\
+&\,\,\,\,=\epsilon e^{-\lambda_{m}\sigma}<\epsilon.
+\end{align*}
+Damit ist die gleichmäßige Konvergenz der Dirichlet-Reihe $f$ gezeigt.
+Mit dem Weierstraßschen Majorantenkriterium (s. Anhang) erhalten wir als leichte Folgerung, dass $f$ in der Winkel-Ebene $W(s_{0},\alpha)$ holomorph ist.
+\end{proof}
+\begin{Korollar}
+Falls die Dirichlet-Reihe $f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}$ in $s=s_{0}$ konvergiert, so gilt $f(s)\to f(s_{0})$ für $s\to s_{0}$ entlang  jedes ganz innerhalb $W(s_{0},\alpha)$ gelegenen Weges zwischen $s$ und $s_{0}$.
+\begin{flushright}
+             $\square$
+\end{flushright}
+\end{Korollar}
+Nun können wir die Konvergenz einer Dirichlet-Reihe $f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}$ folgendermaßen unterscheiden:
+\begin{align*}
+\sigma_{0} &= \infty,\, \text{falls $f$ in keinem Punkt konvergiert,}\\
+\sigma_{0} &= -\infty,\, \text{falls $f$ ganz,}\\
+\sigma_{0}&\in \mathbb{R},\,\text{sonst}.
+\end{align*}
+Im Falle $\sigma_{0}\in\mathbb{R}$ konvergiert $f$ in der Halbebene 
+$\mathbb{H}_{\sigma_{0}}:=\{s\in \mathbb{C}|\text{Re}(s)>\sigma_{0}\}$\,\,kompakt.\label{Halbebene}
+Letzteres folgt sofort aus der Tatsache das jedes Kompaktum 
+$\mathfrak{K}\subset\mathbb{H}_{\sigma_{0}}$\,auch in einer Winkel-Ebene $W(s_{0},\alpha)$ enthalten ist und Satz $\ref{Dirichlet}.\ref{KHs}$. 
+Damit wissen wir, dass Dirichlet-Reihen in Halbebenen konvergieren.
+Zusammenfassend erhalten wir:
+\begin{Satz}
+\par
+Eine Dirichlet-Reihe $f(s):=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}$, $s\in{\C}$ konvergiert entweder für jedes $s$, für keines oder nur für manche. Im letzten Fall existiert eine reelle Zahl $\sigma_{0}$, für die $f$ für $\sigma>\sigma_{0}$ konvergiert und für $\sigma<\sigma_{0}$ divergent oder oszillierend divergent ist.
+\end{Satz}
+Die Frage nach der Konvergenz auf der Konvergenzabszisse $\sigma_{0}$ bleibt offen.
+\begin{Beispiel}
+\begin{itemize}
+\item Die Reihe $\sum_{n=1}^{\infty}a^n n^{-s}$ mit $|a|<1$, konvergiert in ganz ${\C}$.
+\item Die Reihe $\sum_{n=1}^{\infty}a^n n^{-s}$ mit $|a|>1$, konvergiert für kein $s\in{\C}$.
+\item Die Riemannsche Zeta-Funktion $\zeta(s)=\sum_{n=1}^{\infty} n^{-s}$ besitzt die Konvergenzabszisse $\sigma_{0}=1$ und ist in jeder kompakten Teilmenge $\mathfrak{K}$ der Konvergenzlinie $\sigma=1,$ wobei gilt $\mathfrak{K}\cap{\R}=\emptyset$, beschränkt.
+\item Die Reihe $\sum_{n=1}^{\infty}\frac{n^{-s}}{\left(\log n\right)^{2}}$ besitzt ebenfalls die Konvergenzabszisse $\sigma_{0}=1$, konvergiert aber in jedem Punkt der zugehörigen Konvergenzlinie.
+\end{itemize}
+\end{Beispiel}
+Nach einem Satz von Weierstraß (s. Anhang) darf eine Reihe holomorpher Funktionen in einem Gebiet mit kompakter Konvergenz gliedweise differenziert werden. Die so entstehende Reihe ist dann ebenfalls kompakt konvergent und stellt die Ableitung der Grenzfunktion dar. Für $f(s)=\sum_{n=1}^{\infty}a_{n}n^{-s}$ folgt:
+\begin{align*}
+f^{(k)}(s)= (-1)^k \sum_{n=1}^{\infty}a_{n}(\log(n))^k n^{-s},\,\,k\in\N,\sigma>\sigma_{0}.
+\end{align*}
+Desweiteren stellt sich nun die Frage nach der Eindeutigkeit einer Dirichlet-Reihe innerhalb ihrer Konvergenzebene:
+\begin{Satz}
+\par
+Die Dirichlet-Reihe $f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}$ sei konvergent in $s=0$.
+Falls $f$ in $W(0,\alpha)$ unendlich viele Nullstellen besitzt, gilt $a_{n}= 0$ für jedes $n\in\N$.
+\end{Satz}$\label{Unique}$
+\begin{proof}
+Gemäß des Identitätsprinzips für holomorphe Funktionen (s. Anhang) können sich die Nullstellen von $f$ in keiner Umgebung eines endlichen Punktes von $W(0,\alpha)$  häufen. Damit können wir abzählbar unendlich viele Punkte
+$s_{n}:=\sigma_{n}+it_{n}$, wobei $\sigma_{n+1}>\sigma_{n}$ und 
+$$
+\lim_{n \to \infty}\sigma_{n}=\infty
+$$ mit $f(s_{n})=0$ finden. Nun ist aber ebenfalls die Reihe
+\begin{align*}
+g(s) = e^{\lambda_{1}s}f(s)= a_{1} + \sum_{n=2}^{\infty}a_{n}e^{-(\lambda_{n}-\lambda_{1})s}
+\end{align*}
+in $s=0$ konvergent mit $g(s_{n})=0$ und konvergiert nach  Satz $\ref{Dirichlet}.\ref{KHs}$  in ganz $W(0,\alpha)$  gleichmäßig. Daher gilt $g(s)\to a_{1}$ für $s\to\infty$ entlang eines beliebigen Weges in $W(0,\alpha)$  gemäß Korollar 2.2.1. Dieser Weg läßt sich aber so wählen, dass auf ihm unendlich viele der Nullstellen $s_{n}$ liegen.
+Ist nun $a_{1} \neq 0$, so könnten auf dem Weg aber nur endlich viele Nullstellen liegen. Ein Widerspruch. 
+Wenden wir diese Argumentation sukzessive auf jedes $a_{n}$ an, so erhalten wir $a_{n}=0$ für alle $n\in{\N}$. 
+\end{proof}
+\subsection{Die Bestimmung der Konvergenzabszisse}
+In dem vorhergehenden Unterabschnitt haben wir stillschweigend die Kenntnis der Konvergenzabsizze $\sigma_{0}$ von $f$ vorausgesetzt. In diesem Abschnitt wollen wir diesen Mißstand nun beheben und eine explizite Formel für die Konvergenzabszisse angeben:
+\begin{Satz}
+\par
+Falls die Konvergenzabszisse der Dirichlet-Reihe $f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}$ positiv ist, erhalten wir ihren Wert aus der Formel
+\begin{align}
+\sigma_{0} =\limsup_{n \to \infty}\frac{\log|A(n)|}{\lambda_{n}}.\label{Killer}
+\end{align}
+\end{Satz}
+\begin{proof}
+Sei
+\begin{align*}
+\gamma=\limsup_{n \to \infty}\frac{\log|A(n)|}{\lambda_{n}},
+\end{align*}
+dann müssen wir zeigen, dass $\sigma_{0}=\gamma$ gilt.
+\par
+\vspace{0.2cm}
+\textbf{i)}\,Sei $\delta > 0$ beliebig. Wir zeigen zuerst, dass die Dirichlet-Reihe $f$ in $s=\gamma + \delta$ konvergiert.
+Dazu wählen wir ein $\epsilon$ mit $0<\epsilon<\delta$ beliebig.
+Aus Gl.$(\ref{Killer})$ folgt, dass für hinreichend großes $n$ gilt:
+\begin{align*}
+\log|A(n)|< (\gamma + \delta - \epsilon)\lambda_{n} \Leftrightarrow |A(n)|< e^{(\gamma + \delta - \epsilon)\lambda_{n}}.
+\end{align*}
+Mit Gl.$(\ref{2.1.1})$ folgt:
+\begin{align*}
+\sum_{1}^{n}a_{\nu}e^{-\lambda_{\nu}s}=\sum_{1}^{n-1}A(\nu)\tilde{\Delta} e^{-\lambda_{\nu}s}+A(n)e^{-\lambda_{n}s}.
+\end{align*}
+Da der letzte Term mit wachsendem $n$ gegen Null strebt, hängt die Konvergenz von $f$ in $s$ nur von der Konvergenz des Ausdrucks
+\begin{align*}
+\sum_{1}^{n-1}A(\nu)\tilde{\Delta} e^{-\lambda_{\nu}s}
+\end{align*}
+ab. Mit Gl.$(\ref{2.1.2})$ folgt:
+\begin{align*}
+\left|\sum_{1}^{n-1}A(\nu)\tilde{\Delta} e^{-\lambda_{\nu}s}\right|\leq\sum_{1}^{n-1}\left|A(\nu)\right|\left|\tilde{\Delta} e^{-\lambda_{\nu}s}\right|\leq\sum_{1}^{n-1}e^{(\gamma + \delta - \epsilon)\lambda_{\nu}}\tilde{\Delta} e^{-\lambda_{\nu}(\gamma + \delta)}.
+\end{align*}
+Da $\gamma + \delta - \epsilon > 0$, folgt weiter:
+\begin{align*}
+e^{(\gamma + \delta - \epsilon)\lambda_{\nu}}\tilde{\Delta} e^{-\lambda_{\nu}(\gamma + \delta)} &= 
+e^{(\gamma + \delta - \epsilon)\lambda_{\nu}}\left(e^{-\lambda_{\nu}(\gamma + \delta)}-e^{-\lambda_{\nu+1}(\gamma + \delta)}\right)\\
+&=-(\gamma + \delta)e^{(\gamma + \delta - \epsilon)\lambda_{\nu}}\int_{\lambda_{\nu+1}}^{\lambda_{\nu}}e^{-x(\gamma + \delta)}dx\\
+&=(\gamma + \delta)\int_{\lambda_{\nu}}^{\lambda_{\nu+1}}e^{(\gamma + \delta - \epsilon)\lambda_{\nu}}
+e^{-x(\gamma + \delta)}dx\\
+&\leq (\gamma + \delta)\int_{\lambda_{\nu}}^{\lambda_{\nu+1}}e^{(\gamma + \delta - \epsilon)x}e^{-x(\gamma + \delta)}dx\\
+&=(\gamma + \delta)\int_{\lambda_{\nu}}^{\lambda_{\nu+1}}e^{-\epsilon x}dx.
+\end{align*}
+Insgesamt erhalten wir also:
+\begin{align*}
+\left|\sum_{1}^{n-1}A(\nu)\tilde{\Delta} e^{-\lambda_{\nu}s}\right|&\leq(\gamma + \delta)\sum_{1}^{n-1}\int_{\lambda_{\nu}}^{\lambda_{\nu+1}}e^{-\epsilon x}dx\\
+&=\frac{\gamma +\delta}{\epsilon}\left(e^{-\epsilon \lambda_{1}}-e^{-\epsilon \lambda_{n}}\right).
+\end{align*}
+Dieser Ausdruck ist aber offensichtlich konvergent.
+Damit folgt $\sigma_{0}\leq\gamma$.
+\par
+\vspace{0.2cm}
+\textbf{ii)}\,Nach Voraussetzung ist die Dirichlet-Reihe $f$ für $s>\sigma_{0}>0$ konvergent, sei also $s>0$.
+Wir setzen jetzt $a_{\nu}e^{-\lambda_{\nu}s}=: b_{\nu}$
+und verwenden Gl.$(\ref{2.1.1})$ mit $B(\nu):=\sum_{1}^{\nu}b_{n}$:
+\begin{align*}
+A(n)=\sum_{1}^{n}b_{\nu}e^{\lambda_{\nu}s} = \sum_{1}^{n-1}B(\nu)\tilde{\Delta} e^{\lambda_{\nu} s} + B(n)e^{\lambda_{n}s}.
+\end{align*}
+Hier können wir ein $K>0$ wählen, mit $\left|A(n)\right| <  e^{K + \lambda_{n}s}$.
+Sei nun $\delta$ eine beliebige positive Zahl, dann erhalten wir für hinreichend großes $n\in\N$: 
+\begin{align*}
+\log\left|A(n)\right| < \lambda_{n}s + K < (s + \delta)\lambda_{n}.
+\end{align*}
+Also folgt:
+$$
+s + \delta > \limsup_{n \to \infty}\frac{\log\left|A(n)\right|}{\lambda_{n}}.
+$$
+Da $\delta>0$ beliebig, erhalten wir $s\geq\gamma$.
+\end{proof}
+\subsection{Absolute Konvergenz einer Dirichlet-Reihe}
+In diesem Unterabschnitt wollen wir die bisherigen Ergebnisse auf die Reihe
+\begin{align}
+\tilde f(s)=\sum_{n=1}^{\infty}\left|a_{n}\right|e^{-\lambda_{n}s},\label{**}
+\end{align}
+übertragen und folgern zunächst den
+\begin{Satz}
+\par
+Es existiere eine Zahl $\overline{\sigma}$\label{absoluter Kvgzabs}, sodass die durch Gl.$(\ref{**})$ definierte Dirichlet-Reihe $\tilde f(s)$ für $\sigma > \overline{\sigma}$ absolut konvergiert und für $\sigma < \overline{\sigma}$ nicht absolut konvergiert.
+Diese Zahl, sofern positiv, erhalten wir aus der Formel 
+$$
+\overline{\sigma} = \limsup_{n \to \infty}\frac{\log\overline{A}(n)}{\lambda_{n}}
+$$
+mit $\overline{A}(n)  = \left|a_{1}\right| + \left|a_{2}\right| + \ldots + \left|a_{n}\right|$.          
+\end{Satz}
+Dabei ist auch der Fall (wie ebenfalls bei $\sigma_{0}$)\,\, $\overline{\sigma}=+\infty$ zugelassen.
+Insgesamt folgt also, dass eine Dirichlet-Reihe auch eine Abszisse, Linie und Halbebene der absoluten Konvergenz besitzt.
+Es sollte hier noch kurz erwähnt werden, dass sich die Existenz einer Halbebene der absoluten Konvergenz viel elementarer beweisen läßt als Satz $\thesection.2.2$, 
+denn offensichtlich folgt die Aussage von Satz $\thesubsection.\theSatz$ schon aus der Ungleichung
+\begin{align*}
+\left|e^{-\lambda_{n}s}\right| \leq \left|e^{-\lambda_{n}s_{1}}\right|,\,\,\text{für}\,\,\sigma\geq\sigma_{1},
+\end{align*} 
+und hängt nicht von Lemma 2.2.1 ab.
+\par
+Im Allgemeinen stimmen $\sigma_{0}$ und $\overline{\sigma}$ nicht überein und wir erhalten einen Streifen zwischen den Linien der Konvergenz und der absoluten Konvergenz, in welchem die Reihe 
+\begin{align*}
+f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}
+\end{align*}
+bedingt konvergiert.
+Dieser Streifen kann verschwinden (falls $\sigma_{0}=\overline{\sigma}$), sich über die gesamte komplexe Ebene ${\C}$ erstrecken (falls $\sigma_{0}=-\infty, \overline{\sigma}=\infty$) oder eine Halbebene darstellen 
+(falls $\sigma_{0}=-\infty, -\infty<\overline{\sigma}<\infty$ oder $-\infty <\sigma_{0}< \infty, \overline{\sigma}<\infty$).
+Auf jeden Fall ist die Breite dieses Streifens stets Gegenstand einer Grenzwertbildung.
+\begin{Satz}
+\par
+Es gilt
+\begin{align*}
+\overline{\sigma} - \sigma_{0} \leq \limsup_{n \to \infty}\frac{\log(n)}{\lambda_{n}}.
+\end{align*}
+\end{Satz} 
+\begin{proof}
+Sei $\delta>0$ beliebig. Wir können ein $n_{0}\in\N$ derart wählen, dass $\left|A(n)\right| < e^{(\sigma_{0}+\delta)\lambda_{n}}$\,\, für alle $ n\geq n_{0}$.
+Wir wählen nun ein $\tilde {n_{0}}\geq n_{0}$, sodass auch $e^{\delta\lambda_{n}}>2$ für $n\geq\tilde {n_{0}}$ gilt.
+Dann folgt aber
+\begin{align*}
+\left|a_{n+1}\right| = \left|A(n+1)-A(n)\right| < 2e^{(\sigma_{0}+\delta)\lambda_{n+1}} < e^{(\sigma_{0}+2\delta)\lambda_{n+1}},
+\end{align*}
+und wir erhalten für $n\geq\tilde{n_{0}}$ die Abschätzung:
+\begin{align*}
+\overline{A}(n)&=\sum_{1}^{n}\left|a_{n}\right|=\sum_{1}^{n_{0}}\left|a_{n}\right| + \sum_{n_{0}+1}^{n}\left|a_{n}\right|\\
+               &< \overline{A}(n_{0})  + (n-n_{0})e^{(\sigma_{0}+2\delta)\lambda_{n}}\\
+               &< \overline{A}(n_{0})  + n e^{(\sigma_{0}+2\delta)\lambda_{n}}. 
+\end{align*}
+Sei nun $\tilde {n_{1}}\geq \tilde{n_{0}}$  hinreichend groß mit
+\begin{align*}
+\overline{A}(n_{0})  + n e^{(\sigma_{0}+2\delta)\lambda_{n}} < n e^{(\sigma_{0}+3\delta)\lambda_{n}}\,\,\text{für}\,\, n\geq \tilde {n_{1}}.
+\end{align*}
+Da auf beiden Seiten der letzten Ungleichung nur positive Terme stehen, dürfen wir logarithmieren und erhalten so für $n\geq \tilde {n_{1}}$:
+\begin{align*}
+\frac{\log\overline{A}(n)}{\lambda_{n}} < \frac{\log(n)}{\lambda_{n}}  + \sigma_{0}+3\delta,
+\end{align*}
+also folgt die Behauptung des Satzes.
+\end{proof}
+Falls $\log(n)=o(\lambda_{n})$, stimmen $\sigma_{0}$ und $\overline{\sigma}$ überein.
+Speziell in dem Fall $\lambda_{n}=n$ und unter der Substitution $e^{-s}=x$ wird die Reihe $f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}$ zu einer Potenzreihe.
+\par
+Satz 2.2.1 bzw. 2.2.3 liefert die Existenz eines Konvergenzkreises und Satz 2.3.1 eine schwach veränderte Darstellung von Cauchys Formel für den Konvergenzradius. Ebenso liefern Satz 2.2.2, 2.2.4 und Korollar 2.2.1 bekannte Ergebnisse.
+\par
+Falls $\log(n)=(\lambda_{n})$, dann gilt $\overline{\sigma}- \sigma_{0}\leq 1$.
+Dies folgt aber auch sofort aus der Konvergenz der Reihe $\sum \frac{1}{n^{1+\sigma_{0}}}$ für jedes positive $\sigma_{0}$.
+\par
+\vspace{0.5cm}
+Es ist nicht besonders schwer Beispiele zu finden, die zeigen, dass jede mögliche Anordnung der Linien von Konvergenz und absoluter Konvergenz Satz 2.4.2 nicht widerspricht. Wir begnügen uns mit der Angabe der Dirichlet-Reihe
+\begin{align*}
+f(s)=\sum_{n=2}^{\infty}\frac{(-1)^n}{\sqrt{n}}e^{-s\log\log(n)},
+\end{align*}
+welche in ganz ${\C}$ bedingt, aber nirgendwo absolut konvergiert.
+\subsection{Vergleich der Konvergenz von Dirichlet- und Potenzreihe}
+Wir werden nun kurz unsere Aufmerksamkeit den wesentlichen Unterschieden zwischen der Theorie der Dirichlet-Reihen und der einfacheren Theorie der Potenzreihen widmen.
+\par
+Dabei gibt es zwei große Unterschiede:
+\par
+\vspace{0.2cm}
+\textbf{i)}\,Der erste Unterschied zeigt sich durch Satz 2.4.2:
+\par
+Falls die Dirichlet-Reihe
+\begin{align*}
+f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}
+\end{align*}
+absolut konvergiert, müssen die Abszisse der Konvergenz $\sigma_{0}$ und die Abszisse $\overline{\sigma}$ der absoluten Konvergenz nicht übereinstimmen. Dagegen stimmen bei einer Potenzreihe aber stets der Konvergenzradius $R$ und der Radius $\overline{R}$ der absoluten Konvergenz überein, wie aus der Formel
+\begin{align*}
+\frac{1}{R}=\overline{\lim_{n \to \infty}}\sqrt[n]{\left|a_{n}\right|}
+\end{align*}
+von Cauchy-Hadamard folgt.
+\par
+\vspace{0.2cm}
+\textbf{ii)}\,Der zweite große Unterschied zwischen Dirichlet-Reihen und Potenzreihen liegt darin, dass sich der Konvergenzradius einer Potenzreihe auch durch das Verhalten der analytischen Funktion der Reihe bestimmen läßt. Der Konvergenzradius kann nämlich als Abstand des Entwicklungspunktes zum nächstgelegenen Punkt, in den die Potenzreihe nicht mehr fortsetzbar ist, festgelegt werden.
+Dies trifft nicht auf Dirichlet-Reihen zu. Beispielsweise besitzt die von Navas in \cite{L.Navas} diskutierte Fibonacci Zeta-Funktion\label{Fibonacci Zeta-Funktion}
+\begin{align*}
+\zeta_{\{F\}}(s)=\sum_{n=1}^{\infty}F^{-s}_{n},
+\end{align*}
+bei der die Folge $\{F\}=(F_{n})_{n\in\N}$ die Fibonacci-Zahlen durchläuft, die Konvergenzabszisse $\sigma_{0}=0$ und die analytische Fortsetzung\footnote{S.Kapitel 4 für Herleitung und Diskussion.}
+\begin{align*}
+\zeta_{\{F\}}(s)=5^{\frac{s}{2}}\sum_{k=0}^{\infty}\binom{-s}{k}\frac{1}{\varphi^{s+2k} + (-1)^{k}},\,\,\varphi=\frac{1+\sqrt{5}}{2}
+\end{align*} 
+welche in ganz ${\C}$ - ausgenommen der Polstellen von $\zeta_{\{F\}}$, welche bei $s=-2k+\frac{\pi i (2n+k)}{\log\varphi}$ für $k\geq0$, $n\in\Z\backslash\{0\}$ und bei $s=-2k$ für gerades $k\geq 0$ liegen - normal konvergiert.   
+\par
+\vspace{0.5cm}
+Zum Abschluss betrachten wir noch einen wichtigen Spezialfall, bei dem die Konvergenzlinie immer mindestens eine Singularität enthält:
+\begin{Satz}(\textbf{Landau})
+\par
+Die Dirichlet-Reihe $f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}$ besitze die Konvergenzabszisse $\sigma_{0}\in{\R}$. Außerdem seien alle Koeffizienten $a_{n},\lambda_{n}$ reell und nicht-negativ. Dann ist $f$ nicht in den Punkt $s=\sigma_{0}$ holomorph fortsetzbar.  
+\end{Satz}
+\begin{proof}
+O.B.d.A sei $\sigma_{0}=0$. Angenommen $f$ ist in den Punkt $s=0$ fortsetzbar, dann ist $f$ in der Halbebene $\mathbb{H}_{0}$ - erweitert um einen Kreis vom Radius $\delta>0$ um den Ursprung - holomorph. Insbesondere besitzt die Taylorentwicklung von $f$ um $s=1$ einen Konvergenzradius > 1.
+Wir betrachten nun die Taylor-Entwicklung von $f$ um $s=1$:
+\begin{align*}
+f(s)&=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}=\sum_{\nu=0}^{\infty}\frac{f^{(\nu)}(1)}{\nu!}\left(s-1\right)^{\nu}\\
+&=\sum_{\nu=0}^{\infty}\frac{\left(s-1\right)^{\nu}}{\nu!}\sum_{n=1}^{\infty}a_{n}(-1)^{\nu}\lambda^{\nu}_{n}e^{-\lambda_{n}}\\
+&=\sum_{\nu=0}^{\infty}\frac{\left(1-s\right)^{\nu}}{\nu!}\sum_{n=1}^{\infty}a_{n}\lambda^{\nu}_{n}e^{-\lambda_{n}}.    
+\end{align*}
+Nun betrachten wir den Punkt $\tilde{s}=-\frac{\delta}{2}$ welcher im Holomorphiebereich von $f$ liegt. Offensichtlich sind alle Koeffizienten der Taylorentwicklung positiv.
+\begin{align*}
+\sum_{\nu=0}^{\infty}\frac{\left(1-\tilde{s}\right)^{\nu}}{\nu!}\sum_{n=1}^{\infty}a_{n}\lambda^{\nu}_{n}e^{-\lambda_{n}}
+\end{align*}
+Da Potenzreihen innerhalb ihres Konvergenzkreises absolut konvergieren, dürfen wir die Summations-Reihenfolge vertauschen:
+\begin{align*}
+\sum_{\nu=0}^{\infty}\frac{(1-\tilde{s})^{\nu}}{\nu!}\sum_{n=1}^{\infty}a_{n}\lambda^{\nu}_{n}e^{-\lambda_{n}}    &=\sum_{n=1}^{\infty}\left(\sum_{\nu=0}^{\infty}\frac{((1-\tilde{s})\lambda_{n})^{\nu}}{\nu!}\right)a_{n}e^{-\lambda_{n}}\\
+&=\sum_{n=1}^{\infty}e^{((1-\tilde{s})\lambda_{n}}a_{n}e^{-\lambda_{n}}\\
+&=\sum_{n=1}^{\infty}a_{n}e^{-\tilde{s}\lambda_{n}} = f(\tilde{s})
+\end{align*} 
+Damit wäre dann aber $f$ in $\tilde{s}$ konvergent. Ein Widerspruch zu $\sigma_{0}>\tilde{s}$. 
+\end{proof}
+\section{Die Menge $\mathfrak R^{l}$ und die Klasse $\zeta$}
+\subsection{Vorbemerkung}
+Wir beginnen mit einer naiven Beschreibung der formalen Eigenschaften der Fibonacci Zeta-Funktion
+\begin{align*}
+\zeta_{\{F\}}(s)=\sum_{n=1}^{\infty}F_{n}^{-s}
+\end{align*} aus  \cite{L.Navas}.
+Zunächst betrachten wir die Folge der Fibonacci-Zahlen$(F_{n})_{n\in\N}$\label{Fibonacci-Zahlen}, welche durch eine homogene lineare Gleichung  
+\begin{align*}
+F_{n+2}=F_{n+1}+F_{n}
+\end{align*}
+zweiter Ordnung mit konstanten Koeffizienten 
+und den Anfangswerten
+\begin{align*}
+F_{1}=F_{2}=1
+\end{align*}
+eindeutig festgelegt wird.
+Wir beobachten:
+\begin{itemize}
+\item $(F_{n})_{n\in\N}$ ist für $n>1$ streng monoton wachsend.
+\item Für alle $n\in\N$ gilt $F_{n}\in\N$.
+\end{itemize}
+Bei der Fibonacci Zeta-Funktion können wir nur recht schnell erkennen, dass ihre Konvergenzhalbebene mit der rechten Halbebene $\mathbb H_{0}=\{s\in{\C};\text{Re}(s)>0\}$ übereinstimmt\,(Siehe Lemma 3.3.1 oder \cite{L.Navas}).
+Analog betrachten wir für den Rest dieser Arbeit Dirichlet-Reihen der Gestalt\label{allg Zeta}
+\begin{align*}
+\zeta_{\{a\}}(s)=\sum_{n=1}^{\infty}a_{n}^{-s}, 
+\end{align*}
+wobei wir uns auf Folgen $(a_{n})_{n\in\N}$ beschränken, welche die Eigenschaften
+\begin{itemize}
+\item die Folge $(a_{n})_{n\in\N}$  genügt einer homogenen linearen Gleichung $l$-ter Ordung
+\begin{align*}
+a_{n}=c_{1}a_{n-1}+\ldots+c_{l}a_{n-l}
+\end{align*}
+mit konstanten Koeffizienten $c_{1},\ldots,c_{l}$ und den
+Anfangswerten $a_{1},\ldots,a_{l}$, 
+\item $(a_{n})_{n\in\N}$ ist für $n\geq n_{0}$ streng monoton wachsend,
+\item für alle $n\in\N$ gilt $a_{n}\in\N$,
+\end{itemize}
+besitzen und der zugehörigen Dirichlet-Reihe
+\begin{align*} 
+\zeta_{\{a\}}(s)=\sum_{n=1}^{\infty}a_{n}^{-s},
+\end{align*}
+die Konvergenzhalbebene $\mathbb H_{0}=\{s\in{\C};\text{Re(s)}>0\}$ garantieren. Wir werden später zeigen, dass exponentielles Wachstum der Folge $\left(a_{n}\right)_{n\in\N}$ für Letzteres hinreichend ist.
+\par
+Im Folgenden werden wir eine homogene lineare Gleichung
+\begin{align}
+a_{n}=c_{1}a_{n-1}+\ldots+c_{l}a_{n-l}\label{Koeff}
+\end{align}
+mit konstanten Koeffizienten $c_{1},\ldots,c_{l}$, und den Anfangswerten $a_{1},\ldots,a_{l}$,
+eine \textbf{lineare Rekursion $l$-ter Ordnung} nennen und kurz mit $\{a\}$\label{Index} bezeichnen.
+\par
+Für das Weitere ist es notwendig, die algebraische Struktur von linearen Rekursionen und ihrem zugeordneten charakteristischen Polynom etwas genauer zu betrachten:
+\begin{Lemma}
+\par
+Jede lineare Rekursion $\{a\}$ besitzt eine Darstellung durch eine eindeutige lineare Rekursion minimaler Ordnung.
+\end{Lemma}
+\begin{proof}
+Angenommen die lineare Rekursion $\{a\}$ genüge zwei unterschiedlichen linearen Rekursionen gleicher Ordnung, also
+\begin{align*}
+a_{n}= \sum_{k=1}^{l}c_{k}a_{n-k}=\sum_{k=1}^{l}d_{k}a_{n-k},
+\end{align*}
+dann folgt
+\begin{align*}
+\sum_{k=1}^{l}(c_{k}-d_{k})a_{n-k}=0.
+\end{align*}
+\begin{align*}
+\end{align*}
+Wir setzen nun $\mu: = \max\{k;c_{k}\neq d_{k}\}\leq l$,
+und erhalten
+\begin{align*}
+(c_{\mu}-d_{\mu})a_{n-\mu} + \sum_{k=1}^{\mu-1}(c_{k}-d_{k})a_{n-k} &= 0.
+\end{align*}
+Nach Voraussetzung dürfen wir nach $a_{n-\mu}$ auflösen:
+\begin{align*}
+a_{n-\mu}&= \sum_{k=1}^{\mu-1}\frac{(c_{k}-d_{k})}{d_{\mu}-c_{\mu}}a_{n-k}.
+\end{align*}
+Damit haben wir aber eine Darstellung für $\{a\}$ durch eine lineare Rekursion der Ordnung $\mu-1 < l$.
+Hieraus folgt offensichtlich, dass die Darstellung von $\{a\}$ durch eine Rekursion minimaler Ordnung eindeutig ist. 
+\end{proof}
+Wir nennen das charakteristische Polynom der Rekursion minimaler Ordnung im Folgenden Minimalpolynom und überprüfen einen - für das Minimalpolynom einer Matrix - bekannten Sachverhalt, indem wir eine Bemerkung\footnote{"`The minimal polynomial of a sequence $a$ divides the characteristic polynomial of $a$ "'Vgl. \cite{Graham} S.2}aus \cite{Graham} übernehmen und eigenständig\footnote{Leider hat der Verfasser dieser Arbeit auf einen Beweis dieser Aussage keinen Zugriff.} beweisen:
+\begin{Satz}
+\par
+Sei $P$ das Minimalpolynom der linearen Rekursion $\{a\}$ 
+und $H$
+das charakteristische Polynom einer beliebigen linearen Rekursion für $\{a\}$.
+\par
+Dann ist $P$ ein Teiler von $H$.
+\end{Satz}
+\begin{proof}
+Die lineare Rekursion $\{a\}$ besitzt für alle $n\in\N,\,n>l$ die eindeutige Darstellung
+\begin{align*}
+a_{n}=\sum_{k=1}^{l}c_{k}a_{n-k},
+\end{align*}
+wobei die Ordnung $l$ minimal ist. Wir bezeichnen mit $\varphi_{1},\ldots,\varphi_{t}$ die charakteristischen Wurzeln des Minimalpolynoms $P$ mit zugehörigen Vielfachheiten $\sigma_{1},\ldots,\sigma_{t}$. Dann besitzt $P$ die Darstellung
+\begin{align*}
+P(z)=z^{l}-\sum_{k=1}^{l}c_{k}z^{l-k}=\prod_{j=1}^{t}\left(z-\varphi_{j}\right)^{\sigma_{j}}.
+\end{align*}
+Hauptsatz 1.5.1 \textbf{i)} liefert für $\{a\}$ die Existenz von Polynomen $g_{1},\ldots,g_{t}$ mit $\text{Grad}(g_{i})<\sigma_{i}$ für $1\leq i\leq t$, sodass für alle $n\in\N$ gilt:
+\begin{align}
+a_{n}=\sum_{i=1}^{t}g_{i}(n)\varphi_{i}^{n}.\label{primeur}
+\end{align}
+Das charakteristische Polynom $H$ einer beliebigen linearen Rekursion für $\{a\}$ besitze die Darstellung
+\begin{align*}
+H(z)=z^{m}-\sum_{i=1}^{m}\mu_{i}z^{m-i}.
+\end{align*}
+Wir bezeichnen nun mit $\varphi_{t+1},\ldots,\varphi_{s}$, diejenigen Wurzeln von $H$, die keine Wurzeln von $P$ sind.
+Dann besitzt $\{a\}$ - wieder nach Hauptsatz 1.5.1 \textbf{i)} - für alle $n\in\N$ die Darstellung
+\begin{align}
+a_{n}=\sum_{i=1}^{s}h_{i}(n)\varphi_{i}^{n},\label{deluxe}
+\end{align} 
+wobei wir $h_{i}(n)\equiv 0$ setzen für diejenigen Wurzeln $\varphi_{i}$, mit $H(\varphi_{i})\neq 0$.
+Wir betrachten nun das Produkt der beiden Polynome $P$ und $H$
+\begin{align*}
+P(z)\cdot H(z)=\prod_{i=1}^{s}\left(z-\varphi_{i}\right)^{\eta_{i}}=z^{l+m}-\sum_{k=1}^{l+m}\nu_{k}z^{l+m-k},
+\end{align*}
+wobei die Koeffizienten $\nu_{k}$ durch die letzte Gleichung definiert werden.
+Nach Hauptsatz 1.5.1 \textbf{ii)} erfüllen die beiden Darstellungen Gl.$(\ref{primeur})$ und Gl.$(\ref{deluxe})$ für $\{a\}$ die lineare Rekursion
+\begin{align*}
+a_{n}=\sum_{k=1}^{l+m}\nu_{k}a_{n-k}.
+\end{align*} 
+Hauptsatz 1.5.1 \textbf{i)} liefert die Eindeutigkeit der Polynome $g_{i},1\leq i \leq t$ aus $(\ref{primeur})$ und $h_{i},1\leq i \leq s$ aus $(\ref{deluxe})$.
+Also folgt für alle $n\in\N$ $g_{i}(n)=h_{i}(n)$, für $1\leq i \leq t$ und $h_{i}(n)\equiv 0$ für $t< i \leq s$. Damit besitzen nur die Wurzeln des Minimalpolynoms $P$ Einfluss auf $\{a\}$.
+Um $\{a\}$ eindeutig durch eine lineare Rekursion minimaler Ordnung $l$ darzustellen, benötigen wir $l$ Anfangswerte $a_{1},\ldots,a_{l}$. Die Polynome $g_{1},\ldots,g_{t}$, in der Darstellung $(\ref{primeur})$, werden durch diese Anfangswerte eindeutig festgelegt. Dabei benötigen wir für das Polynom $g_{i}$, $\text{Grad}(g_{i})+1$ Werte. Damit gilt:
+\begin{align}
+\sum_{i=1}^{t}\left(\text{Grad}(g_{i})+1\right)=l=\sum_{i=1}^{t}\sigma_{i}.\label{Loch}
+\end{align}
+Offensichtlich kann dann nicht für alle $1\leq i\leq t$, $\text{Grad}(g_{i})<\sigma_{i}-1$ gelten. Angenommen es gibt ein Polynom $g_{j}$ mit $\text{Grad}(g_{j})<\sigma_{j}-1$, dann müsste wegen Gl.$(\ref{Loch})$ mindestens ein Polynom  $g_{k}$ existieren, mit $\text{Grad}(g_{k})>\sigma_{k}-1$. Wegen Hauptsatz 1.5.1 \textbf{i)} kann das aber nicht sein.
+Damit gilt $\text{Grad}(g_{i})=\sigma_{i}-1$, für $1\leq i\leq t$.
+\par
+Wir bezeichnen nun für $1\leq i\leq t$, mit $\rho_{i}$ die Vielfachheit von $\varphi_{i}$ in $H$. Dann gilt:
+\begin{align*}
+\sigma_{i}-1=\text{Grad}(g_{i})=\text{Grad}(h_{i})<\rho_{i}.
+\end{align*} 
+Folglich ist die Vielfachheit von $\varphi_{i}$ in $H$ stets größer oder gleich der Vielfachheit von $\varphi_{i}$ in $P$.
+Damit ist $P$ ein Teiler von $H$.   
+\end{proof}
+Im Folgenden verstehen wir unter Gl.$(\ref{Koeff})$ stets eine lineare Rekursion minimaler Ordnung und meinen immer das zugehörige Minimalpolynom, wenn wir von einem charakteristischen Polynom sprechen.
+Desweiteren betrachten wir im Folgenden nur lineare Rekursionen $\{a\}$, welche Gl.($\ref{Koeff}$) genügen und deren charakteristisches Polynom nur charakteristische Wurzeln $\varphi_{i}$ mit Vielfachheit $\sigma_{i}=1$ besitzt. 
+\subsection{Die Menge $\mathfrak R^{l}$}
+Nun fassen wir alle linearen Rekursionen mit den obigen Eigenschaften zu einer Menge zusammen:
+\begin{Definition}
+Die Menge $\mathfrak R^{l}$\label{Rekursionsmenge} enthält alle linearen Rekursionen $\{a\}\,l$-ter Ordnung mit folgenden Eigenschaften:
+\begin{itemize}
+\item $\{a\}\subseteq \N$.
+\item $\{a\}$ ist für $n\geq n_{0}$ streng monoton wachsend.
+\end{itemize}
+\end{Definition}
+Wir werden später gewissen linearen Rekursionen $\{a\}\in \mathfrak R^{l}$  eine Dirichlet-Reihe
+\begin{align*}
+\zeta_{\{a\}}(s)=\sum_{n=1}^{\infty}a_{n}^{-s}
+\end{align*}
+zuordnen.
+Insgesamt beschäftigen wir uns in diesem Kapitel mit der Fragestellung, wie wir eine Teilmenge von $\mathfrak R^{l}$ charakterisieren können.
+Ziel ist es also Bedingungen zu finden, die einer linearen Rekursion $\{a\}$ garantieren in $\mathfrak R^{l}$ zu liegen.  
+Dabei drängen sich uns die folgenden Fragen auf:
+\begin{itemize}
+\item Wie müssen wir die Koeffizienten $c_{1},\ldots,c_{l}$  von $\{a\}$ wählen, damit $\{a\}$ zu einer Teilmenge der natürlichen Zahlen ${\N}$ wird, also insbesondere kein Folgenglied von $\{a\}$ verschwindet?
+\item Gibt es eine einfache Bedingung, welche einer linearen Rekursion $\{a\}$ die bedingte Divergenz
+$$
+\lim_{n \to \infty}a_{n}=+\infty
+$$
+garantiert?
+\end{itemize}
+Im Hinblick auf späteres müssen diese linearen Rekursionen ${\{a\}}$ auch so bestimmt werden, dass
+sie der zugeordneten Dirichlet-Reihe
+\begin{align*}
+\zeta_{\{a\}}(s)=\sum_{n=1}^{\infty}a_{n}^{-s}
+\end{align*}
+eine Konvergenzhalbebene $\mathbb H_{\sigma_{0}}$ garantieren.
+\par 
+In den folgenden Unterabschnitten werden wir Lösungsvorschläge für diese Fragen erarbeiten und so zeigen, dass sich eine Teilmenge von $\mathfrak R^{l}$  tatsächlich recht schnell charakterisieren lässt.
+\subsubsection{Ganzzahligkeit}
+Wählen wir in Gl.$(\ref{Koeff})$ alle Anfangswerte $a_{1},\ldots,a_{l}$ und Koeffizienten $c_{1},\ldots,c_{l}$ aus den ganzen Zahlen ${\Z}$, so nimmt die Rekursion $\{a\}$ offensichtlich nur ganzzahlige Werte an. Wir werden nun untersuchen, ob sich die Ganzzahligkeit aller Glieder einer linearen Rekursion auf ihre Koeffizienten überträgt.
+Zunächst beweisen wir aber einen einfachen Sachverhalt, der uns später eine lästige Fallunterscheidung erspart:
+\begin{Lemma}
+\par
+Seien $q_{1},\ldots,q_{l}\in\N$, $l\geq 2$ und für beliebiges $j\in\{1,\ldots,l\}$ existiere ein $t_{j}\in\N$ mit
+\begin{align}
+q_{j}=t_{j}\prod_{\substack{k=1\\k\neq j}}^{l}q_{k},\label{trivial}
+\end{align}
+dann gilt $q_{1}=q_{2}=\ldots=q_{l}=1$.
+\end{Lemma}
+\begin{proof}
+Wir multiplizieren einfach für $1\leq j\leq l$ rechte und linke Seite von Gl.$(\ref{trivial})$ miteinander, und erhalten:
+\begin{align*}
+\prod_{j=1}^{l}q_{j}&=\left(q_1\cdot\ldots\cdot q_{l}\right)^{l-1}\prod_{j=1}^{l}t_{j},\\
+\text{also}\qquad  1&=\left(q_1\cdot\ldots\cdot q_{l}\right)^{l-2}\prod_{j=1}^{l}t_{j}.
+\end{align*}
+\newpage
+Hieraus folgt sofort die Behauptung.
+\end{proof}
+Nun finden und beweisen wir eigenständig\footnote{Dieser Sachverhalt ist bereits, was der Verfasser erst nach seinem eigenen hier niedergeschriebenen Beweisvorschlag erfuhr, in \cite{Erdös} zu finden, und wie andere Aussagen über lineare Rekursionen unter \cite{Benzaghou}, \cite{Lidl}, \cite{Parent} oder \cite{Shorey} nachzulesen.}: 
+\begin{Satz}
+\par
+Die lineare Rekursion $\{a\}$ aus Gl.$(\ref{Koeff})$ besitze für $n>l$ nur ganzzahlige Glieder. Dann ist $\{a\}$ konstant oder alle Koeffizienten $ c_{1},\ldots,c_{l}$ sind ganzzahlig.
+\end{Satz}
+\begin{proof}
+Sei die lineare Rekursion $\{a\}$ nicht konstant.
+\par
+Nach Voraussetzung gilt für $n$ > $l$ 
+\begin{align}
+a_{n} = \sum_{k=1}^{l}c_{k}a_{n-k}.
+\label{3.3.1}
+\end{align}
+Angenommen nicht alle Koeffizienten von Gl.($\ref{3.3.1}$)  sind ganz, dann existieren nichtleere
+\par
+Indexmengen $P,Q,R$ $\subseteq\{{1,2\ldots,l}\}$ mit
+\begin{align*}
+(c_{k})_{k\in P}\in{\Z},\,(c_{k})_{k\in Q}\in{\Q}\,\,\text{und}\,\,(c_{k})_{k\in R}\in {\R} \backslash {\Q}.
+\end{align*}
+Wir können daher Gl.($\ref{3.3.1}$) umschreiben zu
+\begin{align*}
+a_{n} = \sum_{k\in{P}}c_{k}a_{n-k} +\sum_{k\in{Q}}c_{k}a_{n-k} +\sum_{k\in{R}}c_{k}a_{n-k}. 
+\end{align*}
+Wir wählen nun zu einem $s\in{\N}$
+die $l$ Glieder 
+$a_{s+1},\ldots,a_{s+l}$ 
+und betrachten das
+\par
+lineare $l\times l$ Gleichungssystem
+\begin{align*}
+\left(\sum_{k=1}^{l}c_{k}a_{s+j-k} = a_{s+j}\right)_{1\leq j\leq l}.
+\end{align*}
+Hieraus lassen sich mit dem Gauß-Algorithmus die Koeffizienten $c_{1},\ldots,c_{l}$ eindeutig in den Unbekannten $a_{s+1},\ldots,a_{s+l}$ bestimmen, wobei wir nur rationale Operationen  verwenden müssen.
+Die Ganzzahligkeit der Glieder $a_{s+1},\ldots,a_{s+l}$ liefert $c_{k}\in{\Q}$ für $k\in\{1,\ldots,l\}$,
+also R = $\emptyset$.
+Damit gilt:
+\begin{equation}
+a_{n} = \sum_{k\in P}c_{k}a_{n-k} + \sum_{k\in Q}c_{k}a_{n-k}.
+\label{3.3.3}
+\end{equation}
+Da linke Seite und erste Summe auf der rechten Seite von Gl.$(\ref{3.3.3})$ ganzzahlig sind, muss die Summe
+\begin{align*}
+\sum_{k\in Q}c_{k}a_{n-k}
+\end{align*}
+ebenfalls ganzzahlig sein.
+Wir setzen nun für $k\in Q$:
+\begin{align*}
+c_{k}=\frac{p_{k}}{q_{k}},\,p_{k} \in {\Z},\,q_{k} \in {\N}\,, \text{wobei ggT$(p_{k},q_{k})$}=1.
+\end{align*}
+Dann existiert zu jedem $a_{n} $ aus Gl.($\ref{3.3.3}$) ein $t_{n}\in\mathbb Z$ mit
+$t_{n} = \sum_{k\in Q}\frac{p_{k}}{q_{k}}a_{n-k}$,
+also 
+\begin{align}
+ t_{n}\prod_{k\in Q}q_{k} = \sum_{k\in Q}\left(p_{k}a_{n-k}\prod_{j\in Q\backslash\{k\}}q_{j}\right).\label{teilbar}
+\end{align}
+Die linke Seite von Gl.$(\ref{teilbar})$ ist dabei für jedes $k\in Q$ durch $q_{k}$  teilbar, also auch die rechte Seite.
+Wir wählen nun $k_{1}$ $\in Q$ und dividieren Gl.($\ref{teilbar}$) durch 
+\begin{align*}
+\prod_{k\in Q\backslash \{k_{1}\}}q_{k}.
+\end{align*}
+Wir erhalten:
+\begin{align*}
+t_{n} q_{k_{1}} = p_{k_{1}} a_{n-k_{1}} +q_{k_{1}}\sum_{k \in Q \backslash \{k_{1}\}}\left(\frac{p_{k}}{q_{k}}a_{n-k}\right).
+\end{align*}
+Wegen Lemma 3.2.1 und der Annahme $q_{k_{1}}>1$ existiert dann aber ein 
+$t^{(k_{1})} \in \mathbb Z$ mit
+\begin{align*}
+\sum_{k \in Q \backslash\{k_{1}\}}\left(\frac{p_{k}}{q_{k}}a_{n-k} \right) &=  t^{(k_{1})},
+\end{align*}
+bzw.
+\begin{align}
+t^{(k_{1})}\prod_{k\in Q\backslash \{k_{1}\}}q_{k}&=\sum_{k\in Q \backslash \{k_{1}\}}\left(p_{k}a_{n-k}\prod_{\substack{j\in Q\backslash \{k_{1}\}\\j\neq k}}q_{j}\right). \label{teile}
+\end{align}
+Wir wählen nun ein
+$k_{2}\in Q\backslash \{k_{1}\}$
+und dividieren Gl.$(\ref{teile})$ durch
+\begin{align*}
+\prod_{k\in Q\backslash \{k_{1}, k_{2}\}}q_{k},
+\end{align*}
+und erhalten:
+\begin{align*} 
+t^{(k_{1})}q_{k_{2}}=p_{k_{2}}a_{n-k_{2}} + 
+q_{k_{2}}\sum_{k \in Q \backslash\{k_{1}, k_{2}\}}\left(\frac{p_{k}}{q_{k}}a_{n-k}\right).
+\end{align*}
+Analog existiert wieder ein $t^{(k_{2})}\in {\Z} $ mit
+\begin{align*}
+t^{(k_{2})} 
+\prod_{k\in Q\backslash \{k_{1},k_{2}\}}q_{k}&=\sum_{k \in Q \backslash \{k_{1},k_{2}\}}\left(p_{k}a_{n-k}\prod_{\substack{j\in Q\backslash \{k_{1},k_{2}\}\\j\neq k}}q_{j}\right).  
+\end{align*}
+Wir verfahren nun analog bei jedem Element aus der Indexmenge $Q$, bis $Q$ nur noch ein Element enthält.
+Insbesondere wird die Mächtigkeit $\left|Q\right|$ von $Q$ bei jedem Schritt um 1 verringert.
+Im Schritt $r$ erhalten wir also ein $t^{(k_{r})}\in {\Z} $ mit
+\begin{align*}
+t^{(k_{r})}\prod_{k\in Q\backslash \{k_{1},k_{2},\ldots,k_{r}\}}q_{k}=\sum_{k \in Q \backslash \{k_{1},k_{2},\ldots,k_{r}\}}\left(p_{k}a_{n-k}\prod_{\substack{j\in Q\backslash \{k_{1},k_{2},\ldots,k_{r}\}\\j\neq k}}q_{j}\right).
+\end{align*}
+Im letzten Schritt haben wir dann $r$ derart gewählt, dass
+$|Q\backslash \{k_{1},k_{2},\ldots,k_{r}\}|$ = 1.
+Also wird nur noch über $k_{r+1}\in Q$ summiert:
+\begin{align*}
+t^{k_{r+1}} q_{k_{r+1}}=p_{k_{r+1}} a_{n-k_{r+1}}.
+\end{align*}
+Wegen ggT$(p_{k_{r+1}},q_{k_{r+1}})=1$ ist $q_{k_{r+1}}$ ein Teiler von $a_{n-k_{r+1}}$.
+Damit ist dann aber $q_{k_{r+1}}$ für $n\geq k_{r+1}$ ein Teiler von $\{a\}$ und
+da wir die $k_{1}, \ldots , k_{r+1}\in Q$ in beliebiger Reihenfolge gewählt hatten, folgt:
+Die Zahlen $q_{k}\in Q$ sind Teiler der Folge $(a_{n})_{n \in {\N}}$ für 
+$n\geq l+1$.
+Wir betrachten nun für $n \geq l+1$  erneut Gl.($\ref{3.3.3}$)
+\begin{align*}
+a_{n} = \sum_{k=1}^{l}c_{k}a_{n-k}
+=\sum_{k\in{P}}c_{k}a_{n-k}+\sum_{k\in Q}\frac{p_{k}}{q_{k}}a_{n-k},
+\end{align*}
+und setzen $k_{1}^{*}=\min\{k;k\in {Q}\}$. Dann können wir
+\begin{align}
+a_{n}=
+\sum_{k\in{P}}c_{k}a_{n-k}
++\sum_{k\in Q\backslash \{k_{1}^{*}\}}\left(\frac{p_{k}}{q_{k}}a_{n-k}\right) +
+\frac{p_{k_{1}^{*}}}{q_{k_{1}^{*}}}a_{n-k_{1}^{*}}
+\label{3.3.4}
+\end{align}
+schreiben.
+Da jedes Glied der Folge $(a_{n})_{n \in {\N}}$ durch $q_{k_{1}^{*}}$ teilbar ist,
+folgt, dass $q_{k_{1}^{*}}$ auch ein Teiler von $\frac{p_{k_{1}^{*}}}{q_{k_{1}^{*}}}a_{n-k_{1}^{*}}$ ist.
+Folglich muß dann aber auch jedes Glied $a_{n}$ der Folge für $n\geq l+1$ durch $q_{k_{1}^{*}}^{2}$ teilbar sein.
+Insgesamt wäre dann stets $a_{n-k_{1}^{*}}$ einmal mehr durch $q_{k_{1}^{*}}$ teilbar als die linke Seite von Gl.($\ref{3.3.4}$).  Folglich müsste $q_{k_{1}^{*}}$ die Folge $(a_{n})_{n \in {\N}}$ unendlich oft teilen. Das geht aber nur wenn  $q_{k_{1}^{*}} = 1$, also $c_{k_{1}^{*}}\in P$ gilt.
+Induktiv wählen wir nun
+$k_{2}^{*}=\min\{k;k\in {Q}\backslash k_{1}^{*}\}$ und argumentieren analog. Insgesamt erhalten wir so nach $k_{1}^{*}$-Schritten $q_{k}=1$ für jedes $k\in Q$.
+Damit sind alle Koeffizienten der Gl.($\ref{3.3.1}$) ganzzahlig. 
+\end{proof}
+\subsubsection{Festlegung des Wachstums}
+In diesem Unterabschnitt suchen wir  nach einer einfachen Bedingung, welche einer linearen Rekursion $\{a\}$ 
+die bedingte Divergenz
+$$
+\lim_{n \to \infty}a_{n}=+\infty.
+$$
+garantiert.
+Zunächst gilt offensichtlich für ganzzahlige lineare Rekursionen $\{a\}$:
+\begin{itemize}
+\item $\{a\}$ \textbf{wächst streng monoton}, falls $a_{n+1}-a_{n}\geq 1$ für alle 
+$n \in \N $.
+\end{itemize}
+Nachdem die lineare Rekursion $\{a\}$ ab einem $n_{0}$ streng monoton wachsen soll, legen wir einfach fest:
+\par
+\vspace{0.5cm}
+Die Darstellung von $\{a\}$ durch Gl.$(\ref{Koro})$ aus Korollar 1.5.1 besitzt eine positive dominante Wurzel $\varphi_{1}>1$ mit zugehörigem Koeffizienten $\alpha_{1}>0$. 
+\subsubsection{Positivität}
+In diesem Unterabschnitt werden wir eine einfache Bedingung angeben, welche einer linearen Rekursion $\{a\}$ garantiert, dass keines ihrer Glieder verschwindet.
+Wir finden eine solche Bedingung leicht, indem wir die Darstellung für $\{a\}$ durch Gl.$(\ref{Koro})$ aus Korollar 1.5.1
+berücksichtigen:
+\begin{Lemma}
+\par
+\textbf{i)}\,Die Koeffizienten $\alpha_{i}$  der linearen Rekursion $\{a\}$ 
+erfüllen die Ungleichung
+\begin{align}
+\alpha_{1} \geq \sum_{i=2}^{l}|\alpha_{i}|.\label{Bedingung} 
+\end{align}
+Dann sind alle Glieder der linearen Rekursion $\{a\}$ von Null verschieden.
+\vspace{0.5cm}
+\par
+\textbf{ii)}\,Für die Koeffizienten $\alpha_{i}$ der linearen Rekursion $\{a\}$ gelte für $1\leq i<j \leq l$:\\ $0\neq\alpha_{i}=\alpha_{j}$.
+\par
+Gilt dann für die charakteristischen Wurzeln die Ungleichung
+\begin{align}
+\varphi_{1} > \sum_{i=2}^{l}|\varphi_{i}|,\label{Bedingung2} 
+\end{align}
+so verschwindet kein Glied der zugehörigen linearen Rekursion $\{a\}$.
+\end{Lemma}
+\newpage
+\begin{proof}
+\textbf{i)}\,Einfaches Einsetzen von Ungl.$(\ref{Bedingung})$ in die Folge $\{a\}$ liefert für alle $n\in\N$:
+\begin{align*}
+|a_{n}|=|\sum_{i=1}^{l}\alpha_{i}\varphi_{i}^{n}|&\geq |\alpha_{1}\varphi_{1}^{n}| -|\sum_{i=2}^{l}\alpha_{i}\varphi_{i}^{n}|\\
+                                                &\geq\alpha_{1}\varphi_{1}^{n}-\sum_{i=2}^{l}|\alpha_{i}\varphi_{i}^{n}|\\
+                                                &>\alpha_{1}\varphi_{1}^{n}-\sum_{i=2}^{l}|\alpha_{i}|\varphi_{1}^{n}\\
+                                                &=\varphi_{1}^{n}\left(|\alpha_{1}|-\sum_{i=2}^{l}|\alpha_{i}|\right) \geq 0.
+\end{align*}
+\textbf{ii)}\,Analog.
+\end{proof}
+Diese Bedingungen an $\{a\}$ garantieren auch unsere letzte Forderung, dass $\{a\}$ nur Werte aus den natürlichen Zahlen $\N$ annimmt:
+\begin{Lemma}
+\par
+Seien alle Koeffizienten $c_{1},\ldots,c_{l}$ und alle Anfangswerte $a_{1},\ldots,a_{l}$ der durch Gl.$(\ref{Koeff})$ definierten linearen Rekursion $\{a\}$ ganzzahlig, alle charakteristischen Wurzeln $\varphi_{i}$ des zugehörigen charakteristischen Polynoms verschieden.
+Desweiteren besitzen die Koeffizienten $\alpha_{i}$ und die charakteristischen Wurzeln $\varphi_{i}$ von $\{a\}$ die Eigenschaft \textbf{i)} oder \textbf{ii)} aus Lemma 3.2.2.
+Ist dann die dominante Wurzel $\varphi_{1}>1$ mit einem Vorfaktor $\alpha_{1}>0$,
+dann gilt:
+Die lineare Rekursion $\{a\}=(a_{n})_{n\in\N}$ nimmt nur Werte aus den natürlichen Zahlen $\N$ an.
+\par  
+\end{Lemma}
+Insbesondere erhalten wir, dass die Anfangswerte der linearen Rekursion $\{a\}$ natürliche Zahlen sind.
+\begin{proof}
+Offensichtlich kann die lineare Rekursion $\{a\}$ nur ganzzahlige Werte annehmen. Desweiteren gilt nach Voraussetzung:
+\begin{align*}
+\varphi_{1}>|\varphi_{2}|\geq\ldots\geq|\varphi_{l}|.
+\end{align*}
+Falls die charakteristischen Wurzeln von $\{a\}$ Ungl.$(\ref{Bedingung2})$ erfüllen und alle Koeffizienten $\alpha_{i}$ übereinstimmen und positiv sind ($\alpha_{1}>0$), ist die Aussage offensichtlich erfüllt.
+Erfüllen dagegen die Koeffizienten von $\{a\}$ Ungl.$(\ref{Bedingung})$, folgt für alle $n\in\N$:
+\begin{align*}
+\alpha_{1}\varphi_{1}^{n}\geq \sum_{i=2}^{l}|\alpha_{i}|\varphi_{1}^{n}&>\sum_{i=2}^{l}|\alpha_{i}||\varphi_{k}|^{n}\quad \text{für}\,\,k\in\{2,3\ldots,l\}.\\
+\Rightarrow \alpha_{1}\varphi_{1}^{n}+(l-2)\alpha_{1}\varphi_{1}^{n}&>\sum_{k=2}^{l}\sum_{i=2}^{l}|\alpha_{i}\varphi_{k}^{n}|\\
+&=\sum_{k=2}^{l}|\alpha_{k}\varphi_{k}^{n}| + 
+\sum_{k=2}^{l}\sum_{\substack{i=2\\i\neq k}}^{l}|\alpha_{i}\varphi_{k}^{n}|.\qquad\qquad\qquad\qquad\qquad\qquad\qquad (*)
+\end{align*}
+Wir schätzen nun die Doppelsumme ab:
+\begin{align*}
+\sum_{k=2}^{l}\sum_{\substack{i=2\\i\neq k}}^{l}|\alpha_{i}\varphi_{k}^{n}|&<\sum_{k=2}^{l}\sum_{\substack{i=2\\i\neq k}}^{l}|\alpha_{i}|\varphi_{1}^{n}\\
+&=\sum_{\substack{k=2\\k\neq i}}^{l}\sum_{i=2}^{l}|\alpha_{i}|\varphi_{1}^{n}\\
+\end{align*}
+\begin{align*}
+&= (l-2)\sum_{i=2}^{l}|\alpha_{i}|\varphi_{1}^{n}\\
+&\leq(l-2)\alpha_{1}\varphi_{1}^{n}.
+\end{align*}
+Wegen 
+$0\leq\sum_{k=2}^{l}\sum_{\substack{i=2\\i\neq k}}^{l}|\alpha_{i}\varphi_{k}^{n}|\leq(l-2)\alpha_{1}\varphi_{1}^{n}$
+folgt aus $(*)$:
+\begin{align}
+\alpha_{1}\varphi_{1}^{n}>\sum_{i=2}^{l}|\alpha_{i}\varphi_{i}^{n}|.\label{stand}
+\end{align}
+Nun erhalten wir 
+\begin{align*}
+a_{n}=\sum_{i=1}^{l}\alpha_{i}\varphi_{i}^{n} &= \alpha_{1}\varphi_{1}^{n} + \sum_{i=2}^{l}\alpha_{i}\varphi_{i}^{n}\\
+          &\geq\alpha_{1}\varphi_{1}^{n}-\sum_{i=2}^{l}|\alpha_{i}\varphi_{i}^{n}|\\
+          &>0.
+\end{align*}
+\end{proof}
+\subsubsection{Zusammenfassung: Eine Teilmenge $\mathfrak C^{l}$ von $\mathfrak R^{l}$}
+Offensichtlich haben wir nun die einfachste aller Teilmengen von $\mathfrak R^{l}$ gefunden:
+\begin{Definition}
+Die Menge $\mathfrak C^{l}$\label{Rekursionsteilmenge} ist definiert als die Menge aller linearen Rekursionen $\{a\}$ aus der Menge $\mathfrak R^{l}$, für die gilt:
+\begin{itemize}
+\item Alle Koeffizienten $c_{1},\ldots,c_{l}$  und die Anfangswerte von $\{a\}$ sind ganzzahlig.
+\item Alle charakteristischen Wurzeln $\varphi_{i}$ sind unterschiedlich und die dominante Wurzel $\varphi_{1}>1$ besitzt einen Vorfaktor $\alpha_{1}>0$.
+\item Die Koeffizienten von $\{a\}$ erfüllen Ungl.$(\ref{Bedingung})$ oder stimmen überrein und die charakteristischen Wurzeln von $\{a\}$ erfüllen Ungl.$(\ref{Bedingung2})$.
+\end{itemize}
+\end{Definition}
+\subsection{Die Klasse $\zeta$}
+Wie bereits angekündigt, ordnen wir nun jedem Element der Menge $\mathfrak C^{l}$ eine Dirichlet-Reihe zu.
+\begin{Definition}
+Unter der Menge der gewöhnlichen Dirichlet-Reihen $\{\zeta_{\{a\}};\{a\} \in \mathfrak C^{l}\}$, mit
+\begin{align*}
+\zeta_{\{a\}}:
+              \left\{ \begin{array} {ccc}
+              \mathfrak C^{l}\times \mathbb C & \rightarrow & \mathbb C \\
+              (\{a\},s) & \rightarrow & \zeta_{\{a\}}(s) = \sum_{n=1}^{\infty} a_{n}^{-s},
+              \end{array}\right.
+\end{align*}
+verstehen wir die Klasse $\zeta$\label{Klasse Zeta}. 
+\end{Definition}
+In diesem Kapitel werden wir nur noch die Sinnhaftigkeit dieser Definition überprüfen. Dabei sind wir, im Rückblick auf alle vorherigen Ergebnisse, nur noch den Nachweis einer Konvergenzhalbebene $\mathbb H_{\sigma_{0}}$  für jedes Element $\zeta_{\{a\}}$ der Klasse $\zeta$ schuldig:
+\begin{Lemma}
+\par
+Sei $\zeta_{a}\in\zeta$, dann besitzt $\zeta_{a}$ die Konvergenzhalbebene $\mathbb H_{0}=\left\{s\in{\C};\text{Re}(s)>0\right\}.$
+\end{Lemma}
+\begin{proof}
+Da die Konvergenzabszisse $\sigma_{0}$ von $\zeta_{a}\in\zeta$ offensichtlich positiv ist, können wir $\sigma_{0}$ mit Gl.$(\ref{Killer})$ aus Satz 2.3.1 bestimmen:
+Mit den Bezeichnungen aus Kapitel 2 und wegen $(a_{n})_{n\in\N}\subset\N$ gilt
+$$
+\sigma_{0}=\limsup_{n \to \infty}\frac{\log A(n)}{\lambda_{n}}.
+$$
+Mit $A(n)=\sum_{k=1}^{n}1=n$ und $\lambda_{n}= \log(a_{n})$,
+folgt
+$$
+\sigma_{0}=\limsup_{n \to \infty}\frac{\log(n)}{\log(a_{n})}.
+$$
+Sei nun $0<\epsilon<1$ beliebig. Nach Voraussetzung gilt
+$\alpha_{1}>0$ und $\varphi_{1}>1$.
+\par
+Dann existiert aber ein $n_{0}\in\N$ mit
+\begin{align*}
+\left(\alpha_{1}\varphi_{1}^{n}\right)^{\epsilon}>\frac{n}{(1-\epsilon)^{\epsilon}},
+\end{align*}
+für alle $n\geq n_{0}$, und ein $n_{1}\in\N$ mit
+\begin{align*}
+\left|\frac{\alpha_{2}\varphi_{2}^{n}+\ldots+\alpha_{l}\varphi_{l}^{n}}{\alpha_{1}\varphi_{1}^{n}}\right|<\epsilon,
+\end{align*}
+für alle $n\geq n_{1}$.
+Für hinreichend großes $n\in\N$ folgt dann:
+\begin{align*}
+a_{n}^{\epsilon}&=\left(\alpha_{1}\varphi_{1}^{n}+\ldots+\alpha_{l}\varphi_{l}^{n}\right)^{\epsilon}\\  
+                                        &=\left|\alpha_{1}\varphi_{1}^{n}+\ldots+\alpha_{l}\varphi_{l}^{n}\right|^{\epsilon}\\
+                                        &=\left(\alpha_{1}\varphi_{1}^{n}\right)^{\epsilon}
+\left|1+\frac{\alpha_{2}\varphi_{2}^{n}+\ldots+\alpha_{l}\varphi_{l}^{n}}{\alpha_{1}\varphi_{1}^{n}}\right|^{\epsilon}\\
+                                        &\geq \left(\alpha_{1}\varphi_{1}^{n}\right)^{\epsilon}                                 \left(1-\left|\frac{\alpha_{2}\varphi_{2}^{n}+\ldots+\alpha_{l}\varphi_{l}^{n}}{\alpha_{1}\varphi_{1}^{n}}\right|\right)^{\epsilon}\\
+                &>\left(\alpha_{1}\varphi_{1}^{n}\right)^{\epsilon}(1-\epsilon)^{\epsilon}\\
+                &> n,
+\end{align*}
+also
+\begin{align*}
+\frac{\log(n)}{\log(a_{n})}<\epsilon .
+\end{align*}
+Folglich erhalten wir wie gewünscht für die Konvergenzabszisse $\sigma_{0}=0$.
+\end{proof}
+Da für unsere gewöhnlichen Dirichlet-Reihen stets $A(n)=\overline{A}(n)$ gilt, fallen Abszisse der Konvergenz und Abszisse der absoluten Konvergenz zusammen:
+\begin{align*}
+\sigma_{0}=\overline{\sigma}.
+\end{align*}
+\nopagebreak
+\section{Elementare Eigenschaften der Klasse $\zeta$}
+\subsection{Vorbemerkung}
+In dem kommenden Unterabschnitt werden wir nachweisen, dass jedes Element der Klasse $\zeta$ eine analytische Fortsetzung zu einer in der gesamten komplexen Ebene ${\C}$ meromorphen Funktion besitzt, um dann in den nachfolgenden Unterabschnitten diese analytische Fortsetzung auf bestimmte Eigenschaften hin zu untersuchen.
+\subsection{Analytische Fortsetzbarkeit der Elemente von $\zeta$}
+Wir werden nun die Vorgehensweise von Navas in \cite{L.Navas} - bei der Herleitung der analytischen Fortsetzung der Fibonacci Zeta-Funktion - auf die Elemente der Klasse $\zeta$ verallgemeinern. Dabei beschränken wir uns auf diejenigen linearen Rekursionen $\{a\}\in\mathfrak C^{l}$, deren Koeffizienten $\alpha_{i}$ paarweise verschieden sind und Ungl.$(\ref{Bedingung})$ aus Lemma 3.2.2 erfüllen. Wir erhalten in vollkommen analoger Weise die Aussage für die linearen Rekursionen $\{a\}\in\mathfrak C^{l}$, deren charakteristische Wurzeln Ungl.$(\ref{Bedingung2})$ genügen und deren Koeffizienten allesamt übereinstimmen.
+Zunächst müssen wir aber einige Bezeichnungen einführen:
+Unter Berücksichtigung des Multinomialsatzes (s. Anhang) definieren wir
+\label{phi}
+\begin{align*}
+\varphi:=\prod_{i=2}^{l}\varphi_{i},
+\end{align*}
+für die charakteristischen Wurzeln $\varphi_{2},\ldots,\varphi_{l}$ von $\{a\}\in\mathfrak C^{l}$.
+Desweiteren bezeichnet $\beta  = (\beta_{2},\ldots,\beta_{l})\in\N_{0}^{l-1}$\label{beta} einen Multiindex
+und $|\beta|=\sum_{i=2}^{l}\beta_{i}$\label{Multiordnung} die Ordnung von $\beta$.
+Der Multinomialkoeffizient $\binom{k}{\beta}$\label{Multinomialkoeffizient} wird definiert durch
+\begin{align*}
+\binom{k}{\beta} := \frac{k!}{\beta_{2}!\cdot\ldots\cdot\beta_{l}!}.
+\end{align*}
+Schließlich werden die Monome $\varphi^{\beta}$\label{Monome} definiert durch
+\begin{align*}
+\varphi^{\beta}:=\prod_{i=2}^{l}\varphi_{i}^{\beta_{i}}.
+\end{align*}
+Nun beweisen wir das grundlegende Resultat dieser Arbeit:
+\begin{Hauptsatz}
+Die Koeffizienten $\alpha_{i}$ der lineare Rekursion $\{a\}\in \mathfrak C^{l}$ genügen Ungl.$(\ref{Bedingung})$.
+Dann besitzt das zugeordnete Element $\zeta_{\{a\}}$ der Klasse $\zeta$ eine analytische Fortsetzung zu einer in der gesamten komplexen Ebene $\mathbb{C}$ meromorphen Funktion.
+\end{Hauptsatz}
+\begin{proof}
+Wir werden den Beweis in zwei Schritten liefern:
+\par
+\vspace{0.2cm}
+In \textbf{Schritt 1} benutzen wir Gl.$(\ref{Koro})$, um jedes Element der Klasse $\zeta$ in der Konvergenzhalbebene $\mathbb H_{0}$ in eine binomische Reihe zu entwickeln. Außerdem werden wir nachweisen, dass diese neue Reihendarstellung für $\zeta_{\{a\}}$ in $\mathbb H_{0}$ absolut konvergiert.
+\par
+\vspace{0.2cm}
+In \textbf{Schritt 2} werden wir beweisen, dass unsere neue Reihendarstellung für $\zeta_{\{a\}}$ in der gesamten komplexen $\mathbb C$ - ausgenommen eventueller Singularitäten - absolut konvergiert.
+\newpage
+\par
+\vspace{0.5cm}
+\textbf{Schritt 1:}
+\par
+Wir setzen nun
+\begin{align*}
+J:=\{1,2,\ldots,l\}.
+\end{align*}\label{J} 
+Für $\sigma>0$ gilt
+\begin{align*}
+\zeta_{\{a\}}(s) = \sum_{n=1}^{\infty } a_{n}^{-s} = \sum_{n=1}^{\infty }\left(\sum_{i \in J}\alpha_{i}\varphi^{n}_{i}\right)^{-s}.
+\end{align*}
+Zuerst ziehen wir die dominante Wurzel $\varphi_{1}$ aus der inneren Summe heraus:
+\begin{align*}
+\zeta_{\{a\}}(s) &=  \sum_{n=1}^{\infty }\left(\alpha_{1}\varphi^{n}_{1}
+                  + \sum_{i\in J \backslash \{1\}}\alpha_{i}\varphi^{n}_{i} \right)^{-s}\\
+                 &= \sum_{n=1}^{\infty }(\alpha_{1}\varphi^{n}_{1})^{-s}
+                     \left( 
+                     1 + \sum_{i\in J \backslash \{1\}}\frac{\alpha_{i}\varphi^{n}_{i}}{\alpha_{1}\varphi^{n}_{1}} 
+                     \right)^{-s}.
+\end{align*}
+Wegen $\{a\}\subset \N$ folgt
+\begin{align*}
+a_{n}=\alpha_{1}\varphi_{1}^{n}\left(1+\frac{\sum_{i\in J \backslash \{1\}}\alpha_{i}\varphi_{i}^{n}}{\alpha_{1}\varphi_{1}^{n}}\right)>0.
+\end{align*}
+Nach Voraussetzung ist $\alpha_{1}\varphi^{n}_{1}>0$ für alle $n$. Folglich muß auch die Ungleichung
+\begin{align*}
+\frac{\sum_{i\in J \backslash \{1\}}\alpha_{i}\varphi_{i}^{n}}{\alpha_{1}\varphi_{1}^{n}}> -1
+\end{align*}
+erfüllt sein.
+Ebenso folgt mit Ungl.$(\ref{stand})$ aus Lemma 3.2.3
+\begin{align*}
+\left|\frac{\sum_{i\in J \backslash \{1\}}\alpha_{i}\varphi_{i}^{n}}{\alpha_{1}\varphi_{1}^{n}}\right|
+\leq \frac{\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}^{n}|}{\alpha_{1}\varphi_{1}^{n}}<1.
+\end{align*}
+Damit können wir aber den Ausdruck
+\begin{align*}
+\left(1 + \sum_{i\in J \backslash \{1\}}\frac{\alpha_{i}\varphi^{n}_{i}}{\alpha_{1}\varphi^{n}_{1}}\right)^{-s}
+\end{align*}
+in eine binomische Reihe entwickeln:
+\begin{align*}
+ \zeta_{\{a\}}(s)&= \sum_{n=1}^{\infty }(\alpha_{1}\varphi^{n}_{1})^{-s}
+                 \sum_{k=0}^{\infty}\binom{-s}{k}(\alpha_{1}\varphi^{n}_{1})^{-k}
+                   \left(\sum_{i\in J \backslash \{1\}}\alpha_{i}\varphi^{n}_{i}\right)^{k}\\
+                 &=\sum_{n=1}^{\infty}\sum_{k=0}^{\infty}\binom{-s}{k}
+                   (\alpha_{1}\varphi^{n}_{1})^{-(s+k)}\left(\sum_{i\in J \backslash \{1\}}\alpha_{i}\varphi^{n}_{i}\right)^{k}.
+\end{align*}
+Nun werden wir nachweisen, dass diese Reihendarstellung für $\zeta_{\{a\}}(s)$  für $\sigma>0$ absolut konvergiert:
+\begin{align*}
+|\zeta_{\{a\}}(s)| &= \left|\sum_{n=1}^{\infty}\sum_{k=0}^{\infty}\binom{-s}{k}
+                   (\alpha_{1}\varphi^{n}_{1})^{-(s+k)}\left(\sum_{i\in J \backslash               \{1\}}\alpha_{i}\varphi^{n}_{i}\right)^{k}\right|\\
+       &\leq \sum_{n=1}^{\infty}\sum_{k=0}^{\infty}\left|\binom{-s}{k}
+                   (\alpha_{1}\varphi^{n}_{1})^{-(s+k)}\left(\sum_{i\in J \backslash \{1\}}\alpha_{i}\varphi^{n}_{i}\right)^{k}\right|\\
+       &\leq \sum_{n=1}^{\infty}\sum_{k=0}^{\infty}\left|\binom{-s}{k}\right|
+                   (\alpha_{1}\varphi_{1}^{n})^{-(\sigma+k)}\left(\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}^{n}|\right)^{k}.
+\end{align*}
+Hierfür schätzen wir zunächst den Binomialkoeffizienten ab durch \label{Binomal}
+\begin{align*}
+ \left|\binom{-s}{k}\right|&=\left|\frac{(-s)\cdot(-s-1)\cdot\ldots\cdot(-s-k+1)}{k!}\right|
+                 \leq \frac{|s|\cdot(|s|+1)\cdot\ldots\cdot(|s|+k-1)}{k!}\\
+               &=\binom{|s|+k-1}{k} 
+                = (-1)^{k}\cdot\frac{(-|s|)\cdot(-|s|-1)\cdot\ldots\cdot(-|s|-k+1)}{k!}\\
+               &= (-1)^{k}\binom{-|s|}{k},
+\end{align*}
+und erhalten
+\begin{align*}
+|\zeta_{\{a\}}(s)|&\leq \sum_{n=1}^{\infty}\sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}
+                       (\alpha_{1}\varphi_{1}^{n})^{-(\sigma+k)}
+                       \left(\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}^{n}|\right)^{k}\\
+      &=\sum_{n=1}^{\infty}(\alpha_{1}\varphi_{1}^{n})^{-\sigma}
+        \sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}(\alpha_{1}\varphi_{1}^{n})^{-k}
+              \left(\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}^{n}|\right)^{k}\\
+      &=\sum_{n=1}^{\infty}(\alpha_{1}\varphi_{1}^{n})^{-\sigma}
+        \sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}
+              \left(\frac{\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}^{n}|}{\alpha_{1}\varphi_{1}^{n}}\right)^{k}.
+\end{align*}
+Wir erkennen die binomische Reihe und erhalten schließlich
+\begin{align*}
+|\zeta_{\{a\}}(s)|\leq \sum_{n=1}^{\infty}(\alpha_{1}\varphi_{1}^{n})^{-\sigma}\cdot
+      \left(1- \frac{\sum_{i\in J \backslash\{1\}}|\alpha_{i}\varphi_{i}^{n}|}
+         {\alpha_{1}\varphi_{1}^{n}}\right)^{-|s|}.
+\end{align*}
+Wegen $\varphi_{1} > |\varphi_{2}|\geq\ldots\geq|\varphi_{l}|$ folgt für alle $n\in\N$:
+\begin{align*}
+\frac{\sum_{i\in J \backslash\{1\}}|\alpha_{i}\varphi_{i}^{n}|}{\alpha_{1}\varphi_{1}^{n}}
+               &=\sum_{i\in J \backslash\{1\}}\frac{|\alpha_{i}\varphi_{i}|^{n}}{\alpha_{1}\varphi_{1}^{n}}\\
+               &=\sum_{i\in J \backslash\{1\}}\frac{|\alpha_{i}|}{\alpha_{1}}\left(\frac{|\varphi_{i}|}{\varphi_{1}}\right)^{n}\\
+               &\leq\sum_{i\in J \backslash\{1\}}\frac{|\alpha_{i}\varphi_{i}|}{\alpha_{1}\varphi_{1}}.
+\end{align*}
+Damit gilt dann aber für alle $n\in\N$
+\begin{align*}
+\left(1-\frac{\sum_{i\in J \backslash\{1\}}|\alpha_{i}\varphi_{i}^{n}|}{\alpha_{1}\varphi_{1}^{n}}\right)^{-|s|}
+&\leq\left(1-\frac{\sum_{i\in J \backslash\{1\}}|\alpha_{i}||\varphi_{i}|}{\alpha_{1}\varphi_{1}}\right)^{-|s|}.
+\end{align*}
+Insgesamt folgt jetzt mit der Summenformel für die geometrische Reihe
+\begin{align*}
+|\zeta_{\{a\}}(s)|&\leq \sum_{n=1}^{\infty}(\alpha_{1}\varphi_{1}^{n})^{-\sigma}\cdot
+      \left(1- \frac{\sum_{i\in J \backslash\{1\}}|\alpha_{i}\varphi_{i}^{n}|}
+         {\alpha_{1}\varphi_{1}^{n}}\right)^{-|s|}\\
+         &\leq\left(1-\frac{\sum_{i\in J \backslash\{1\}}|\alpha_{i}\varphi_{i}|}{\alpha_{1}\varphi_{1}}\right)^{-|s|}
+\frac{(\alpha_{1}\varphi_{1})^{-\sigma}}{1-(\varphi_{1})^{-\sigma}}. 
+\end{align*}
+Damit konvergiert die Reihendarstellung für die Funktion $\zeta_{\{a\}}(s)$ aber für $\sigma>0$ absolut, also dürfen wir die Summationsreihenfolge vertauschen.
+Außerdem benötigen wir jetzt den Multinomialsatz (s. Anhang) mit den Bezeichnungen, die wir am Anfang dieses Kapitels festgelegt haben und setzen abkürzend noch
+\begin{align*}
+\alpha :=\prod_{i=2}^{l}\alpha_{i},
+\end{align*}\label{alpha}
+für die Koeffizienten $\alpha_{i}$ von $\{a\}\in\mathfrak C^{l}$.
+Damit gilt:
+\begin{align*}
+\zeta_{\{a\}}(s)&=\sum_{n=1}^{\infty}\sum_{k=0}^{\infty}\binom{-s}{k}
+                   (\alpha_{1}\varphi^{n}_{1})^{-(s+k)}\left(\sum_{i\in J \backslash \{1\}}\alpha_{i}\varphi^{n}_{i}\right)^{k}\\
+    %&=\sum_{k=0}^{\infty}\sum_{n=1}^{\infty}\binom{-s}{k}
+                   %(\alpha_{1}\varphi^{n}_{1})^{-(s+k)}\left(\sum_{i\in J \backslash \{1\}}\alpha_{i}\varphi^{n}_{i}\right)^{k}\\
+    &=\sum_{k=0}^{\infty}\sum_{n=1}^{\infty}\binom{-s}{k}\alpha_{1}^{-(s+k)}\varphi_{1}^{-n(s+k)}
+                  \left(\sum_{i\in J \backslash \{1\}}\alpha_{i}\varphi^{n}_{i}\right)^{k}\\
+    &=\sum_{k=0}^{\infty}\sum_{n=1}^{\infty}\binom{-s}{k}\alpha_{1}^{-(s+k)}\varphi_{1}^{-n(s+k)}
+                   \sum_{|\beta|=k}\binom{k}{\beta}(\alpha\varphi^{n})^{\beta}\\ 
+\end{align*}
+\begin{align*}
+   &=\sum_{k=0}^{\infty}\binom{-s}{k}\alpha_{1}^{-(s+k)}\sum_{|\beta|=k}\binom{k}{\beta}\alpha^{\beta}                 \sum_{n=1}^{\infty}\left(\varphi_{1}^{-n(s+k)}\varphi^{n\beta}\right)\\
+    &=\sum_{\substack{ k=0}}^{\infty}\binom{-s}{k}\alpha_{1}^{-(s+k)} \sum_{|\beta|=k}\binom{k}{\beta}\alpha^{\beta}
+    \sum_{n=1}^{\infty}\left(\varphi_{1}^{-(s+k)}\varphi^{\beta}\right)^{n}. 
+\end{align*}
+Wegen
+\begin{align*}
+\left|\varphi_{1}^{-(s+k)}\varphi^{\beta}\right|&=\varphi_{1}^{-(\sigma+k)}\prod_{i\in J\backslash \{1\}}\left|\varphi_{i}\right|^{\beta_{i}}\\
+      &\leq\varphi_{1}^{-(\sigma+k)}\prod_{i\in J\backslash \{1\}}\varphi_{1}^{\beta_{i}}\\
+      &=\varphi_{1}^{-(\sigma+k)}\varphi_{1}^{|\beta|}\\
+      &=\varphi_{1}^{-\sigma} < 1,
+\end{align*}
+folgt wieder mit der Summenformel für die geometrische Reihe:
+\begin{align}
+\zeta_{\{a\}}(s) =\sum_{k=0}^{\infty}\left(\binom{-s}{k}\alpha_{1}^{-(s+k)} \sum_{|\beta|=k}\binom{k}{\beta}\frac{(\alpha\varphi)^{\beta}}{\varphi_{1}^{s+k}-\varphi^{\beta}}\right).\label{4.2.1}
+\end{align}
+\textbf{Schritt 2:}
+\par
+Nun zeigen wir, dass die Darstellung ($\ref{4.2.1}$) von $\zeta_{\{a\}}$ in ganz $\C$, ausgenommen der Singularitäten der Funktionenfolge
+\begin{align*}
+f_{k}=\alpha_{1}^{-(s+k)}\binom{-s}{k}\sum_{|\beta|=k}\binom{k}{\beta}\frac{(\alpha\varphi)^{\beta}}{\varphi_{1}^{s+k}-\varphi^{\beta}},\qquad k\in\N_{0},
+\end{align*}
+absolut konvergiert. Dabei schätzen wir zuerst die innere Summe von ($\ref{4.2.1}$) ab:
+\begin{align*}
+\left|\sum_{|\beta|=k}\binom{k}{\beta}\frac{(\alpha\varphi)^{\beta}}{\varphi_{1}^{s+k}-\varphi^{\beta}}\right|
+&\leq \sum_{|\beta|=k}\binom{k}{\beta}\frac{|\alpha\varphi|^{\beta}}{|\varphi_{1}^{s+k}-\varphi^{\beta}|}\\
+&=\varphi_{1}^{-k}\sum_{|\beta|=k}\binom{k}{\beta}\frac{|\alpha\varphi|^{\beta}}{|\varphi_{1}^{s}-\frac{\varphi^{\beta}}{\varphi_{1}^{k}}|}\\
+&\leq\varphi_{1}^{-k}\sum_{|\beta|=k}\binom{k}{\beta}\frac{|\alpha\varphi|^{\beta}}{\left|\varphi_{1}^{\sigma}-\frac{|\varphi|^{\beta}}{\varphi_{1}^{k}}\right|}\\
+&=\varphi_{1}^{-k}\sum_{|\beta|=k}\binom{k}{\beta}\frac{|\alpha\varphi|^{\beta}}{\left|\varphi_{1}^{\sigma}-\prod_{i\in J\backslash \{1\}}\left(\frac{|\varphi_{i}|}{{\varphi_{1}}}\right)^{\beta_{i}}\right|}.
+\end{align*}
+Nachdem gilt
+\begin{align*}
+\prod_{i\in J\backslash \{1\}}\left(\frac{|\varphi_{i}|}{{\varphi_{1}}}\right)^{\beta_{i}}\leq\left(\frac{|\varphi_{2}|}{\varphi_{1}}\right)^{|\beta|}=\left(\frac{|\varphi_{2}|}{\varphi_{1}}\right)^{k},
+\end{align*}
+konvergiert der Ausdruck
+\begin{align*}
+\prod_{i\in J\backslash \{1\}}\left(\frac{|\varphi_{i}|}{{\varphi_{1}}}\right)^{\beta_{i}}
+\end{align*}
+für $k \to \infty$ gegen Null.
+Damit existiert aber ein hinreichend
+großes $k_{0}(\sigma)\in\N_{0}$, sodass für $k\geq k_{0}(\sigma)$ gilt:
+\begin{align*}
+\left|\varphi_{1}^{\sigma}-\prod_{i\in J\backslash \{1\}}\left(\frac{|\varphi_{i}|}{{\varphi_{1}}}\right)^{\beta_{i}}\right|\geq \varphi_{1}^{\sigma}\left(\frac{|\varphi_{2}|}{\varphi_{1}}\right)^{k}.
+\end{align*}
+Damit erhalten wir insgesamt als Abschätzung der inneren Summe von ($\ref{4.2.1}$) für $k\geq k_{0}(\sigma)$:
+\begin{align*}
+\left|\sum_{|\beta|=k}\binom{k}{\beta}\frac{(\alpha\varphi)^{\beta}}{\varphi_{1}^{s+k}-\varphi^{\beta}}\right|
+\leq
+\varphi_{1}^{-k}\sum_{|\beta|=k}\binom{k}{\beta}\frac{|\alpha\varphi|^{\beta}}{\varphi_{1}^{\sigma}\left(\frac{|\varphi_{2}|}{\varphi_{1}}\right)^{k}}.
+\end{align*}
+Wir werden nun die Reihendarstellung ($\ref{4.2.1}$) von $\zeta_{\{a\}}$ für $k\geq k_{0}(\sigma)$ abschätzen. Dafür benötigen wir noch - wie sich gleich zeigen wird - die Ungleichung
+\begin{align*}
+\frac{\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}|}{\alpha_{1}|\varphi_{2}|}\leq1.
+\end{align*}
+Nach Voraussetzung gilt für beliebiges $k\in J\backslash \{1\}$ und alle $n\in\N$:
+\begin{align*}
+\alpha_{1}|\varphi_{2}|^{n}&\geq\sum_{i\in J\backslash \{1\}}|\alpha_{i}||\varphi_{2}|^{n}\\
+                           &\geq\sum_{i\in J\backslash \{1\}}|\alpha_{i}\varphi^{n}_{k}|.
+\end{align*}
+Also
+\begin{align*}
+(l-1)\alpha_{1}|\varphi_{2}|^{n}&\geq\sum_{k\in J\backslash \{1\}}\sum_{i\in J\backslash \{1\}}|\alpha_{i}\varphi^{n}_{k}|\\
+&=\sum_{k\in J\backslash \{1\}}|\alpha_{k}\varphi^{n}_{k}| +\sum_{k\in J\backslash \{1\}} \sum_{\substack{i\in J\backslash \{1\}\\i\neq k}}|\alpha_{i}\varphi^{n}_{k}|.
+\end{align*}
+Dabei lässt sich die Doppelsumme wieder folgendermaßen abschätzen:
+\begin{align*}
+\sum_{k\in J\backslash \{1\}} \sum_{\substack{i\in J\backslash \{1\}\\i\neq k}}|\alpha_{i}\varphi^{n}_{k}|&\leq \sum_{k\in J\backslash \{1\}} \sum_{\substack{i\in J\backslash \{1\}\\i\neq k}}|\alpha_{i}\varphi^{n}_{2}|\\
+&\leq(l-2)\alpha_{1}|\varphi_{2}|^{n}
+\end{align*}
+Da auf beiden Seiten der letzten Ungleichung nur positive Zahlen stehen, folgt
+\begin{align*}
+\alpha_{1}|\varphi_{2}|^{n}\geq\sum_{k\in J\backslash \{1\}}|\alpha_{k}\varphi^{n}_{k}|.
+\end{align*}
+Nun gilt:
+\begin{align*}
+0&\leq
+\left|\sum_{k=k_{0}(\sigma)}^{\infty}\left(\binom{-s}{k}\alpha_{1}^{-(s+k)} \sum_{|\beta|=k}\binom{k}{\beta}\frac{(\alpha\varphi)^{\beta}}{\varphi_{1}^{s+k}-\varphi^{\beta}}\right)\right|\\
+&\leq
+\sum_{k=k_{0}(\sigma)}^{\infty}(-1)^{k}\binom{-|s|}{k}\alpha_{1}^{-(\sigma+k)}\varphi_{1}^{-k}\sum_{|\beta|=k}\binom{k}{\beta}\frac{|\alpha\varphi|^{\beta}}{\varphi_{1}^{\sigma}\left(\frac{|\varphi_{2}|}{\varphi_{1}}\right)^{k}}\\
+&=(\alpha_{1}\varphi_{1})^{-\sigma}\sum_{k=k_{0}(\sigma)}^{\infty}(-1)^{k}\binom{-|s|}{k}(\alpha_{1}|\varphi_{2}|)^{-k}\sum_{|\beta|=k}\binom{k}{\beta}|\alpha\varphi|^{\beta}\\
+&=(\alpha_{1}\varphi_{1})^{-\sigma}\sum_{k=k_{0}(\sigma)}^{\infty}(-1)^{k}\binom{-|s|}{k}
+\left(\frac{\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}|}{\alpha_{1}|\varphi_{2}|}\right)^{k}.\\
+\end{align*}
+Wir müssen nun zwei Fälle unterscheiden:
+\par
+\vspace{0.5cm}
+\textbf{Fall I:}
+\par
+\vspace{0.5cm}
+Sei $\frac{\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}|}{\alpha_{1}|\varphi_{2}|}<1$, dann folgt
+\begin{align*}
+\sum_{k=k_{0}}^{\infty}(-1)^{k}\binom{-|s|}{k}
+\left(\frac{\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}|}{\alpha_{1}|\varphi_{2}|}\right)^{k}
+&\leq \sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}
+\left(\frac{\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}|}{\alpha_{1}|\varphi_{2}|}\right)^{k}\\
+&=\left(1-\frac{\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}|}{\alpha_{1}|\varphi_{2}|}\right)^{-|s|}.
+\end{align*}
+Damit gilt:
+\begin{align*}
+\left|\zeta_{\{a\}}(s)\right|&\leq \sum_{k=0}^{k_{0}(\sigma)-1}\left|f_{k}(s)\right|+\sum_{k=k_{0}(\sigma)}^{\infty}\left|f_{k}(s)\right|\\
+&\leq \sum_{k=0}^{k_{0}(\sigma)-1}\left|f_{k}(s)\right|+ (\alpha_{1}\varphi_{1})^{-\sigma}\left(1-\frac{\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}|}{\alpha_{1}|\varphi_{2}|}\right)^{-|s|}.
+\end{align*}
+Damit ist $\zeta_{\{a\}}(s)$ aber in ganz ${\C}$ - Singularitäten von $f_{k}$ ausgenommen - beschränkt.
+\vspace{0.5cm}
+\par
+\textbf{Fall II:}
+\par
+\vspace{0.5cm}  
+Sei nun $\frac{\sum_{i\in J \backslash \{1\}}|\alpha_{i}\varphi_{i}|}{\alpha_{1}|\varphi_{2}|}=1$, dann folgt mit Ungl. $(\ref{Bedingung})$
+\begin{align*}
+\sum_{i\in J \backslash \{1,2\}}|\alpha_{i}\varphi_{i}|=(\alpha_{1}-|\alpha_{2}|)|\varphi_{2}|\geq |\varphi_{2}|\sum_{i\in J \backslash \{1,2\}}|\alpha_{i}|.
+\end{align*}
+Da aber auch nach Voraussetzung
+\begin{align*}
+\sum_{i\in J \backslash \{1,2\}}|\alpha_{i}\varphi_{i}|\leq |\varphi_{2}|\sum_{i\in J \backslash \{1,2\}}|\alpha_{i}|
+\end{align*}
+gilt, folgt
+\begin{align*}
+\sum_{i\in J \backslash \{1,2\}}|\alpha_{i}|\underbrace{\frac{|\varphi_{i}|}{|\varphi_{2}|}}_{\leq 1}=\sum_{i\in J \backslash \{1,2\}}|\alpha_{i}|.
+\end{align*}
+Die letzte Gleichung impliziert nun $|\varphi_{2}|=|\varphi_{3}|=\ldots=|\varphi_{l}|$, also $\sum_{i\in J \backslash \{1\}}|\alpha_{i}|=\alpha_{1}$.
+Wir prüfen nun erneut, ob die Reihendarstellung ($\ref{4.2.1}$) von $\zeta_{\{a\}}$ unter den gerade an die charakteristischen Wurzeln $\varphi_{i}$ und Koeffizienten $\alpha_{i}$  gestellten Bedingungen in ganz ${\C}$ - ausgenommen irgendwelcher Singularitäten von $f_{k}$ - absolut konvergiert:
+\begin{align*}
+\left|\zeta_{\{a\}}(s)\right| &\leq\sum_{k=0}^{\infty}\left((-1)^{k}\binom{-|s|}{k}\alpha_{1}^{-(\sigma+k)} \sum_{|\beta|=k}\binom{k}{\beta}\frac{|\alpha\varphi|^{\beta}}{\left|\varphi_{1}^{\sigma+k}-|\varphi|^{\beta}\right|}\right)\\
+&=\sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}\alpha_{1}^{-(\sigma+k)}|\varphi_{2}|^{k}\frac{\sum_{|\beta|=k}\binom{k}{\beta}|\alpha|^{\beta}}{\left|\varphi_{1}^{\sigma+k}-|\varphi_{2}|^{k}\right|}\\
+&=\sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}\alpha_{1}^{-(\sigma+k)}|\varphi_{2}|^{k}\frac{\left(\sum_{i\in J \backslash \{1\}}|\alpha_{i}|\right)^{k}}{\left|\varphi_{1}^{\sigma+k}-|\varphi_{2}|^{k}\right|}\\
+&=\alpha_{1}^{-\sigma}\sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}\frac{|\varphi_{2}|^{k}}{\left|\varphi_{1}^{\sigma+k}-|\varphi_{2}|^{k}\right|}\\
+&=\alpha_{1}^{-\sigma}\sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}\frac{1}{\left|\varphi_{1}^{\sigma}\left(\frac{\varphi_{1}}{|\varphi_{2}|}\right)^{k}-1\right|}.
+\end{align*}
+Wegen $|\varphi_{2}|<\varphi_{1}$ strebt der Ausdruck $\varphi_{1}^{\sigma}\left(\frac{\varphi_{1}}{|\varphi_{2}|}\right)^{k}$ für beliebiges $\sigma\in{\R}$ bei $k \to \infty$ gegen $\infty$. Damit existiert ein $k_{0}(\sigma)$ mit 
+\begin{align*}
+\left|\varphi_{1}^{\sigma}\left(\frac{\varphi_{1}}{|\varphi_{2}|}\right)^{k}-1\right| \geq \left(\sqrt{\frac{\varphi_{1}^{\sigma}}{|\varphi_{2}|}}\,\right)^{k}>0,\,\,\text{für}\,\,k\geq k_{0}(\sigma).
+\end{align*}
+Insgesamt folgt in diesem Fall:
+\begin{align*}
+0\leq \left|\zeta_{\{a\}}(s)\right|&\leq \alpha_{1}^{-\sigma}\sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}\frac{|\varphi_{2}|^{k}}{\left|\varphi_{1}^{\sigma+k}-|\varphi_{2}|^{k}\right|}\\
+&=\alpha_{1}^{-\sigma}\left(\sum_{k=0}^{k_{0}(\sigma)-1}(-1)^{k}\binom{-|s|}{k}\frac{|\varphi_{2}|^{k}}{\left|\varphi_{1}^{\sigma+k}-|\varphi_{2}|^{k}\right|}+\sum_{k=k_{0}(\sigma)}^{\infty}(-1)^{k}\binom{-|s|}{k}\frac{|\varphi_{2}|^{k}}{\left|\varphi_{1}^{\sigma+k}-|\varphi_{2}|^{k}\right|}\right)\\
+&\leq \alpha_{1}^{-\sigma}\left(\sum_{k=0}^{k_{0}(\sigma)-1}(-1)^{k}\binom{-|s|}{k}\frac{|\varphi_{2}|^{k}}{\left|\varphi_{1}^{\sigma+k}-|\varphi_{2}|^{k}\right|}+\sum_{k=k_{0}(\sigma)}^{\infty}(-1)^{k}\binom{-|s|}{k}\left(\sqrt{\frac{|\varphi_{2}|}{\varphi_{1}^{\sigma}}}\right)^{k}\right)\\
+&\leq\alpha_{1}^{-\sigma}\left(\sum_{k=0}^{k_{0}(\sigma)-1}(-1)^{k}\binom{-|s|}{k}\frac{|\varphi_{2}|^{k}}{\left|\varphi_{1}^{\sigma+k}-|\varphi_{2}|^{k}\right|}+\sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}\left(\sqrt{\frac{|\varphi_{2}|}{\varphi_{1}^{\sigma}}}\right)^{k}\right)
+\end{align*}
+\begin{align*}
+&=\alpha_{1}^{-\sigma}\left(\sum_{k=0}^{k_{0}(\sigma)-1}(-1)^{k}\binom{-|s|}{k}\frac{|\varphi_{2}|^{k}}{\left|\varphi_{1}^{\sigma+k}-|\varphi_{2}|^{k}\right|}+\left(1-\sqrt{\frac{|\varphi_{2}|}{\varphi_{1}^{\sigma}}}\right)^{-|s|}\right).
+\end{align*} 
+Damit konvergiert die Reihendarstellung ($\ref{4.2.1}$) für $\zeta_{\{a\}}$ in ganz $\C$ -  Singularitäten von $f_{k}$ ausgenommen -  absolut.
+\end{proof}
+Völlig analog erhalten wir:
+\begin{Hauptsatz}
+Die charakteristischen Wurzeln $\varphi_{i}$ der lineare Rekursion $\{a\}\in \mathfrak C^{l}$ genügen Ungl.$(\ref{Bedingung2})$ und für die Koeffizienten $\alpha_{i}$ gelte für $i,j\in J:\,0\neq \alpha_{i}=\alpha_{j}$.
+Dann besitzt das zugeordnete Element $\zeta_{\{a\}}\in\zeta$ eine analytische Fortsetzung zu einer in der gesamten komplexen Ebene $\mathbb{C}$ meromorphen Funktion.
+\end{Hauptsatz}
+\begin{flushright}
+             $\square$
+\end{flushright}
+\textbf{Bemerkung:}
+\par
+Der Leser könnte bei dem Studium des Beweises von Hauptsatz 4.2.1 dem Eindruck verfallen sein, dass die Koeffizienten $\alpha_{i}$ der linearen Rekursion $\{a\}$ notwendigerweise Ungl.(\ref{Bedingung}) erfüllen müssen, um der zugehörigen Zeta-Funktion $\zeta_{\{a\}}\in \zeta$ eine analytische Fortsetzung in die gesamte komplexe Ebene $\mathbb{C}$ zu garantieren. Letztlich liefert diese Restriktion an die Koeffizienten von $\{a\}$ aber nur die Angabe der analytischen Fortsetzung in sehr kompakter Form. Insgesamt eröffnet uns schon die Eigenschaft von $\{a\}$ eine dominante Wurzel $\varphi_{1}>1$ zu besitzen, die Möglichkeit für die zugeordnete Zeta-Funktion $\zeta_{\{a\}}$ eine Reihendarstellung analog zur Reihendarstellung ($\ref{4.2.1}$) abzuleiten. Allerdings besitzt diese bedeutend weniger Übersichtlichkeit. Darüberhinaus können wir die Positivität bzw. das Nichtverschwinden einzelner Glieder der linearen Rekursion $\{a\}$ nicht mehr garantieren.    
+\subsection{Diskussion der Singularitäten}
+Wir bestimmen nun im Allgemeinen die Singularitäten der Funktion $\zeta_{\{a\}}$. Dazu bezeichnen wir mit 
+$\mathfrak P\left(\zeta_{\{a\}}\right)$\label{Singularitätenmenge} die Menge aller Singularitäten von $\zeta_{\{a\}}$ und unterscheiden zwischen dem komplexen Logarithmus $\textbf{Log}$  und dem reellen $\textbf {log}$.
+Zunächst betrachten wir für $k\in\N_{0}$ die Funktionen
+\begin{align*}
+f_{k}(s)=\alpha_{1}^{-(s+k)}\binom{-s}{k}\sum_{|\beta|=k}\binom{k}{\beta}\frac{(\alpha\varphi)^{\beta}}{\varphi_{1}^{s+k}-\varphi^{\beta}}.
+\end{align*}
+Offensichtlich beschreibt dann die Menge 
+\begin{align*}
+\mathfrak P(f_{k}):=\left\{s\in{\C};\varphi^{s+k}_{1}=\varphi^{\beta}\right\}
+\end{align*}
+alle Singularitäten von $f_{k}$, d.h. wenn wir die Elemente der Menge $\mathfrak P(f_{k})$ bestimmen wollen, müssen wir die Gleichung
+\begin{align}
+\varphi^{s+k}_{1}=\varphi^{\beta}\label{root}
+\end{align}
+lösen.
+Gl.$(\ref{root})$ besitzt für jeden Multiindex $\beta$ mit Ordnung $|\beta| = k$ unendlich viele Lösungen, wobei von diesen wegen $(\varphi_{1}>1)$ keine reell ist, falls  $\varphi^{\beta}<0$. Wir lösen nun Gl.$(\ref{root})$:
+\begin{align*}
+\varphi^{s+k}_{1} = e^{(s+k)\text{log}(\varphi_{1})}\stackrel{!}{=}\varphi^{\beta}.
+\end{align*}
+Auf der rechten Seite müssen wir das Vorzeichen von $\varphi^{\beta}$ beachten:
+\begin{align*}
+e^{(s+k)\text{log}(\varphi_{1})}&=e^{\text{Log}(\varphi^{\beta})}\\
+                                &=e^{\log(\left|\varphi\right|^{\beta}) +i\cdot \text{arg}\left(\varphi^{\beta}\right) + m \cdot2 \pi i},
+\end{align*}
+für $m\in{\Z}$.
+Also
+\begin{align*}
+s=-k + \frac{\log(\left|\varphi\right|^{\beta}) + i\cdot \text{arg}\left(\varphi^{\beta}\right) + m \cdot2 \pi i}{\log(\varphi_{1})}=:\rho_{k,m}(\beta).
+\end{align*}\label{Singularität}
+Damit gilt
+\begin{align*}
+\mathfrak P(f_{k})=\left\{\rho_{k,m}(\beta)\in\C;\,k\in\N_{0},\,m\in\Z,\,|\beta|=k\right\}.
+\end{align*}
+Folglich liegen die Singularitäten von $f_{k}$ auf den Abszissen $\sigma = -k+\frac{\text{log}(\left|\varphi^{\beta}\right|)}{\log \varphi_{1}}$ 
+im Abstand $i\frac{2\pi  +  \text{arg}(\varphi^{\beta})}{\log \varphi_{1}}$. Substituieren wir in den Termen
+$
+\frac{1}{\varphi_{1}^{s+k}-\varphi^{\beta}}
+$
+von $f_{k}$ die Größe
+$\varphi_{1}^{s+k}$ durch $z$, sehen wir schnell, dass $f_{k}$ als Singularitäten nur einfache Pole in $\rho_{k,m}(\beta)$ besitzt.
+Außerdem gilt wegen $\zeta_{\{a\}}=\sum_{k=0}^{\infty}f_{k}$:
+\begin{align*}
+\mathfrak {P}\left(\zeta_{\{a\}}\right)\subseteq\bigcup_{k=0}^{\infty}\mathfrak {P}\left(f_{k}\right).
+\end{align*}
+Wir bestimmen nun das Residuum von $\zeta_{\{a\}}$ in der Polstelle $\rho_{k,m}(\tilde{\beta})$. Dazu bemerken wir zunächst, dass für $k\neq \tilde{k},\,\tilde{k}\in\N_{0}$ die Funktionen $f_{k}$ und $f_{\tilde{k}}$ gemeinsame Polstellen besitzen können (Siehe Lemma 4.3.2), ebenso müssen nicht alle Pole von $f_{k}$ paarweise verschieden sein und können sogar übereinstimmen (Siehe Lemma 4.3.1). 
+\par
+\vspace{0.5 cm}
+O. B. d. A. seien also für beliebige $k\neq \overline{k} $ die Polstellen von $f_{k}$ und $f_{\overline{k}}$, ebenso wie die Polstellen von $f_{k}$ untereinander  paarweise verschieden.
+\par 
+Wie wir später noch besprechen werden, liegt die Menge $\mathfrak {P}\left(\zeta_{\{a\}}\right)$ als abzählbare Menge diskret in ${\C}$. Folglich können wir eine ganze Umgebung $\emptyset \neq U_{\rho_{k,m}(\tilde{\beta})}$ von $\rho_{k,m}(\tilde{\beta})$ finden, in der die Funktion
+\begin{align*}
+\zeta_{\{a\},k}(s):=\zeta_{\{a\}}(s)-f_{k}(s)
+\end{align*} 
+holomorph ist. Mit diesen Vorüberlegungen können wir nun das Residuum von $\zeta_{\{a\}}$ in der Polstelle $\rho_{k,m}(\tilde{\beta})$ bestimmen:   
+\begin{align*}
+\text{Res}_{\rho_{k,m}(\tilde{\beta})}\zeta_{\{a\}}(s)&=\lim_{ U_{\rho_{k,m}(\tilde{\beta})}\ni s\to\rho_{k,m}(\tilde{\beta})}(s-\rho_{k,m}(\tilde{\beta}))\zeta_{\{a\}}(s)\\
+&=\lim_{U_{\rho_{k,m}(\tilde{\beta})}\ni s \to\rho_{k,m}(\tilde{\beta})}(s-\rho_{k,m}(\tilde{\beta}))\left(\zeta_{\{a\},k}(s)+f_{k}(s)\right)\\
+&=\text{Res}_{\rho_{k,m}(\tilde{\beta})}f_{k}(s)\\
+&=\lim_{U_{\rho_{k,m}(\tilde{\beta})}\ni s\to\rho_{k,m}(\tilde{\beta})}(s-\rho_{k,m}(\tilde{\beta}))\alpha_{1}^{-(s+k)}\binom{-s}{k}\sum_{|\beta|=k}\binom{k}{\beta}\frac{(\alpha\varphi)^{\beta}}{\varphi_{1}^{s+k}-\varphi^{\beta}}\\
+&=\lim_{U_{\rho_{k,m}(\tilde{\beta})}\ni s\to\rho_{k,m}(\tilde{\beta})}(s-\rho_{k,m}(\tilde{\beta}))\alpha_{1}^{-(s+k)}\binom{-s}{k}\binom{k}{\tilde{\beta}}\frac{(\alpha\varphi)^{\tilde{\beta}}}{\varphi_{1}^{s+k}-\varphi^{\tilde{\beta}}}\\
+&=\alpha_{1}^{-(\rho_{k,m}(\tilde{\beta})+k)}\binom{-\rho_{k,m}(\tilde{\beta})}{k}\binom{k}{\tilde{\beta}}\lim_{U_{\rho_{k,m}(\tilde{\beta})}\ni s\to\rho_{k,m}(\tilde{\beta})}\frac{(\alpha\varphi)^{\tilde{\beta}}}{\frac{\varphi_{1}^{s+k}-\varphi^{\tilde{\beta}}}{s-\rho_{k,m}(\tilde{\beta})}}
+\end{align*}
+Wir erkennen im Nenner den Differenzenquotienten der Funktion $s\mapsto\varphi_{1}^{s+k}$, welcher für $s=\rho_{k,m}(\tilde{\beta})$ den Wert $\varphi_{1}^{\rho_{k,m}(\tilde{\beta})+k} \log(\varphi_{1})$ annimmt. 
+Damit erhalten wir:
+\begin{align*}
+\text{Res}_{\rho_{k,m}(\tilde{\beta})}\zeta_{\{a\}}(s)=\alpha_{1}^{-(\rho_{k,m}(\tilde{\beta})+k)}\binom{-\rho_{k,m}(\tilde{\beta})}{k}\binom{k}{\tilde{\beta}}\frac{(\alpha\varphi)^{\tilde{\beta}}}{\log(\varphi_{1})\varphi_{1}^{\rho_{k,m}(\tilde{\beta})+k}}.
+\end{align*}
+Wir werden nun die Polstellen $\rho_{k,m}(\beta)$ von $f_{k}$ und die Polstellenmenge $\mathfrak P(\zeta_{\{a\}})$ von $\zeta_{\{a\}}$ genauer untersuchen.
+\par
+\vspace{0.2cm}
+Zunächst suchen wir nach einer Bedingung, unter der die Polstellen $\rho_{k,m}(\beta)$ von $f_{k}$ alle verschieden sind. Dazu definieren wir zunächst für die beiden Multiindizes
+\begin{align*} \beta=\left(\beta_{2},\beta_{3},\ldots,\beta_{l}\right),\,\tilde{\beta}=\left(\tilde{\beta}_{2},\tilde{\beta}_{3},\ldots,\tilde{\beta}_{l}\right)\in\N_{0}^{l-1}\,\,\text{mit}\,\, \left|\beta\right|=|\tilde{\beta}|:
+\end{align*}
+\begin{center}
+$i^{*}:=\min\left\{i\in J\backslash\{1\};\beta_{i}\neq \tilde{\beta}_{i} \right\}$.
+\end{center}
+Aufschluss über das Verhalten der Polstellen von $f_{k}$ liefert nun folgendes Lemma:
+\begin{Lemma}
+\par
+Seien $\beta,\tilde{\beta}\in \N^{l-1}$ mit  $|\beta|=|\tilde{\beta}|=k\in\N_{0}$ und $m,\tilde{m}\in\Z$. Gilt
+$\rho_{k,m}(\beta)=\rho_{k,\tilde{m}}(\tilde{\beta})$, dann folgt $m=\tilde{m}$ und es existieren für $j\in J\backslash \{1\},\,j>i^{*}$ rationale Zahlen $p_{j}$ mit $\left|p_{j}\right|\leq 2 k$, sodass für die charakteristische Wurzel $\varphi_{i^{*}}$ gilt:
+\begin{align*}
+\left|\varphi_{i^{*}}\right|&=\prod_{\substack{j\in J\backslash\{1\}\\ j>i^{*}}}\left|\varphi_{j}\right|^{p_{j}}.
+\end{align*}
+\end{Lemma}
+\begin{proof}
+Wenn die beiden Polstellen $\rho_{k,m}(\beta),\,\rho_{k,\tilde{m}}(\tilde{\beta})$ von $f_{k}$ übereinstimmen, dann gilt
+\begin{align}
+-k + \frac{\log\left|\varphi\right|^{\beta} + i\cdot \arg\left(\varphi^{\beta}\right) + m \cdot2 \pi i}{\log(\varphi_{1})}=-k + \frac{\log\left|\varphi\right|^{\tilde{\beta}} + i\cdot \arg\left(\varphi^{\tilde{\beta}}\right) + \tilde{m} \cdot2 \pi i}{\log(\varphi_{1})}\label{mother}
+\end{align}
+wobei auf beiden Seiten Real- und Imaginärteil gleich sein müssen. Wir betrachten zuerst den Imaginärteil, für welchen gelten muss:
+\begin{align*}
+\arg\left(\varphi^{\beta}\right)+ m \cdot2 \pi &=\arg\left(\varphi^{\tilde{\beta}}\right) + \tilde{m} \cdot2 \pi \\
+\Leftrightarrow\qquad \frac{\arg\left(\varphi^{\beta}\right)-\arg\left(\varphi^{\tilde{\beta}}\right)}{2 \pi}&=\tilde{m} - m. 
+\end{align*} 
+Die rechte Seite der letzten Gleichung ist dabei eine ganze Zahl und es gilt bekanntlich $0 \leq \arg(z) < 2\cdot \pi$ für $z\in{\C}$. Wegen $- 2 \pi < \arg\left(\varphi^{\beta}\right)-\arg\left(\varphi^{\tilde{\beta}}\right) < 2 \pi $ kann aber nur  $\tilde{m} - m=0$ gelten. Insbesondere erhalten wir $\arg\left(\varphi^{\beta}\right)=\arg\left(\varphi^{\tilde{\beta}}\right)$.
+\par
+\vspace{0.5cm}
+Wir betrachten nun den Realteil beider Seiten, nachdem wir überflüssige Summanden und Faktoren gekürzt haben: 
+\begin{align*}
+\log\left|\varphi\right|^{\beta}&=\log\left|\varphi\right|^{\tilde{\beta}}.
+\end{align*}
+Hierfür liefert uns nun die Injektivität des reellen Logarithmus:
+\begin{align*}
+\left|\varphi\right|^{\beta}=\prod_{j\in J\backslash\{1\}}|\varphi_{j}|^{\beta_{j}}=\prod_{j\in J \backslash \{1\}}|\varphi_{j}|^{\tilde{\beta}_{j}}=\left|\varphi\right|^{\tilde{\beta}}.
+\end{align*}
+Wir verwenden nun unsere Notion von oben und erhalten
+\begin{align*}
+\prod_{\substack{j\in J\backslash\{1\}\\j\geq i^{*}}}|\varphi_{j}|^{\beta_{j}}=\prod_{\substack{j\in J\backslash\{1\}\\j\geq i^{*}}}|\varphi_{j}|^{\tilde{\beta}_{j}}.
+\end{align*}
+Umstellen nach $|\varphi_{i^{*}}|$ liefert uns
+\begin{align*}
+|\varphi_{i^{*}}|=\prod_{\substack{j\in J\backslash\{1\}\\j > i^{*}}}|\varphi_{j}|^{\frac{\tilde{\beta}_{j}-\beta_{j}}{\beta_{i^{*}}-\tilde{\beta}_{i^{*}}}}=:\prod_{\substack{j\in J\backslash\{1\}\\j > i^{*}}}|\varphi_{j}|^{p_{j}}.
+\end{align*}
+Offensichtlich gilt $\left|p_{j}\right|\leq 2k$
+und damit ist die Behauptung bewiesen. Besitzen umgekehrt die charakteristischen Wurzeln $\varphi_{i},\,i\in J\backslash \{1\}$ nicht obige Eigenschaft, dann kann für kein $k\in\N_{0}$ Gl.($\ref{mother}$) erfüllt sein, d.h. $f_{k}$ besitzt nur paarweise verschiedene Polstellen $\rho_{k,m}(\beta)$.   
+\end{proof}
+Offensichtlich gilt:
+\begin{Korollar}
+Für $i\in J\backslash \{1\}$ gelte $\varphi_{i}>0$. Dann gilt auch die Umkehrung von Lemma 4.3.1.
+\begin{flushright}
+             $\square$
+\end{flushright}
+\end{Korollar}
+Wir wollen nun kurz noch den Fall besprechen, in welchem alle Polstellen $\rho_{k,m}\left(\beta\right)$ der Funktion $f_{k}$ übereinstimmen, also $f_{k}$ nur einen einzigen Pol besitzt. Mit Gl.$(\ref{mother})$ erhalten wir:
+\begin{align*}
+|\varphi|^{\beta}=\prod_{i\in J\backslash\{1\}}|\varphi_{i}|^{\beta_{i}}= \text{konst.}\,\,\text{für alle}\,\,\beta\in\N_{0}^{l-1}\,\,\text{mit}\,\,|\beta|=k.
+\end{align*}
+Hierraus folgt sofort $|\varphi_{2}|=|\varphi_{3}|=\ldots=|\varphi_{l}|$, d.h. falls wir nur diejenigen Elemente der Klasse $\zeta$ betrachten, deren charakteristische Wurzeln $\varphi_{i}$ reell sind, liefert uns die Vielfachtheit $\sigma_{i}=1$ von $\varphi_{i}$ für die Ordnung $l$ von $\{a\}$:\quad$l\leq 3,\,\,\text{also}\,\,\varphi_{2}=-\varphi_{3}\,\,\text{für}\,\, l=3.$
+\par
+\vspace{0.2cm}
+Betrachten wir dagegen auch komplexe charakteristische Wurzeln $\varphi_{i},\,i\in J\backslash\{1\}$ , so kann die Ordnung $l$ beliebig groß werden, falls alle diese $l-1$ charakteristischen Wurzeln auf derselben Kreislinie in ${\C}$ liegen.
+\par
+\vspace{0.5cm}  
+Nachdem wir nun wissen wann die Funktion $f_{k}$ nur paarweise verschiedene Polstellen besitzt, wollen wir eine Bedingung finden, unter welcher die Funktion
+\begin{align*}
+\zeta_{\{a\}}=\sum_{k=0}^{\infty}f_{k}
+\end{align*}
+nur paarweise verschieden Polstellen besitzt. Hierfür ergibt sich:
+\newpage
+\begin{Lemma}
+\par
+Seien $k, \tilde{k}\in\N_{0}$, mit $k\neq\tilde{k}$. Ist dann der Durchschnitt der beiden Polstellenmengen $\mathfrak P(f_{k})$ und $\mathfrak P(f_{\tilde{k}})$ nicht leer, so existieren rationale Zahlen $p_{2},\ldots,p_{l}$, mit 
+\begin{align*}
+\sum_{i=2}^{l}p_{i}=1\,\,\text{und}\,\,\sum_{i\in J\backslash\{1\}}p_{i}\frac{\log|\varphi_{i}|}{\log(\varphi_{1})}&=1.
+\end{align*}
+\end{Lemma}
+\begin{proof}
+Nach Voraussetzung existiert ein $\rho_{k,m}(\beta)\in\mathfrak P(f_{k})\cap\mathfrak P(f_{\tilde{k}})$.
+Folglich besitzt die Polstelle $\rho_{k,m}(\beta)$ zwei unterschiedliche Darstellungen
+\begin{align}
+-k + \frac{\log|\varphi|^{\beta} + i\cdot \arg\left(\varphi^{\beta}\right) + m \cdot2 \pi i}{\log(\varphi_{1})}=-\tilde{k} + \frac{\log|\varphi|^{\tilde{\beta}} + i\cdot \arg\left(\varphi^{\tilde{\beta}}\right) + \tilde{m} \cdot2 \pi i}{\log(\varphi_{1})},\label{tha}
+\end{align}
+und auf beiden Seiten von Gl.($\ref{tha}$) müssen Real- und Imaginärteil übereinstimmen. Analog zu Lemma 4.3.1 folgt wieder $m=\tilde{m}$. 
+Für den Realteil erhalten wir:
+\begin{align*}
+-k + \frac{\log|\varphi|^{\beta}}{\log(\varphi_{1})}&=-\tilde{k} + \frac{\log|\varphi|^{\tilde{\beta}}}{\log(\varphi_{1})}\\
+\Leftrightarrow\quad \tilde{k}-k&=\frac{\log\left|\varphi\right|^{\tilde{\beta}}-\log\left|\varphi\right|^{\beta}}{\log(\varphi_{1})}.
+\end{align*}
+Die Anwendung der Rechengesetze für den Logarithmus liefert uns:
+\begin{align*}
+\log\prod_{i\in J\backslash\{1\}}|\varphi_{i}|^{\tilde{\beta}_{i}-\beta_{i}}=\sum_{i\in J\backslash\{1\}}(\tilde{\beta}_{i}-\beta_{i})\text{log}|\varphi_{i}|&=(\tilde{k}-k)\log(\varphi_{1})\\
+\Leftrightarrow\quad  
+\sum_{i\in J\backslash\{1\}}\frac{\tilde{\beta}_{i}-\beta_{i}}{\tilde{k}-k}\frac{\log|\varphi_{i}|}{\log\varphi_{1}}&=1.
+\end{align*} 
+Definieren wir noch für $2 \leq i \leq l$
+\begin{align*}
+p_{i}:=\frac{\tilde{\beta}_{i}-\beta_{i}}{\tilde{k}-k},
+\end{align*}
+so sehen wir schnell, dass auch $\sum_{i=2}^{l}p_{i}=1$ erfüllt ist. 
+\end{proof}
+Wieder sehen wir:
+\newpage
+\begin{Korollar}
+Für $i\in J\backslash \{1\}$ gelte $\varphi_{i}>0$. Dann gilt auch die Umkehrung von Lemma 4.3.2.
+\begin{flushright}
+             $\square$
+\end{flushright}
+\end{Korollar}
+Wir beschließen nun diesen Unterabschnitt, indem wir noch die maximale Anzahl aller reellen Polstellen von $f_{k}$ - welche wir mit 
+$\tilde{\mathfrak P}\left(f_{k}\right)$\label{reelle Polstellen} bezeichnen - bestimmen. Dafür müssen wir die Anzahl der Multiindizes $\beta,|\beta|=k$ berechnen. Hierfür benötigen wir:
+\begin{Lemma}
+\par
+Für $k,l,m\in\N_{0}$ gilt:
+\par
+$\textbf{a)}\,\sum_{\tau=0}^{n}\binom{m+\tau}{k}=\binom{m+n+1}{k+1}-\binom{m}{k+1}$.
+\par
+$\textbf{b)}\,\sum_{\tau=0}^{n}\binom{n-\tau+m}{m}(\tau+1) = \binom{n+m+2}{m+2}.$
+\end{Lemma}
+\begin{proof}
+Jeweils durch vollständige Induktion:
+\par
+\textbf{a)}
+\par
+\textbf{(IA):}\,Sei n=0, dann gilt: $\sum_{\tau=0}^{0}\binom{m+\tau}{k}=\binom{m}{k}= \binom{m+1}{k+1}-\binom{m}{k+1}$.
+\par
+\textbf{(IV):}\,Die Aussage sei nun bereits für ein $n\in\N$ bewiesen.
+\par
+\textbf{(IS):}\,Schluss von n auf n+1:
+\begin{align*}
+\sum_{\tau=0}^{n+1}\binom{m+\tau}{k} &\,\,= \sum_{\tau=0}^{n}\binom{m+\tau}{k}+\binom{m+n+1}{k}\\
+                     &\stackrel{\text{\textbf{(IV)}}}{=} \binom{m+n+1}{k+1}-\binom{m}{k+1}+\binom{m+n+1}{k}\\
+                     &\,\,=\binom{m+n+2}{k+1}-\binom{m}{k+1}. 
+\end{align*}
+\textbf{b)}
+\par
+\textbf{(IA):}\,Sei n=0, dann ist die Aussage offensichtlich erfüllt.
+\par
+\textbf{(IV):}\,Die Aussage sei nun bereits für ein $n\in\N$ bewiesen.
+\par
+\textbf{(IS):}\,Schluss von n auf n+1:
+\nopagebreak
+\begin{align*}
+\sum_{\tau=0}^{n+1}\binom{n+1-\tau+m}{m}(\tau+1)&=\sum_{\tau=0}^{n+1}\left(\binom{n-\tau+m}{m}+\binom{n-\tau+m}{m-1}\right)(\tau+1)\\
+&=\binom{n+m+2}{m+2}+\sum_{\tau=1}^{n+1}\binom{n-\tau+m}{m-1}(\tau+1)+\binom{n+m}{m-1}\\
+&=\binom{n+m+2}{m+2}+\sum_{\tau=0}^{n}\binom{n-\tau+m-1}{m-1}(\tau+2)+\\
+&\qquad + \binom{n+m}{m-1}\\
+\end{align*}
+\begin{align*}
+&\stackrel{\textbf{(IV)}}{=}\binom{n+m+2}{m+2}+\binom{n+m+1}{m+1}+\sum_{\tau=0}^{n}\binom{n-\tau+m-1}{m-1}+\binom{n+m}{m-1}.
+\end{align*}
+Aus \textbf{a)} erhalten wir
+\begin{align*}
+\sum_{\tau=0}^{n}\binom{n-\tau+m-1}{m-1}=\binom{m+n}{m}-\underbrace{\binom{m-1}{m}}_{=0}.
+\end{align*}
+Das setzten wir nun wieder ein und erhalten
+\begin{align*}
+\sum_{\tau=0}^{n+1}\binom{n+1-\tau+m}{m}(\tau+1)&=\binom{n+m+2}{m+2}+\binom{n+m+1}{m+1}+\binom{m+n}{m}+\binom{n+m}{m-1}\\
+&=\binom{n+m+2}{m+2}+\binom{n+m+1}{m+1}+\binom{m+n+1}{m}\\
+&=\binom{n+m+2}{m+2}+\binom{n+m+2}{m+1}\\
+&=\binom{(n+1)+m+2}{m+2}.
+\end{align*}
+\end{proof}
+\begin{Lemma}
+\par
+Seien $n,m,\alpha$ wie im Multinomialsatz (s. Anhang). Dann gilt für die Anzahl $\mathfrak A_{m,n}(\alpha)$\label{Anzahl} aller Multiindizes $\alpha\in\N^{m}_{0}$ mit Ordnung $n$:
+\begin{align*}
+\mathfrak A_{m,n}(\alpha)=\binom{n+m-1}{m-1}.
+\end{align*}
+\end{Lemma}
+\begin{proof}
+Wir werden die Aussage durch Induktion nach $m$ beweisen:
+\par
+\textbf{(IA):}\,Sei $m=1$. Dann gilt offensichtlich $\mathfrak A_{1,n}(\alpha)=1$.
+\par
+\textbf{(IV):}\,Die Behauptung sei nun für ein beliebiges $m<n$ bewiesen.
+\par
+\textbf{(IS):}\,Wir ordnen nun die $m$-Tupel $(\alpha_{1},\ldots,\alpha_{m})\in \N_{0}^{m}\,,|\alpha|=n$, nach der Größe von $\alpha_{m}$. Jedes $m+1$-Tupel $(\tilde{\alpha}_{1},\ldots,\tilde{\alpha}_{m+1})\in\N_{0}^{m+1}\,,|\tilde{\alpha}|=n$ entsteht dabei aus einem $m$-Tupel $(\alpha_{1},\ldots,\alpha_{m})\in \N_{0}^{m}$, indem wir die Zahl $\alpha_{m}$ als Summe der Zahlen $\tilde{\alpha}_{m},\tilde{\alpha}_{m+1}\in\N_{0}$ darstellen.
+Nach \textbf{(IV)} können wir die Zahl $\alpha_{m}$ auf genau
+\begin{align*}
+\mathfrak A_{2,\alpha_{m}}(\alpha)=\binom{\alpha_{m}+1}{1} = \alpha_{m}+1
+\end{align*}
+Weisen als Summe zweier Zahlen $\tilde{\alpha}_{m},\tilde{\alpha}_{m+1}\in\N_{0}$ darstellen.
+Da die Zahl $\alpha_{m}$ nach \textbf{(IV)} bei genau $\mathfrak A_{m-1,n-\alpha_{m}}(\alpha)$-Tupeln an letzter Stelle steht, enstehen aus jedem $\alpha_{m}$ insgesamt $\mathfrak A_{2,\alpha_{m}}(\alpha)\mathfrak A_{m-1,n-\alpha_{m}}(\alpha)$ neue Tupel.
+\par
+Damit folgt:
+\begin{align*}
+\mathfrak A_{m+1,n}(\alpha)&=\sum_{\alpha_{m}=0}^{n}\mathfrak A_{2,\alpha_{m}}(\alpha)\mathfrak A_{m-1,n-\alpha_{m}}(\alpha)\\
+                           &=\sum_{\alpha_{m}=0}^{n}(\alpha_{m}+1)\binom{n-\alpha_{m}+m-2}{m-2}.
+\end{align*}
+Unter Verwendung von Lemma 4.3.3 b) erhalten wir schließlich:
+\begin{align*}
+\mathfrak A_{m+1,n}(\alpha) =\binom{n+m}{m}.
+\end{align*}
+Damit ist die Aussage bewiesen.
+\end{proof}
+Als Folgerung ergibt sich:
+\begin{Korollar}
+Die Menge $\tilde{\mathfrak P}(f_{k})$ der reellen Polstellen von $f_{k}$ enthält höchstens $\mathfrak A_{l-1,k}(\beta)$ Elemente. 
+\begin{flushright}
+             $\square$
+\end{flushright}
+\end{Korollar}
+Um der Vollständigkeit ihren Willen zu lassen, zeigen wir noch:
+\begin{Korollar}
+Die Menge der  Polstellen von $\zeta_{\{a\}}$ ist abzählbar.
+\end{Korollar}
+\begin{proof}
+Offensichtlich ist die Menge $\tilde{\mathfrak P}(\zeta_{\{a\}})$ der reellen Polstellen von $\zeta_{\{a\}}$ Teilmenge der abzählbaren Vereinigung der abzählbaren Mengen $\tilde{\mathfrak P}(f_{k})$, also selbst wieder abzählbar. Die Menge
+$\mathfrak P(\zeta_{\{a\}})$ ist dann als kartesisches Produkt zweier abzählbarer Mengen abzählbar.
+\end{proof}
+Damit haben wir nun bewiesen, dass jedes Element $\zeta_{\{a\}}$ der Klasse $\zeta$, wobei die Koeffizienten der linearen Rekursion $\{a\}\in\mathfrak C^{l}$ der Ungl.$(\ref{Bedingung})$
+genügen, eine meromorphe Fortsetzung in die gesamte komplexe Ebene ${\C}$ besitzt.
+\par
+\vspace{0.2cm}
+Für den Fall, dass die Mächtigkeit der Menge der reellen Polstellen $\tilde{\mathfrak P}\left(\zeta_{\{a\}}\right)$ von $\zeta_{\{a\}}$ maximal ist, wollen wir noch eine explizite Bijektion 
+\begin{align*}
+\tilde{\mathfrak P}\left(\zeta_{\{a\}}\right) \to \N
+\end{align*}
+angeben. 
+Dazu kennzeichnen wir vorübergehend die reellen Polstellen $\rho_{k,0}(\beta)$ von $f_{k}$ mit einem weiteren Index um die Abzählbarkeit der Menge $\tilde{\mathfrak P}(f_{k})$ zu suggerieren:
+\begin{align*}
+\tilde{\mathfrak P}(f_{k})=\left\{\rho^{j}_{k,0}(\beta);1\leq j\leq \mathfrak A_{l-1,k}(\beta)\right\}.
+\end{align*}
+Nun werden wir beweisen, dass die rekursive Folge
+$$
+\psi:
+              \left\{ \begin{array} {ccc}
+              \tilde{\mathfrak P}(\zeta_{\{a\}}) & \rightarrow & \N \\
+               \rho^{j}_{k,0}(\beta)& \rightarrow & \psi(\rho^{j}_{k,0}(\beta)) =
+               \begin{cases}
+                 1           & \text{für}\,\, k=0,\\
+                  \sum_{n=1}^{k}\psi(\rho^{\mathfrak A_{l-1,n-1}}_{n,0}(\beta))+j & \text{für} \,\, k\geq 1,\,1\leq j \leq                            \mathfrak A_{l-1,k}.
+                \end{cases}
+              \end{array}\right.
+$$
+die Menge der reellen Polstellen von $\zeta_{a}$ - unter den oben genannten Bedingen an die charakteristischen Wurzeln - bijektiv auf die natürlichen Zahlen $\N$ abbildet:
+\par 
+\vspace{0.2cm}
+\textbf{Injektivität:}
+\vspace{0.2cm}
+\par
+Offensichtlich gilt $\psi(\rho^{j+1}_{k,0}(\beta))> \psi(\rho^{j}_{k,0}(\beta))$. Damit ist $\psi$ streng monoton wachsend und insbesondere injektiv. 
+\par
+\vspace{0.2cm}
+\textbf{Surjektivität:}
+\vspace{0.2cm}
+\par
+Sei $n_{0}\in\N$. Dann existiert $k^{*}:=\max\{k\in\N_{0};\sum_{n=1}^{k}\psi(\rho^{\mathfrak A_{l-1,n-1}}_{n,0}(\beta))< n_{0}\}$
+und es gilt $k_{0} = \psi(\rho^{j}_{k^{*},0}(\beta))$ für ein $1\leq j \leq \mathfrak A_{l-1,k^{*}}$.
+Damit ist $\psi$ bijektiv und folglich $\tilde{\mathfrak P}(\zeta_{\{a\}})$ abzählbar.
+\subsubsection{Konstruktion von Elementen $\zeta_{\{a\}}\in\zeta$ mit regelmäßigem Polverhalten auf der reellen Achse}
+In diesem Abschnitt werden wir an die charakteristischen Wurzeln $\varphi_{2},\ldots,\varphi_{l}$ der linearen Rekursion $\{a\}\in\mathfrak C^{l}$ Bedingungen stellen, welche der zugeordneten Funktion $\zeta_{\{a\}}\in\zeta$  in den Polstellen $\rho_{k,0}(\beta)$ ein regelmäßiges Verhalten garantiert. Dazu fordern wir, dass $\zeta_{\{a\}}$ auf der reellen Achse nur reelle Werte annimmt. Dies erreichen wir, indem wir nur reelle charakteristischen Wurzeln $\varphi_{i},\,i\in J\backslash \{1\}$ betrachten. Außerdem setzen wir voraus, dass $\zeta_{\{a\}}$ nur paarweise verschiedene Polstellen besitzt (Siehe Lemma 4.3.1 und Lemma 4.3.2).
+Zunächst studieren wir wieder das Verhalten von 
+\begin{align*}
+f_{k}=\alpha_{1}^{-(s+k)}\binom{-s}{k}\sum_{|\beta|=k}\binom{k}{\beta}\frac{(\alpha\varphi)^{\beta}}{\varphi_{1}^{s+k}-\varphi^{\beta}}
+\end{align*}
+in den reellen Polstellen $\rho_{k,0}(\beta)$.
+\par
+Nachdem diejenigen Multiindizes $\beta\in \N_{0}^{l-1}$ mit $\text{sign}(\varphi^{\beta})\footnote{Mit sign bezeichnen wir die Signumsfunktion, also
+$\text{sign}(x)= 
+\begin{cases}
+-1 & \text{für}\,\, x < 0,\\
+0  & \text{für}\,\, x = 0,\\
+1 & \text{sonst}.
+\end{cases}$}<0$ keine reellen Polstellen liefern, seien alle charakteristischen Wurzeln $\varphi_{i},i\in J\backslash \{1\}$  von $\zeta_{\{a\}}$ der Einfachheit halber  positiv.
+Wir betrachten also in diesem Abschnitt nur diejenigen Elemente $\zeta_{\{a\}}$ der Klasse $\zeta$, deren reelle Polstellen die Form
+\begin{align*}
+\rho_{k,0}\left(\beta\right)= - k + \frac{\log(\varphi^{\beta})}{\log(\varphi_{1})}
+\end{align*}
+besitzen.
+Als erstes untersuchen wir das Vorzeichen des Binomalkoeffizienten $\binom{-s}{k}$ in den Polstellen $\rho_{k,0}(\beta)$: 
+\begin{Lemma}
+\begin{align*}
+&\text{\textbf{a)}}\,\text{Genau dann gilt sign}\binom{-\rho_{k,0}(\beta)}{k}>0\,\,\text{für alle}\,\,
+k\in\N_{0},\,\,\,\text{wenn alle charakteristischen}\qquad\\
+&\,\,\,\,\,\,\,\text{Wurzeln}\,\,\varphi_{i},\, i\in J\backslash \{1\},\,\, \varphi_{i}\leq 1\,\,\text{erfüllen}.\\
+&\text{\textbf{b)}}\,\text{Die Gleichung sign}\binom{-\rho_{k,0}(\beta)}{k}=(-1)^{k},\,k\in\N_{0},\,
+\text{kann nicht gleichzeitig für alle} \\
+&\,\,\,\,\,\,\,k\in\N_{0}\,\text{erfüllt sein}.\\ 
+&\text{\textbf{c)}}\,\text{sign}\binom{-\rho_{k,0}(\beta)}{k}<0\,\,\text{für alle}\,\,k\in\N_{0}\,\,\text{ist unerfüllbar}.
+\end{align*}
+\end{Lemma}
+\begin{proof}
+\textbf{a)}"`$\Leftarrow$"'\,Nach Voraussetzung gilt $0 < \varphi_{i}\leq 1$, $i\in J\backslash \{1\}$. Angenommen es existiert ein
+$k\in\N_{0}$ mit $\text{sign}\binom{-\rho_{k,0}(\beta)}{k}<0$, also
+\begin{align*}
+\binom{-\rho_{k,0}(\beta)}{k}=\prod_{j=1}^{k}\frac{-\rho_{k,0}(\beta)+1-j}{j}=\prod_{j=1}^{k}\frac{k-\frac{\log\left(\varphi^{\beta}\right)}{\log(\varphi_{1})}+1-j}{j}<0,
+\end{align*}
+dann existiert mindestens ein Index $j\in\{1,2,\ldots,k\}$ mit 
+\begin{align*}
+k-\frac{\log\left(\varphi^{\beta}\right)}{\log(\varphi_{1})}+1-j<0.
+\end{align*}
+Wir lösen die letzte Beziehung nach $\varphi_{1}$ auf und erhalten
+\begin{align}
+\varphi_{1}^{k+1-j}<\varphi^{\beta}.\label{Hill}
+\end{align}
+Ungl.($\ref{Hill}$) muss dann für jeden Multiindex $\beta\in N^{l-1}_{0}$ mit $|\beta|=k$ erfüllt sein.
+Folglich wäre auch $\varphi^{k+1-j}_{1}<\varphi_{i}^{k}$, $i\in J\backslash \{1\}$. Wegen $\varphi_{1}>1$ ist diese Ungleichung aber unerfüllbar.
+\par
+\vspace{0.2cm}
+"`$\Rightarrow$"'\,Nach Voraussetzung gilt für alle $k\in\N_{0}$
+\begin{align*}
+\text{sign}\binom{-\rho_{k,0}(\beta)}{k}=\prod_{j=1}^{k}\frac{-\rho_{k,0}(\beta)+1-j}{j}>0.
+\end{align*}
+Nachdem sich jeder Faktor
+\begin{align*}
+\frac{-\rho_{k,0}(\beta)+1-j}{j}
+\end{align*}
+des Binomialkoeffizienten durch
+\begin{align*}
+\frac{-\rho_{k,0}(\beta)+1-j}{j}=\frac{\binom{-\rho_{k,0}(\beta)}{j}}{\binom{-\rho_{k,0}(\beta)}{j-1}},
+\end{align*}
+ausdrücken läßt,
+kann keiner der Faktoren negativ sein. Damit gilt:
+\begin{align}
+\frac{-\rho_{k,0}(\beta)+1-j}{j}=\frac{k-\frac{\log\left(\varphi^{\beta}\right)}{\log(\varphi_{1})}+1-j}{j}\geq 0.\label{sudden}
+\end{align}
+Wir sortieren Ungl.($\ref{sudden}$) und erhalten
+\begin{align}
+k+1-j \geq \frac{\log\left(\varphi^{\beta}\right)}{\log(\varphi_{1})}.\label{Pol}
+\end{align}
+Die rechte Seite von Ungl.$(\ref{Pol})$ ist für festgewähltes $\beta\in\N^{l-1}_{0}$ konstant, folglich muss
+für jeden Multiindex $\beta$ mit $|\beta|=k$ gelten:
+$$
+\frac{\log\left(\varphi^{\beta}\right)}{\log(\varphi_{1})}\leq 1.
+$$
+Insbesondere erhalten wir 
+\begin{align*}
+\log(\varphi_{i})\leq\frac{\log(\varphi_{1})}{k},
+\end{align*}
+für  $i\in J\backslash \{1\}$,
+was aber nur für $\varphi_{i}\leq 1$ möglich ist.
+\par
+\vspace{0.2cm}
+\textbf{b)}\,Nach Voraussetzung gilt
+\begin{align*}
+\text{sign}\binom{-\rho_{k,0}(\beta)}{k}=(-1)^{k},
+\end{align*} für alle $k\in\N_{0}$.
+Dann ist jeder Faktor des Binomialkoeffizienten negativ:
+\begin{align}
+\frac{k-\frac{\log\left(\varphi^{\beta}\right)}{\log(\varphi_{1})}+1-j}{j}<0,\,\,\text{für}\,\,1\leq j\leq k.\label{Pull}
+\end{align}
+Aus Ungl.$(\ref{Pull})$ folgt sofort, dass  $\log\left(\varphi_{1}^{k}\right)<\log\left(\varphi^{\beta}\right)$ gelten muss. Ein Widerspruch zur Definition der Klasse $\zeta$, nach der $|\varphi_{i}|<\varphi_{1}$, für $i\in J\backslash \{1\}$ gilt.
+\newpage
+\textbf{c)} Gilt trivialerweise wegen $\rho_{0,0}(\beta)=0$ und $\binom{0}{0}=1$.
+\end{proof} 
+Nachdem der Binomialkoeffizient nur für $\varphi_{i}\leq 1,\,i\in J\backslash \{1\}$ keinen Einfluss auf das Verhalten von $f_{k}$ in den Polstellen $\rho_{k,0}(\beta)$ besitzt, betrachten wir im Folgenden auch nur charakteristische Wurzeln $\varphi_{i}\leq 1$, $i\in J\backslash \{1\}$.
+Dann kann nur noch der Term $(\alpha\varphi)^{\beta}$ das Vorzeichen von $f_{k}$ in den Polstellen $\rho_{k,0}(\beta)$ beeinflussen, da 
+$$
+\lim_{\sigma\nearrow\rho_{k,0}(\beta)}\alpha_{1}^{-(s+k)}\sum_{|\beta|=k}\binom{k}{\beta}\frac{1}{\varphi_{1}^{\sigma+k}-\varphi^{\beta}}=-\infty,
+$$
+und
+$$
+\lim_{\sigma\searrow\rho_{k,0}(\beta)}\alpha_{1}^{-(s+k)}\sum_{|\beta|=k}\binom{k}{\beta}\frac{1}{\varphi_{1}^{\sigma+k}-\varphi^{\beta}}=+\infty.
+$$
+für alle Polstellen von $f_{k}$ gilt.
+Insgesamt sind zwei Fälle eines regelmäßigen Polverhaltens von $f_{k}$ möglich:
+\par
+\vspace{0.5cm}
+\textbf{Fall I:}
+\par
+\vspace{0.2cm}
+Die Funktion $f_{k}$ besitzt an jedem Pol $\rho_{k,0}(\beta)$ den gleichen Vorzeichenwechsel.
+\vspace{0.2cm}
+\par
+Folglich darf sich das Vorzeichen des Terms $(\alpha\varphi)^{\beta}$ für $\beta\in\N_{0}^{l-1}$, $|\beta|=k$ nicht ändern:
+\begin{align*}
+\text{sign}(\alpha\varphi)^{\beta}=\text{konst.},\,\,\text{für alle}\,\,\beta\in\N_{0}^{l-1}\,\text{mit}\,|\beta|=k.
+\end{align*}
+Die letzte Gleichung impliziert:
+\begin{align*} 
+\text{sign}(\alpha_{2}\varphi_{2})^{k}=\text{sign}(\alpha_{3}\varphi_{3})^{k}=\ldots=\text{sign}(\alpha_{l}\varphi_{l})^{k}.
+\end{align*}
+Wir prüfen nun nach, ob das Vorzeichen von $(\alpha\varphi)^{\beta}$ für $|\beta|=k$, unter der Voraussetzung
+\begin{align*}
+\text{sign}(\alpha_{2}\varphi_{2})=\text{sign}(\alpha_{3}\varphi_{3})=\ldots=\text{sign}(\alpha_{l}\varphi_{l}),
+\end{align*}
+konstant bleibt.
+Sei also $\beta\in\N_{0}^{l-1}$ mit $|\beta|=k$ beliebig, dann gilt:
+\begin{align*}
+\text{sign}(\alpha\varphi)^{\beta}&=\text{sign}\left(\prod_{i\in J\backslash \{1\}}(\alpha_{i}\varphi_{i})^{\beta_{i}}\right)=\prod_{i\in J\backslash \{1\}}\text{sign}\left(\alpha_{i}\varphi_{i}\right)^{\beta_{i}}\\
+&=\prod_{i\in J\backslash \{1\}}\left(\text{sign}\left(\alpha_{i}\varphi_{i}\right)\right)^{\beta_{i}}=\prod_{i\in J\backslash \{1\}}\left(\text{sign}\left(\alpha_{2}\varphi_{2}\right)\right)^{\beta_{i}}=\left(\text{sign}(\alpha_{2}\varphi_{2})\right)^{k}.
+\end{align*} 
+Also ist das Vorzeichen von $(\alpha\varphi)^{\beta}$ für $|\beta|=k$ tatsächlich konstant und 
+$f_{k}$ besitzt damit in allen reellen Polstellen $\rho_{k,0}(\beta)$ den gleichen Vorzeichenwechsel.
+\par
+Gilt nun $\text{sign}(\alpha_{i}\varphi_{i})>0$, $i\in J\backslash \{1\}$, so besitzt $\zeta_{\{a\}}(s)=\sum_{k=0}^{\infty}f_{k}(s)$ in allen reellen Polstellen den gleichen Vorzeichenwechsel von $+$ nach $-$, also ein regelmäßiges Polverhalten.
+\newpage
+\par
+\vspace{0.5cm}
+\textbf{Fall II:}
+\vspace{0.2cm}
+\par
+Die Funktion $f_{k}$ wechselt in jeder Polstelle $\rho_{k,0}(\beta)$ ihr Vorzeichen.
+\par
+\vspace{0.2cm}
+Dieser Fall ist von vornherein schwieriger zu konstruieren als \textbf{Fall I}. Offensichtlich besteht das Problem bei dieser Konstruktion darin, die Polstellen $\rho_{k,0}(\beta)$ der Größe nach zu ordnen. 
+Für die Anordnung der Polstellen suchen wir zunächst nach einer Bedingung, unter welcher auf der reellen Achse - vom Ursprung aus gesehen - vor den Polstellen von $f_{k+1}$ die Polstellen von $f_{k}$ liegen, also die Ungleichung $\rho_{k+1,0}(\tilde{\beta}) < \rho_{k,0}(\beta)$ für alle $k\in\N_{0}$ erfüllt ist.
+Dabei ist die Polstelle $\rho_{k,0}(\beta),\,\beta\in\N_{0}^{l-1}\,\text{mit}\,\beta=\left(0,0,\ldots,0,k\right)$
+von $f_{k}$ am weitesten vom Ursprung entfernt, während die Polstelle $\rho_{k+1,0}(\tilde{\beta}),\,\tilde{\beta}\in\N_{0}^{l-1}\,\text{mit}\,\tilde{\beta}=\left(k+1,0,\ldots,0\right)$
+von $f_{k+1}$ am nächsten am Ursprung liegt. Folglich muss gelten:
+\begin{align*}
+-(k+1)+\frac{\log(\varphi_{2}^{k+1})}{\log(\varphi_{1})}< -k+\frac{\log(\varphi_{l}^{k})}{\log(\varphi_{1})} 
+\end{align*}
+Durch Umformen erhalten wir 
+\begin{align*}
+\frac{\log(\varphi^{k+1}_{2})}{\log(\varphi_{1})} - \frac{\log(\varphi^{k}_{l})}{\log(\varphi_{1})} &< 1\\
+\Leftrightarrow\qquad (k+1)\log(\varphi_{2})- k \log(\varphi_{l}) &< \log(\varphi_{1}),
+\end{align*}
+was uns schließlich zu der Ungleichung
+\begin{align}
+k\cdot\log\left(\frac{\varphi_{2}}{\varphi_{l}}\right)< \log\left(\frac{\varphi_{1}}{\varphi_{2}}\right)\label{Nightmare}
+\end{align}
+führt.
+Wegen $0 < \varphi_{2} \leq 1$, ist die rechte Seite von Ungl.($\ref{Nightmare}$) stets positiv. Damit muss gelten:
+\begin{align*}
+\frac{\varphi_{2}}{\varphi_{l}} \leq 1,
+\end{align*}
+also $\varphi_{2} \leq \varphi_{l}$. Gemäß der Definition der Klasse $\zeta$ gilt dann $l=2$ in Gl.(\ref{Koeff}). Also ist in unserem Fall eine Konstruktion einer Funktion $\zeta_{\{a\}}\in \zeta$, deren Polverhalten \textbf{Fall II} erfüllt, nur für lineare Rekursionen $\{a\}\in \mathfrak C^{2}$ möglich. 
+Folglich erfüllen unter oben genannten Bedingungen nur diejenigen Funktionen $\zeta_{\{a\}}\in\zeta$ das regelmäßige Polverhalten aus \textbf{Fall II}, welche die Gestalt
+\begin{align*}
+\zeta_{\{a\}}(s)=\alpha_{1}^{-s}\sum_{k=0}^{\infty}\binom{-s}{k}\frac{\left(\alpha_{2}\varphi_{2}\right)^{k}}{\varphi_{1}^{s+k}-\varphi_{2}^{k}}
+\end{align*}
+mit $\alpha_{2}\varphi_{2}<0$, $|\alpha_{2}|\leq \alpha_{1}$ und $0< \varphi_{2} \leq 1$ besitzen.
+\subsection{Das Verhalten der Elemente der Klasse $\zeta$ in der rechten Halbebene}
+Wir wollen nun kurz noch das Verhalten der Elemente der Klasse $\zeta$ auf der rechten Seite der Konvergenzabszisse diskutieren.
+Allgemein gilt für Dirichlet-Reihen (Vgl. \cite{Apostol} 11 S. 227.V):
+\begin{Satz}
+\par
+Sei $f(s)=\sum_{n=1}^{\infty}a_{n}e^{-\lambda_{n}s}$ eine Dirichlet-Reihe, die nicht identisch verschwindet. Dann existiert eine Halbebene $\mathbb{H}_{\sigma}$, $\sigma>\sigma_{0}$,
+in der $f$ keine Nullstelle besitzt.  
+\end{Satz}
+\begin{proof}
+Angenommen es existiert keine solche Halbebene $\mathbb{H}_{\sigma}$, dann kann man in jeder vorgegebenen Halbebene $\mathbb{H}_{\sigma}\subseteq\mathbb{H}_{\sigma_{0}}$ eine Nullstelle von $f$ finden und folglich existiert eine Folge $(s_{k})_{k\in\N}$ mit $f(s_{k})=0$ für alle $k\in\N$ und 
+$$
+\lim_{k \to \infty}\sigma_{k}=+\infty.
+$$
+Im Widerspruch zu Satz 2.2.4, nach dem $f$ in jeder Winkel-Ebene $W(s_{0},\alpha)$ nur endlich viele Nullstellen besitzen kann.
+\end{proof}
+In der rechten Halbebene $\mathbb H_{0}$ besitzt $\zeta_{\{a\}}\in\zeta$ die Darstellung
+\begin{align*}
+\zeta_{\{a\}}(s)=\sum_{n=1}^{\infty}a_{n}^{-s},
+\end{align*} 
+wobei $a_{n}$ durch die Rekursion 
+\begin{align*}
+a_{n}=c_{1}a_{n-1}+\ldots+c_{l}a_{n-l},
+\end{align*}
+aus Gl.($\ref{Koeff}$) festgelegt ist. Nachdem $a_{n}$ streng monoton wächst, können wir folgendermaßen abschätzen:
+\begin{align*}
+a_{n}=c_{1}a_{n-1}+\ldots+c_{l}a_{n-l}<a_{n-1}\sum_{k=1}^{l}c_{k}&<a_{n-2}\left(\sum_{k=1}^{l}c_{k}\right)^{2}.
+\end{align*}
+Induktiv erhalten wir:
+\begin{align*}
+a_{n} < a_{l+1}\left(\sum_{k=1}^{l}c_{k}\right)^{n-(l+1)} <\qquad \max_{1\leq j\leq l}a_{j}\left(\sum_{k=1}^{l}c_{k}\right)^{n-l}.
+\end{align*}
+Aus der strengen Monotonie der Folge $\{a\}$ folgt sofort, dass  $\sum_{k=1}^{l}c_{k}>1$ gelten muss.
+Damit können wir $\zeta_{\{a\}}$ auf der positiven reellen Achse nach unten abschätzen:
+\begin{align*}
+\zeta_{\{a\}}(\sigma)=\sum_{n=1}^{\infty}a_{n}^{-\sigma}&>\left(\max_{1\leq j\leq l}a_{j}\right)^{-\sigma}\sum_{n=1}^{\infty}\left(\sum_{k=1}^{l}c_{k}\right)^{-\sigma(n-l)}\\
+&=\left(\max_{1\leq j\leq l}a_{j}\left(\sum_{k=1}^{l}c_{k}\right)^{-l}\right)^{-\sigma}\frac{1}{\left(\sum_{k=1}^{l}c_{k}\right)^{\sigma}-1}.
+\end{align*}
+Insbesondere kann $\zeta_{\{a\}}$ auf der positiven reellen Achse nicht verschwinden.
+Zusammenfassend wissen wir nun, dass $\zeta_{\{a\}}\in\zeta$ eine nullstellen-freie Halbebene $\mathbb H_{\sigma}\subset\mathbb H_{0}$ besitzt und auf der positiven reellen Achse nicht verschwindet. Wir erhalten sogar: 
+\begin{Lemma}
+\par
+Sei $\zeta_{\{a\}}\in\zeta$. Dann besitzt $\zeta_{\{a\}}$ für $\text{Re}(s)>0$ keine Nullstelle. 
+\end{Lemma}
+\begin{proof}
+In der rechten Halbebene $\mathbb H_{0}$ besitzt $\zeta_{\{a\}}$ die Darstellung
+\begin{align*}
+\zeta_{\{a\}}(s)=\sum_{n=1}^{\infty}a_{n}^{-s},
+\end{align*}
+und ist als gleichmäßiger Limes einer holomorphen Funktionenfolge nach einem Satz von  Weierstraß (s. Anhang) holomorph.
+Damit besitzt jedes $s\in\mathbb H_{0}$ eine ganz innerhalb $\mathbb H_{0}$ gelegene Umgebung, in der sich $\zeta_{\{a\}}$ in 
+eine konvergente Taylor-Reihe  entwickeln lässt. Wir nehmen nun an, dass $\zeta_{\{a\}}$ in $s^{*}=\sigma^{*}+i\tau^{*}\in\mathbb H_{0}$ eine Nullstelle besitzt und betrachten die Taylorentwicklung mit Radius $R>0$ in einer Umgebung von $s^{*}$:
+\begin{align*}
+\zeta_{\{a\}}(s)&=\sum_{n=1}^{\infty}a_{n}^{-s}=\sum_{k=0}^{\infty}\frac{\zeta^{(k)}_{\{a\}}(s^{*})}{k!}(s-s^{*})^{k}\\
+                &=\sum_{k=1}^{\infty}\frac{\zeta^{(k)}_{\{a\}}(s^{*})}{k!}(s-s^{*})^{k}.
+\end{align*}
+Nach Voraussetzung ist dann auch die Funktion 
+\begin{align*}
+\xi_{\{a\}}(s):=\frac{\zeta_{\{a\}}(s)}{s-s^{*}}
+\end{align*}
+in $s=s^{*}$ holomorph und besitzt für $\left|s-s^{*}\right|<R$ die Potenzreihendarstellung
+\begin{align*}
+\xi_{\{a\}}(s)&=\sum_{k=1}^{\infty}\frac{\zeta^{(k)}_{\{a\}}(s^{*})}{k!}(s-s^{*})^{k-1}\\
+             &=\sum_{k=1}^{\infty}\frac{\sum_{n=1}^{\infty}\left(-\text{log}a_{n}\right)^{k}a_{n}^{-s^{*}}}{k!}(s-s^{*})^{k-1}.
+\end{align*}
+Wir zeigen nun, dass die Doppelsummen-Darstellung von $\xi_{\{a\}}$ absolut konvergiert. Dazu sei $0<r<R,\,\varphi\in[0,2\pi[$ und $s=s^{*}+re^{i\varphi}$. Wegen $a_{n}\geq 1$ für alle $n\in\N$, folgt:
+\begin{align*}
+\sum_{k=1}^{\infty}\sum_{n=1}^{\infty}\left|\frac{\left(-\text{log}a_{n}\right)^{k}a_{n}^{-s^{*}}}{k!}(s-s^{*})^{k-1}\right|&=\sum_{k=1}^{\infty}\sum_{n=1}^{\infty}\frac{\left(\text{log}a_{n}\right)^{k}a_{n}^{-\sigma^{*}}}{k!}r^{k-1}\\
+&=\sum_{k=1}^{\infty}\frac{\left|\zeta^{(k)}_{\{a\}}(\sigma^{*})\right|}{k!}r^{k-1}\\
+&\leq\sum_{k=1}^{\infty}\frac{\left|\zeta^{(k)}_{\{a\}}(\sigma^{*})\right|}{(k-1)!}r^{k-1}.
+\end{align*}
+Wir betrachten nun die Taylorentwicklung von $\zeta_{\{a\}}$ im Punkt $\sigma^{*}$, welche den Konvergenzradius $R_{1}$ besitze. Dann gilt für $\left|s-\sigma^{*}\right|<R_{1}$:
+\begin{align*}
+\zeta_{\{a\}}(s)=\sum_{k=1}^{\infty}\frac{\zeta^{k}_{\{a\}}(\sigma^{*})}{k!}(s-\sigma^{*})^{k}.
+\end{align*}
+Nachdem Potenz-Reihen innerhalb ihres Konvergenzkreises gliedweise differenziert werden dürfen, erhalten wir:
+\begin{align*}
+\zeta^{'}_{\{a\}}(s)=\sum_{k=1}^{\infty}\frac{\zeta^{k}_{\{a\}}(\sigma^{*})}{(k-1)!}(s-\sigma^{*})^{k-1}.
+\end{align*}
+Dieser Ausdruck konvergiert aber für $|s-\sigma^{*}|<R_{1}$ absolut, folglich
+konvergiert auch die Doppelsummen-Darstellung von $\xi_{a}$ für $r\leq\min\left\{R,R_{1}\right\}$ absolut, und wir dürfen nach dem Doppelreihensatz die Summations-Reihenfolge vertauschen.
+\begin{align*}
+\xi_{\{a\}}(s)&=\sum_{n=1}^{\infty}\sum_{k=1}^{\infty}\frac{\left(-\text{log}a_{n}\right)^{k}a_{n}^{-s^{*}}}{k!}(s-s^{*})^{k-1}\\
+&=\sum_{n=1}^{\infty}\frac{1}{s-s_{0}}\sum_{k=1}^{\infty}\frac{\left(-\text{log}a_{n}(s-s^{*})\right)^{k}}{k!}a_{n}^{-s^{*}}\\
+&=\sum_{n=1}^{\infty}\frac{e^{-(s-s^{*})\text{log}a_{n}}-1}{s-s^{*}}a_{n}^{-s^{*}}\\
+&=\sum_{n=1}^{\infty}\frac{a_{n}^{-s}-a_{n}^{-s^{*}}}{s-s^{*}}\\
+&=\sum_{n=1}^{\infty}\frac{a_{n}^{-s}}{s-s^{*}}.
+\end{align*}
+Folglich konvergiert die Reihe
+\begin{align*}
+\sum_{n=1}^{\infty}\frac{a_{n}^{-s}}{s-s^{*}}
+\end{align*}
+für $|s-s^{*}|\leq r< \min\{R,R_{1}\}$ absolut. Setzen wir $s=s^{*}+re^{i\varphi}$  mit $\varphi\in[0,2\pi[$,
+dann ist der Ausdruck 
+\begin{align*}
+\sum_{n=1}^{\infty}\left|\frac{a_{n}^{-s}}{s-s^{*}}\right|=\sum_{n=1}^{\infty}\frac{a_{n}^{-(\sigma^{*}+r\text{cos}\varphi})}{r}
+\end{align*}
+beschränkt. Insbesondere muss auch für jede Nullfoge $r_{k},k\in\N$, der Grenzwert
+\begin{align*}
+\lim_{k\rightarrow\infty}\sum_{n=1}^{\infty}\frac{a_{n}^{-\sigma^{*}+r_{k}\text{cos}\varphi}}{r_{k}}
+\end{align*}
+existieren. Da innerhalb der Summe nur positive Terme stehen, kann der Grenzwert nur dann existieren, wenn $\zeta_{\{a\}}$ in $\sigma^{*}$ eine Nullstelle besitzt. Das kann aber nicht sein.
+\end{proof}
+Nachdem wir in unserem Beweis an keiner Stelle verwendet haben, dass die Folge $\left(a_{n}\right)_{n\in\N}$ durch eine lineare Rekursion festgelegt ist können wir sogar noch allgemeiner formulieren:
+\begin{Satz}
+\par
+Sei $\left(a_{n}\right)_{n\in\N}$ eine Folge reeller Zahlen mit $a_{n}\geq 1$ für alle $n$. Dann besitzt die Dirichlet-Reihe
+\begin{align*}
+f(s)=\sum_{n=1}^{\infty}a_{n}^{-s}
+\end{align*} 
+für $\text{Re}(s)>\sigma_{0}$ keine Nullstelle.
+\end{Satz}
+\begin{flushright}
+             $\square$
+\end{flushright}
+\subsection{Anmerkungen}
+In diesem Unterabschnitt wollen wir noch kurz auf einige Besonderheiten der von Navas in \cite{L.Navas} diskutierten Fibonacci Zeta-Funktion $\zeta_{\{F\}}$ eingehen und so versuchen ihre vorrangige Stellung unter den Elementen der Klasse $\zeta$ hervorzuheben. 
+\subsubsection{Über die trivialen Nullstellen der Fibonacci Zeta-Funktion}
+Leider konnten wir in dieser Arbeit die trivialen Nullstellen\footnote{In \cite{L.Navas} bezeichnet Navas die reellen Nullstellen von $\zeta_{\{F\}}$ als trivial.} der Reihendarstellung ($\ref{4.2.1}$) von $\zeta_{\{a\}}$ nicht explizit bestimmen. Der große Unterschied zwischen $\zeta_{\{a\}}$  und der in \cite{L.Navas} diskutierten Fibonacci Zeta-Funktion $\zeta_{\{F\}}$ besteht darin, dass die trivialen Nullstellen von $\zeta_{\{F\}}$ äquidistant verteilt sind, während der allgemeine Fall $\zeta_{\{a\}}$ weder Nullstellen zwischen seinen reellen Polstellen besitzen muss, noch gewährleistet ist, dass diese äquidistant verteilt sind.
+Hierfür begnügen wir uns mit der Angabe von zwei Beispielen:
+\newpage
+\begin{figure}
+	    \centering
+	    \includegraphics[width=0.4\textwidth]{zeta3.png}
+	   \caption{Die ersten 100 Glieder der Lucas Zeta-Funktion $\zeta_{\{L\}}$ auf der reellen Achse.}
+\end{figure}
+\begin{figure}
+	    \centering
+	    \includegraphics[width=0.4\textwidth]{zeta4.png}
+	   \caption{Die ersten 100 Glieder einer Zeta-Funktion $\zeta_{\{a\}}$ die keine Nullstellen zwischen ihren Polstellen zu besitzen braucht.}
+\end{figure}
+Abbildung 1: Die Lucas Zeta-Funktion 
+\begin{align*}
+\zeta_{\{L\}}(s)=\sum_{n=1}^{\infty}L_{n}^{-s},
+\end{align*}
+bei der die Folge $\{L\}$ der Lucas-Zahlen durch die lineare Rekursion
+\begin{align*}
+L_{n+2}&=L_{n+1}+L_{n},\\
+L_{1}&=1,\,L_{2}=2
+\end{align*}
+festgelegt wird, besitzt die in ganz ${\C}$ - Singularitäten ausgenommen - meromorphe Fortsetzung
+\begin{align*}
+\zeta_{\{L\}}(s)=\sum_{k=0}^{\infty}\binom{-s}{k}\frac{(-1)^{k}}{\varphi_{1}^{s+2k}+(-1)^{k+1}},\,\,\varphi_{1}=\frac{1+\sqrt{5}}{2}.
+\end{align*} 
+Wir haben hier die Berechnung nach dem 100-sten Glied abgebrochen.
+\par
+Abbildung 2: Diese Zeta-Funktion besitzt die in ganz ${\C}$ - Singularitäten ausgenommen - meromorphe Fortsetzung
+\begin{align*}
+\zeta_{\{a\}}(s)=\sum_{k=0}^{\infty}\binom{-s}{k}\frac{(-1)^{k}}{2^{s+k}-1},
+\end{align*} und ist der durch die lineare Rekursion 
+\begin{align*}
+a_{n+2}&=3 a_{n+1}-2 a_{n}\\
+a_{1}&=1,\,a_{2}=3
+\end{align*}
+festgelegten Folge $\{a\}$ zugeordnet.
+\par 
+Es drängt sich uns daher die Frage auf, warum die trivialen Nullstellen von $\zeta_{\{F\}}$ äquidistant verteilt sind. Dazu betrachten wir für $n,m\in\N_{0}$ und $\varphi>1$ folgende Schar von Binomialreihen:
+\begin{align}
+B_{\varphi,n,m}(s):=\sum_{k=0}^{\infty}\binom{-s}{k}\frac{1}{\varphi^{s-n(2m+1)+k(n+2)}+(-1)^{k+1}}.\label{Desperado}
+\end{align}
+Zunächst zeigen wir, dass $B_{\varphi,n,m}$ sinvoll definiert ist:
+\begin{Lemma}
+\par
+Die Binomialreihe $s\mapsto B_{\varphi,n,m}(s)$ konvergiert  in der gesamten komplexen Ebene ${\C}$ - ausgenommen ihrer Singularitäten - absolut.
+\end{Lemma}
+\begin{proof}
+Mit der umgekehrten Dreiecksungleichung und der Abschätzung des komplexen Binomialkoeffizienten von Seite \pageref{Binomal} erhalten wir:
+\begin{align*}
+\left|B_{\varphi,n,m}(s)\right|\leq\sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}\frac{1}{\left|\varphi^{\sigma-n(2m+1)+k(n+2)}-1\right|}.
+\end{align*}
+Nachdem $\varphi>1$, existiert ein $k_{0}(\sigma,n,m)\in\N_{0}$ mit
+\begin{align*}
+\varphi^{\sigma-n(2m+1)+k(n+2)}-1\geq\varphi^{\sigma+k},
+\end{align*}
+für $k\geq k_{0}(\sigma,n,m)$.
+Wir schätzen nun obige Summe für $k\geq k_{0}(\sigma,n,m)$ ab:
+\begin{align*}
+\sum_{k=k_{0}(\sigma,n,m)}^{\infty}(-1)^{k}\binom{-|s|}{k}\frac{1}{\left|\varphi^{\sigma-n(2m+1)+k(n+2)}-1\right|}&\leq \sum_{k=k_{0}(\sigma,n,m)}^{\infty}(-1)^{k}\binom{-|s|}{k}\varphi^{-(\sigma+k)}\\
+&=\varphi^{-\sigma}\sum_{k=k_{0}(\sigma,n,m)}^{\infty}(-1)^{k}\binom{-|s|}{k}\varphi^{-k}\\
+&<\varphi^{-\sigma}\sum_{k=0}^{\infty}(-1)^{k}\binom{-|s|}{k}\varphi^{-k}\\
+&=\varphi^{-\sigma}\left(1-\frac{1}{\varphi}\right)^{-|s|}<\infty.
+\end{align*}
+\newpage
+Damit konvergiert die Binomialreihe $s\mapsto B_{\varphi,n,m}(s)$  in jeder Teilmenge von ${\C}$, die keine ihrer Singularitäten enthält, absolut.
+\end{proof}
+Desweiteren besitzen $B_{\varphi,n,m}$ und $\zeta_{\{F\}}$ mindestens eine gemeinsame Nullstelle:
+\begin{Lemma}
+\par
+Die durch $(\ref{Desperado})$ definierte Binomialreihe $s\mapsto B_{\varphi,n,m}$ besitzt unabhängig von $n\in\N_{0}$ und $\varphi$ eine Nullstelle in $s=s_{m}=-(4m + 2),m\in\N_{0}$.
+\end{Lemma}
+\begin{proof}
+Die Vorgehensweise erfolgt vollkommen analog zu der Bestimmung der trivialen Nullstellen von $\zeta_{\{F\}}$ in $\cite{L.Navas}$.
+Zunächst setzen wir - wobei wir für $n,k\in \N_{0}$ beachten, dass der Binomialkoeffizient $\binom{n}{k}$ für $k>n$ verschwindet - zur Abkürzung für $d\in\N_{0}$:
+\begin{align*}
+\sigma^{k}_{\varphi,n,m}(d)=\binom{d}{k}\frac{1}{\varphi^{-d-n(2m+1)+k(n+2)}+(-1)^{k+1}}.
+\end{align*}\label{Morella}
+Damit erhalten wir:
+\begin{align*}
+B_{\varphi,n,m}(-d)&=\sum_{k=0}^{\infty}\sigma^{k}_{\varphi,n,m}(d)\\
+                   &=\sum_{k=0}^{d}\sigma^{k}_{\varphi,n,m}(d).
+\end{align*}
+Nun gilt:
+\begin{align*}
+B_{\varphi,n,m}(-(4m + 2))=\sum_{k=0}^{4m + 2}\sigma^{k}_{\varphi,n,m}(4m + 2).
+\end{align*}
+Wir fassen nun in der letzten Summe diejenigen Terme mit gleichen Binomialkoeffizienten zusammen:
+\begin{align*}
+&\sigma^{k}_{\varphi,n,m}(4m + 2)+\sigma^{4m + 2 - k}_{\varphi,n,m}(4m + 2)=\\
+&=\binom{4m + 2}{k}\frac{1}{\varphi^{-(4m + 2)-n(2m+1)+k(n+2)}+(-1)^{k+1}}+\\
+&\qquad+ \binom{4m + 2}{4m + 2 - k}\frac{1}{\varphi^{-(4m + 2)-n(2m+1)+(4m + 2 - k)(n+2)}+(-1)^{4m + 2 -k+1}}\\
+&=\binom{4m + 2}{k}\left(\frac{1}{\varphi^{-(4m + 2)-n(2m+1)+k(n+2)}+(-1)^{k+1}}+\frac{1}{\varphi^{(4m + 2)(n+1)-n(2m+1)-k(n+2)}+(-1)^{k+1}}\right)\\
+&=\binom{4m + 2}{k}\left(\frac{1}{\varphi^{-(4m + 2)-n(2m+1)+k(n+2)}+(-1)^{k+1}}+\frac{1}{\varphi^{4m + 2 + n(2m+1)-k(n+2)}+(-1)^{k+1}}\right).\\
+\end{align*}
+Durch Hauptnennerbildung erhalten wir:
+\begin{align*}
+&\sigma^{k}_{\varphi,n,m}(4m + 2)+\sigma^{4m + 2-k}_{\varphi,n,m}(4m + 2)=\\
+&=\binom{4m + 2}{k}\left(\frac{\varphi^{4m + 2 + n(2m+1)-k(n+2)}+\varphi^{-(4m + 2)-n(2m+1)+k(n+2)}+2\cdot(-1)^{k+1}}{2 + (-1)^{k+1}\left(\varphi^{4m + 2 + n(2m+1)-k(n+2)}+\varphi^{-(4m + 2)-n(2m+1)+k(n+2)}\right)}\right)\\
+&=\binom{4m + 2}{k}(-1)^{k+1}.
+\end{align*}
+Folglich gilt:
+\begin{align*}
+B_{\varphi,n,m}(-(4m + 2))&=\sum_{k=0}^{4m + 2}\sigma^{k}_{\varphi,n,m}(4m + 2)\\
+                              &=\frac{1}{2}\sum_{k=0}^{4m + 2}\left(\sigma^{k}_{\varphi,n,m}(4m + 2)+\sigma^{4m + 2 -k}_{\varphi,n,m}(4m + 2)\right)\\
+                              &=\frac{1}{2}\sum_{k=0}^{4m + 2}\binom{4m + 2}{k}(-1)^{k+1}\\
+                              &=0.
+\end{align*}
+\end{proof}
+Nachdem die Binomialreihe $s\mapsto B_{\varphi,n,m}(s)$ wie die Fibonacci Zeta-Funktion $s\mapsto \zeta_{\{F\}}(s)$ in $s=s_{m}=-(4m + 2),\,m\in\N_{0}$ verschwindet, stellt sich uns nun die Frage, ob ein $n\in\N$ und ein $\varphi>1$ so existieren, dass $B_{\varphi,n,m}$ die gleichen trivialen Nullstellen wie $\zeta_{\{F\}}$ besitzt. Wir können diese Frage zumindest teilweise beantworten: 
+\begin{Lemma}
+\par
+Im Allgemeinen sind die trivialen Nullstellen der Binomialreihe $B_{\varphi,n,m}$ nicht äquidistant verteilt.
+\end{Lemma}
+\begin{proof}
+Wir werten die Binomialreihe $s\mapsto B_{\varphi,n,m}(s)$ bei $s=s_{m+1}=-(4m + 6),\,m\in\N_{0}$ aus:
+\begin{align*}
+B_{\varphi,n,m}(-(4m + 6))= \sum_{k=0}^{4m + 6}\binom{4m + 6}{k}\frac{1}{\varphi^{-(4m + 6)-n(1+2m)+k(n+2)}+(-1)^{k+1}}.
+\end{align*}
+Wir sortieren wieder nach denjenigen Termen mit gleichem Binomialkoeffizienten:
+\begin{align*}
+&\sigma^{k}_{\varphi,n,m}(4m + 6)+\sigma^{4m + 6-k}_{\varphi,n,m}(4m + 6)=\\
+&=\binom{4m + 6}{k}\frac{1}{\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}+(-1)^{k+1}} +\\
+&\qquad+\binom{4m + 6}{k}\frac{1}{\varphi^{-(4m + 6)-n(2m + 1)-k(n+2)+(4m + 6)(n+2)}+(-1)^{k+1}}\\
+&=\binom{4m + 6}{k}\frac{1}{\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}+(-1)^{k+1}} +\\
+&\qquad+\binom{4m + 6}{k}\frac{1}{\varphi^{4m + 6+n(2m + 5)-k(n+2)}+(-1)^{k+1}}.
+\end{align*}
+Anschließend erhalten wir durch Hauptnennerbildung:
+\begin{align*}
+&\frac{\sigma^{k}_{\varphi,n,m}(4m + 6)+\sigma^{4m + 6-k}_{\varphi,n,m}(4m + 6)}{\binom{4m + 6}{k}}=\\
+&=(-1)^{k+1}\frac{2\cdot (-1)^{k+1}+\varphi^{4m + 6+n(2m + 5)-k(n+2)}+\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}}{(-1)^{k+1}\cdot(\varphi^{4n}+1)+\varphi^{4m + 6+n(2m + 5)-k(n+2)}+\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}}.
+\end{align*}
+Zunächst schenken wir dem Vorzeichen des Ausdrucks 
+\begin{align}
+\frac{2\cdot (-1)^{k+1}+\varphi^{4m + 6+n(2m + 5)-k(n+2)}+\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}}{(-1)^{k+1}\cdot(\varphi^{4n}+1)+\varphi^{4m + 6+n(2m + 5)-k(n+2)}+\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}},\label{Vanquish}
+\end{align}
+unsere ganze Aufmerksamkeit. Dazu betrachten wir als erstes den Zähler von $(\ref{Vanquish})$:
+\begin{align*}
+&\varphi^{4m + 6+n(2m + 5)-k(n+2)}+\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}>2\cdot (-1)^{k}\\
+\Leftrightarrow\,&\varphi^{12+8m+n(4m + 6)-2\cdot k(n+2)}+1>2\varphi^{4m + 6+n(2m + 1)-k(n+2)}\cdot(-1)^{k}\\
+\Leftrightarrow\,&\varphi^{4m + 6+n(2m + 3)-k\cdot (n+2)}+\varphi^{-(4m + 6+n(2m + 3)-k\cdot (n+2))}>2\varphi^{-2n}\cdot(-1)^{k}\\
+\Leftrightarrow\,&2\cosh\left(\left(4m + 6+n(2m + 3)-k(n+2)\right)\log(\varphi)\right)>2\varphi^{-2n}\cdot(-1)^{k}.
+\end{align*}
+Offensichtlich ist die letzte Ungleichung für ungerades $k\in\N_{0}$ erfüllt. Ansonsten ist die rechte Seite der letzten Ungleichung natürlich für $n\in\N$ stets kleiner als zwei, während die linke Seite immer größer oder gleich zwei ist. Folglich ist der Zähler von $(\ref{Vanquish})$ stets positiv.
+Analog betrachten wir den Nenner von $(\ref{Vanquish})$:
+\begin{align*}
+&\varphi^{4m + 6+n(2m + 5)-k(n+2)}+\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}>(-1)^{k}\cdot(\varphi^{4n}+1)\\
+&\Leftrightarrow\,\varphi^{4m + 6+n(2m + 3)-k(n+2)}+\varphi^{-(4m + 6+n(2m + 3)-k(n+2))}>(-1)^{k}\cdot(\varphi^{4n}+1)\cdot \varphi^{-2n}\\
+&\Leftrightarrow\,\cosh\left(\left(4m + 6+n(2m + 3)-k(n+2)\right)\log(\varphi)\right)>(-1)^{k}\cdot\cosh\left(2n\log(\varphi)\right).
+\end{align*}
+Offensichtlich ist der Nenner von $(\ref{Vanquish})$ für ungerades $k\in\N_{0}$ stets positv. Daher muss die letzte Ungleichung nur für gerades $k\in\N_{0}$ überprüft werden.
+Nach Voraussetzung ist $\log(\varphi)$ positiv, ebenso wie $2n$. Da $\cosh(x)$ für positive Argumente $x$ streng monoton wächst und für negative Argumente streng monoton fällt, ist die letzte Ungleichung genau für diejenigen $k\in\N_{0}$ erfüllt, für die
+\begin{align}
+4m + 6+n(2m + 3)-k(n+2) > 2n,\label{raisetharoof}
+\end{align}
+oder
+\begin{align}
+4m + 6+n(2m + 3)-k(n+2) < -2n,\label{subway}
+\end{align}
+gilt.
+Ungl. ($\ref{raisetharoof}$) liefert uns:
+\begin{align*}
+4m + 6+n(2m + 3)-k(n+2) &> 2n\\
+\Leftrightarrow \frac{4m + 6 + n(2m + 1)}{n+2} &> k\\
+\Leftrightarrow 2m + 1 + \frac{4}{n+2} &> k.\\
+\end{align*}
+Folglich ist der Nenner von $(\ref{Vanquish})$ für gerades $k \leq 2m$ positiv.
+Desweiteren liefert uns Ungl. ($\ref{subway}$):
+\begin{align*}
+4m + 6+n(2m + 3)-k(n+2) &< -2n\\
+\Leftrightarrow \frac{4m + 6+n(2m + 5)}{n+2} &< k\\
+\Leftrightarrow 2m + 1 + 4\cdot\frac{n+1}{n+2} &< k.\\
+\end{align*} 
+Dabei gilt $4\cdot\frac{n+1}{n+2} < 3$ für $ n< 2$ und $4\cdot\frac{n+1}{n+2} < 4$ für alle $n\in\N$. Folglich ist der Nenner von $(\ref{Vanquish})$ für $n=1$ und $k \geq 2m + 4$ und für $n>1$ und $k \geq 2m + 6$ positiv. 
+Wir müssen also zwei Fälle unterscheiden:
+\par
+\vspace{0.5cm}
+\textbf{Fall I:}
+\vspace{0.2cm}
+\par
+Sei $n=1$ und $k = 2m + 2$. Dann gilt
+\begin{align*}
+\cosh\left(\left(4m + 6+2m + 3-3(2m + 2)\right)\log(\varphi)\right)=\cosh\left(3\log(\varphi)\right) > \cosh\left(2\log(\varphi)\right),
+\end{align*}
+und damit ist der Nenner von $(\ref{Vanquish})$ positiv.
+\par
+\vspace{0.5cm}
+\textbf{Fall II:}
+\vspace{0.2cm}
+\par
+Für $n>1$ und $k = 2m + 2$ gilt 
+\begin{align*}
+4m + 6+n(2m + 3)-(2m + 2)(n+2)=2+n > 2n, \,\,\text{nur für}\,\, n = 1.
+\end{align*}
+Sei $n>1$ und $k = 2m + 4$. Dann gilt
+\begin{align*}
+4m + 6+n(2m + 3)-(2m + 4)(n+2)=-(2+n)< - 2n \,\,\text{nur für}\,\, n = 1.
+\end{align*}
+Damit ist der Nenner von $(\ref{Vanquish})$ negativ.   
+Sei nun $k$ ungerade, dann gilt wegen $\varphi>1$:
+\begin{align*}
+\frac{2+\varphi^{4m + 6+n(2m + 5)-k(n+2)}+\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}}{\varphi^{4n}+1+\varphi^{4m + 6+n(2m + 5)-k(n+2)}+\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}}&<1.
+\end{align*}
+Ebenso sieht man für gerades $k,\,k\neq 2m + 2, 2m + 4$ und $n>1$ schnell
+\begin{align*}
+\frac{-2+\varphi^{4m + 6+n(2m + 5)-k(n+2)}+\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}}{-\varphi^{4n}-1+\varphi^{4m + 6+n(2m + 5)-k(n+2)}+\varphi^{-(4m + 6)-n(2m + 1)+k(n+2)}}>1.
+\end{align*}
+Für $n = 1$ ist dann die letzte Ungleichung für alle geraden $k$ mit $0 \leq k \leq 4m + 6$ erfüllt.
+Auf Grund obiger Diskussion können wir nun folgendermaßen abschätzen:
+\begin{align*}
+B_{\varphi,1,m}(-(4m + 6))&= \sum_{k=0}^{4m + 6}\binom{4m + 6}{k}\frac{1}{\varphi^{-(4m + 6)-(1+2m)+3k}+(-1)^{k+1}}\\
+                          &=\frac{1}{2}\sum_{k=0}^{4m + 6}\left(\sigma^{k}_{\varphi,1,m}(4m + 6)+\sigma^{4m + 6-k}_{\varphi,1,m}(4m + 6)\right)\\
+                          &=\frac{1}{2}\sum_{k=0}^{4m + 6}(-1)^{k+1}\binom{4m+6}{k}\frac{2\cdot (-1)^{k+1}+\varphi^{6m +11-3k}+\varphi^{-6m- 7+3k}}{(-1)^{k+1}\cdot(\varphi^{4}+1)+\varphi^{6m +11-3k}+\varphi^{-6m- 7+3k}}\\
+                          &<\frac{1}{2}\sum_{k=0}^{4m + 6}\binom{4m+6}{k}(-1)^{k+1} = 0.
+\end{align*}
+Also besitzt $s\mapsto B_{\varphi,1,m}(s)$ keine Nullstelle in $s=s_{m+1}$. Leider können wir für $n>1$ nicht analog abschätzen, trotzdem können wir unendlich viele Binomialreihen $B_{\varphi,n,m}$ angeben, deren triviale Nullstellen nicht äquidistant verteilt sind:
+\par
+\vspace{0.5cm}
+Die Binomialreihe $s\mapsto B_{\varphi,n,m}(s)$ besitzt für $n=4l-2,l\in\N$ in $s=s_{m+l}$ eine Polstelle.
+\vspace{0.5cm}
+\par
+Es gilt:
+\begin{align*}
+B_{\varphi,n,m}(s_{m+l})=\sum_{k=0}^{4(m+l)+2}\binom{-s}{k}\frac{1}{\varphi^{-(4(m+l)+2)-n(2m+1)+k(n+2)}+(-1)^{k+1}}.
+\end{align*}
+Offensichtlich kann der Nenner der einzelnen Summanden nur für gerades $k$ verschwinden:
+\begin{align*}
+0 &= -(4(m+l)+2)-n(2m+1)+k(n+2)\\
+\Leftrightarrow k &= \frac{4(m+l)+2+n(2m+1)}{n+2}\\
+\Leftrightarrow k &= 2m + 1 + \frac{4l}{n+2}.
+\end{align*}
+Für $n= 4l -2$ erhalten wir $k=2m + 2$ und damit besitzt $s\mapsto B_{\varphi,4l-2,m}(s)$ einen Pol in $s=s_{m+l}$. Insgesamt können daher die Binomialreihen $B_{\varphi,n,m}$ für $n=1,2,6,10,14,18,\ldots$ keine äquidistanten Nullstellen besitzen.
+\end{proof}
+Als Konsequenz von Lemma 4.5.2 erhalten wir, dass die Binomialreihe $s\mapsto B_{\varphi,0,m}(s)$ - welche wir für $\varphi=\frac{1+\sqrt{5}}{2}$ als die Fibonacci Zeta-Funktion $\zeta_{\{F\}}$ identifizieren - feste Nullstellen bei $s=s_{i}=-(4i + 2),\,i\in\N_{0}$ besitzt. Darüber hinaus garantiert uns Lemma 4.5.3, dass  nur wenige Binomialreihen $B_{\varphi,n,m}$ mit einer äquidistanten Verteilung trivialer Nullstellen existieren können.
+\par
+\vspace{0.5cm} 
+Auf Grund obiger Diskussion vermuten wir:
+\par
+\vspace{0.5cm}
+Die Binomialreihe $s\mapsto B_{\varphi,n,m}(s)$ besitzt für $n\in\N$ keine äquidistant verteilten trivialen Nullstellen.
+\par
+\subsubsection{Nahe Verwandte von $\zeta_{\{F\}}$}
+In diesem Unterabschnitt wollen wir noch kurz darauf aufmerksam machen, dass unendliche viele Funktionen $\zeta_{\{a\}}\in\zeta$ existieren, welche dieselben trivialen Nullstellen und Polstellen wie $\zeta_{\{F\}}$ besitzen.
+\par
+\vspace{0.2cm}
+Ausschlaggebend für die  trivialen Nullstellen und Polstellen von $\zeta_{\{F\}}$ ist die algebraische Bedingung $\varphi_{1}\cdot \varphi_{2}=-1,\,\frac{\alpha_{1}}{\alpha_{2}}=-1$.
+\par
+Dazu betrachten wir - unter der gerade genannten Bedingung - erneut die Reihendarstellung $(\ref{4.2.1})$ von $\zeta_{\{a\}}$ für $\beta\in\N$:
+\begin{align*}
+\zeta_{\{a\}}(s)&=\alpha_{1}^{-s}\sum_{k=0}^{\infty}\binom{-s}{k}\alpha_{1}^{-k}\frac{\left(\alpha_{2}\varphi_{2}\right)^{k}}{\varphi^{s+k}_{1}-\varphi^{k}_{2}}\\
+                &=\alpha_{1}^{-s}\sum_{k=0}^{\infty}\binom{-s}{k}\frac{(-1)^{k}}
+                {\varphi^{s}_{1}\cdot\left(\frac{\varphi_{1}}{\varphi_{2}}\right)^{k}-1}\\
+                &=\alpha_{1}^{-s}\sum_{k=0}^{\infty}\binom{-s}{k}\frac{(-1)^{k}}
+                {\varphi^{s}_{1}\cdot\left(-\varphi^{2}_{1}\right)^{k}-1}\\
+                &=\alpha_{1}^{-s}\sum_{k=0}^{\infty}\binom{-s}{k}\frac{1}
+                {\varphi^{s+2k}_{1}+(-1)^{k+1}}.
+\end{align*}
+Aus der Bedingung $\varphi_{1}\cdot \varphi_{2}=-1,\,\frac{\alpha_{1}}{\alpha_{2}}=-1$ lassen sich schnell weitere lineare Rekursionen konstruieren:
+\par
+Dazu wählen wir eine lineare Rekursion $\{a\}\in\mathfrak R^{2}$, also
+\begin{align*}
+a_{n}=c_{1}a_{n-1}+c_{2}a_{n-2},\,\,\text{für}\,\,n\in\N,\,n>2.
+\end{align*}
+Dann besitzt $\{a\}$  das charakteristische Polynom
+\begin{align*}
+P(\varphi)=\varphi^{2}-c_{1}\varphi-c_{2},
+\end{align*}
+mit den charakteristischen Wurzeln
+\begin{align*}
+\varphi_{1}=\frac{c_{1}+\sqrt{c_{1}^{2}+4c_{2}}}{2},\,\,\varphi_{2}=\frac{c_{1}-\sqrt{c_{1}^{2}+4c_{2}}}{2}.
+\end{align*}
+Aus der Bedingung $\varphi_{1}\cdot\varphi_{2}=-1$ folgt
+\begin{align*}
+-1&=\frac{c_{1}+\sqrt{c_{1}^{2}+4c_{2}}}{2}\cdot\frac{c_{1}-\sqrt{c_{1}^{2}+4c_{2}}}{2}\\
+  &=\frac{c_{1}^{2}-(c_{1}^{2}+4c_{2})}{4}=-c_{2},
+\end{align*}
+also $c_{2}= 1$. Wir setzen nun
+\begin{align*}
+\varphi_{c_{1}}:=\frac{c_{1}+\sqrt{c_{1}^{2}+4}}{2},\\
+\varphi^{*}_{c_{1}}:=\frac{c_{1}-\sqrt{c_{1}^{2}+4}}{2}.
+\end{align*}
+Wegen $\alpha_{1}=-\alpha_{2}$, gilt nach der Formel aus Korollar 1.5.1:
+\begin{align*}
+a_{1}=\alpha_{1}\cdot\left(\varphi_{c_{1}}-\varphi^{*}_{c_{1}}\right)=\alpha_{1}\cdot\sqrt{c_{1}^{2}+4}.
+\end{align*}
+Also läßt sich $\alpha_{1}$ eindeutig bestimmen.
+Desweiteren ist die lineare Rekursion $\{a\}$ nur für $c_{1}\in\N$ ein Element der Menge $\mathfrak C^{2}$: 
+Offensichtlich ist $\alpha_{1}$ positiv. Wir müssen also nur noch - da $c_{1}$ wegen Satz 3.2.1 ganzzahlig ist - nachweisen, dass  $\{a\}$ nur für $c_{1}>0$ eine positive dominante Wurzel $\varphi_{c_{1}}>1$ besitzt. Wir schätzen ab:
+\begin{align*}
+\left|\frac{\varphi^{*}_{c_{1}}}{\varphi_{c_{1}}}\right|=\left|\frac{\frac{c_{1}-\sqrt{c_{1}^{2}+4}}{2}}{\frac{c_{1}+\sqrt{c_{1}^{2}+4}}{2}}\right|\leq \frac{c_{1}+\sqrt{c_{1}^{2}+4}}{c_{1}+\sqrt{c_{1}^{2}+4}}=1.
+\end{align*}
+Für $\left|\frac{\varphi^{*}_{c_{1}}}{\varphi_{c_{1}}}\right|<1$, ist definitionsgemäß $\{a\}$ eine Element aus $\mathfrak C^{2}$ falls $\varphi_{c_{1}}>1$ (siehe weiter unten).
+\par
+Sei nun $\left|\frac{\varphi^{*}_{c_{1}}}{\varphi_{c_{1}}}\right|=1$. Wegen $c_{1}+\sqrt{c_{1}^{2}+4}>c_{1} + \left|c_{1}\right|\geq 0$, ist $\varphi_{c_{1}}>0$ und insbesondere $\varphi^{*}_{c_{1}}$ negativ. Folglich gilt 
+\begin{align*}
+\varphi^{*}_{c_{1}}= - \varphi_{c_{1}},
+\end{align*}
+also 
+\begin{align*}
+\varphi_{c_{1}}^{2}=1 &\Leftrightarrow c_{1}^{2} + 2 c_{1}\sqrt{c_{1}^{2}+4} + c_{1}^{2}+4 = 4\\
+                      &\Leftrightarrow c_{1}^{2} + c_{1}\sqrt{c_{1}^{2}+4} = 0\\
+                      &\Leftrightarrow c_{1}\left( c_{1} + \sqrt{c_{1}^{2}+4}\right)=0.
+\end{align*} 
+Nachdem die letzte Gleichnung nur für $c_{1}=0$ zu erfüllen ist, wir uns aber zu Beginn des dritten Kapitels auf Rekursionen  $\{a\}$ minimaler Länge beschränkt hatten, ist die letzte Gleichung nicht zu erfüllen. Damit folgt, dass $\varphi_{c_{1}}$ dominant ist und das die Rekursion $\{a\}$ genau dann ein Element der Menge $\mathfrak C^{2}$ ist, falls $\varphi_{c_{1}}>1$.
+\begin{align*}
+\varphi_{c_{1}}>1&\Leftrightarrow \frac{2c_{1}^{2}+2c_{1}\sqrt{c_{1}^{2}+4} + 4}{4}> 1\\
+                 &\Leftrightarrow c_{1}\left(c_{1}+\sqrt{c_{1}^{2}+4}\right)>0.
+\end{align*}
+Dies ist aber nur dann der Fall, falls $c_{1}>0$.
+\par
+Insbesondere besitzt $\zeta_{\{a\}}$ für $c_{1}\in\N$ nach Hauptsatz 4.2.1 immer eine analytische Fortsetzung zu einer in der gesamten komplexen Ebene ${\C}$ meromorphen Funktion. Zusammenfassend können wir sagen:      
+Jede lineare Rekursion $\{a\}\in\mathfrak C^{2}$, deren  zugeordnete Dirichlet-Reihe die gleichen trivialen Nullstellen und Polstellen wie $\varphi_{\{F\}}$ besitzt, genügt der Darstellung
+\begin{align}
+a_{n}=\frac{a_{1}}{\sqrt{c_{1}^{2}+4}}\left(\frac{c_{1}+\sqrt{c_{1}^{2}+4}}{2}\right)^{n}-\frac{a_{1}}{\sqrt{c_{1}^{2}+4}}\left(\frac{c_{1}-\sqrt{c_{1}^{2}+4}}{2}\right)^{n},\,n\in\N,\label{snatch}
+\end{align}
+mit $c_{1}\in\N$.
+Da wir in dieser Darstellung für die lineare Rekursion $\{a\}\in\mathfrak C^{2}$ die Größen $a_{1}$ und $c_{1}$ beliebig aus den natürlichen Zahlen wählen können, folgt, dass es unendliche viele Rekursionen $\{a\}\in\mathfrak C^{2}$ gibt, deren zugeordnete Dirichlet-Reihe $\zeta_{\{a\}}$ dieselben trivialen Nullstellen und Polstellen wie $\zeta_{\{F\}}$ besitzt. Als weiteren prominenten Vertreter aus der Menge $\mathfrak C^{2}$  mit diesen günstigen Eigenschaften, erwähnen wir die Folge der Pell-Zahlen $\left(P_{n}\right)_{n\in\N}$, welche durch die Rekursion
+\begin{align*}
+P_{n}&=2 P_{n-1} + P_{n-2},\\
+P_{1}&=1,\,\,P_{2}=2
+\end{align*}
+festgelegt ist.
+\par
+\vspace{0.5cm}
+Eine weiter in \cite{L.Navas} bewiesene Eigenschaft der Fibonacci Zeta-Funktion $\zeta_{F}$ ist ihre Rationalität in den negativen ungeraden Zahlen. Wir werden nun prüfen, ob auch die Funktion
+\begin{align*}
+\zeta_{\{a\}}(s)=\alpha_{1}^{-s}\sum_{k=0}^{\infty}\binom{-s}{k}\frac{1}
+                {\varphi_{c_{1}}^{s+2k}+(-1)^{k+1}},
+\end{align*} 
+wobei die lineare Rekursion $\{a\}$ der Darstellung aus $(\ref{snatch})$ genügt,
+in den negativen ungeraden Zahlen $-(2i + 1),i\in\N_{0}$ rationale Werte besitzt.
+Wir verfahren hierfür völlig analog der Berechnung von $B_{\varphi,n,m}(-(4m+2))$ aus Unterabschnitt 4.5.1:
+\begin{align*}
+\zeta_{\{a\}}(-(2i + 1))&=\alpha_{1}^{2i + 1}\sum_{k=0}^{2i + 1}\binom{2i + 1}{k}\frac{1}
+                                   {\varphi_{c_{1}}^{-(2i + 1)+2k}+(-1)^{k+1}}\\
+                        &=\alpha_{1}^{2i + 1}\sum_{k=0}^{2i + 1}\sigma^{k}_{\varphi_{c_{1}},0,m}(2i + 1)\\
+                        &=\alpha_{1}^{2i + 1}B_{\varphi_{c_{1}},0,m}(-(2i + 1)).
+\end{align*}
+Hierbei gilt:
+\begin{align*}
+\sigma^{2i + 1-k}_{\varphi_{c_{1}},0,m}(2i + 1)&=\binom{2i + 1}{2i + 1-k}\frac{1}{\varphi_{c_{1}}^{-(2i + 1)+2(2i + 1-k)}+(-1)^{2i + 1-k+1}}\\
+&=\binom{2i + 1}{k}\frac{1}{\varphi_{c_{1}}^{2i + 1-2k}+(-1)^{k}}.
+\end{align*}
+Wir sortieren wieder nach Termen mit gleichen Binomialkoeffizienten und berechnen:
+\begin{align*}
+\frac{\sigma^{k}_{\varphi_{c_{1}},0,m}(2i + 1)+\sigma^{2i + 1 - k}_{\varphi_{c_{1}},0,m}(2i + 1)}{\binom{2i+1}{k}}&=\frac{1}{\varphi_{c_{1}}^{-(2i+1)+2k}+(-1)^{k+1}}+\frac{1}{\varphi_{c_{1}}^{2i+1-2k}-(-1)^{k+1}}\\
+&=\frac{1}{\varphi_{c_{1}}^{-(2i+1)+2k}+(-1)^{k+1}}+\frac{1}{-\varphi_{c_{1}}^{*2k-(2i+1)}-(-1)^{k+1}}\\
+&=\frac{1}{\varphi_{c_{1}}^{-(2i+1)+2k}+(-1)^{k+1}}-\frac{1}{\varphi_{c_{1}}^{*2k-(2i+1)}+(-1)^{k+1}}\\
+&=\frac{\varphi_{c_{1}}^{*2k-(2i+1)}-\varphi_{c_{1}}^{-(2i+1)+2k}}{(-1)^{2k-(2i+1)}+(-1)^{k+1}\varphi_{c_{1}}^{*2k-(2i+1)}+(-1)^{k+1}\varphi_{c_{1}}^{-(2i+1)+2k}+1}\\
+&=(-1)^{k+1}\frac{\varphi_{c_{1}}^{*2k-(2i+1)}-\varphi_{c_{1}}^{-(2i+1)+2k}}{\varphi_{c_{1}}^{*2k-(2i+1)}+\varphi_{c_{1}}^{-(2i+1)+2k}}.
+\end{align*}
+Wir betrachten nun die rechte Seite der letzten Gleichung genauer:
+\begin{align*}
+\varphi_{c_{1}}^{*2k-(2i+1)}-\varphi_{c_{1}}^{-(2i+1)+2k}&=\frac{\varphi_{c_{1}}^{2i+1-2k}-\varphi_{c_{1}}^{*2i+1-2k}}{(-1)^{2k-(2i+1)}}\\
+&=(-1)^{2i+1}\left(\varphi_{c_{1}}^{2i+1-2k}-\varphi_{c_{1}}^{*2i+1-2k}\right)\\
+&=(-1)^{2i+1}\frac{\sqrt{c_{1}^{2}+4}}{a_{1}}a_{2i+1-k}\\
+&=(-1)^{2i+1}\frac{a_{2i+1-k}}{\alpha_{1}}.
+\end{align*}
+Analog erhalten wir
+\begin{align*}
+\varphi_{c_{1}}^{*2k-(2i+1)}+\varphi_{c_{1}}^{-(2i+1)+2k}=(-1)^{2i+1}\left(\varphi_{c_{1}}^{2i+1-2k}+\varphi_{c_{1}}^{*2i+1-2k}\right).
+\end{align*}
+Die Folge
+\begin{align*}
+\overline{a}_{n}:=\varphi_{c_{1}}^{n}+\varphi_{c_{1}}^{*n}
+\end{align*}
+besitzt das gleiche charakteristische Polynom $P(\varphi)$ wie die lineare Rekursion $\{a\}$. Damit wird auch $\{\overline{a}\}:=\left(\overline{a}_{n}\right)_{n\in\N}$ durch die gleiche lineare Rekursion wie $\{a\}$ beschrieben und besitzt ganzzahlige Werte falls die Anfangswerte $\overline{a}_{1}$ und $\overline{a}_{2}$ ganzzahlig sind. Wir berechnen also:
+\begin{align*}
+\overline{a}_{1}=\varphi_{c_{1}}+\varphi_{c_{1}}^{*}&=\frac{c_{1}+\sqrt{c_{1}^{2}+4}}{2}+\frac{c_{1}-\sqrt{c_{1}^{2}+4}}{2}\\
+                                                    &=c_{1}.\\
+\overline{a}_{2}=\varphi_{c_{1}}^{2}+\varphi_{c_{1}}^{*2}&=\frac{4c_{1}^{2}+8}{4}=c_{1}^{2}+2.                                 \end{align*}
+Damit besitzt die lineare Rekursion $\{\overline{a}\}$ ebenfalls nur ganzzahlige Werte. Damit können wir nun abschließend berechnen:
+\begin{align*}
+\zeta_{\{a\}}(-(2i + 1))&=\alpha_{1}^{2i + 1}\sum_{k=0}^{2i + 1}\sigma^{k}_{\varphi_{c_{1}},0,m}(2i + 1)\\
+                        &=\frac{\alpha_{1}^{2i + 1}}{2}\sum_{k=0}^{2i + 1}\sigma^{k}_{\varphi_{c_{1}},0,m}(2i + 1) + \sigma^{2i + 1-k}_{\varphi_{c_{1}},0,m}(2i + 1)\\
+                        &=\frac{\alpha_{1}^{2i + 1}}{2}\sum_{k=0}^{2i + 1}\binom{2i+1}{k}(-1)^{k+1}\frac{\varphi_{c_{1}}^{*2k-(2i+1)}-\varphi_{c_{1}}^{-(2i+1)+2k}}{\varphi_{c_{1}}^{*2k-(2i+1)}+\varphi_{c_{1}}^{-(2i+1)+2k}}\\
+                        &=\frac{\alpha_{1}^{2i + 1}}{2}\sum_{k=0}^{2i + 1}\binom{2i+1}{k}(-1)^{k+1}(-1)^{2i+1}\frac{a_{2i+1-k}}{\alpha_{1}(-1)^{2i+1}\overline{a}_{2i+1-k}}\\
+                        &=\frac{\alpha_{1}^{2i}}{2}\sum_{k=0}^{2i + 1}\binom{2i+1}{k}(-1)^{k+1}\frac{a_{2i+1-k}}{\overline{a}_{2i+1-k}}.
+\end{align*}
+Ferner liefert uns Lemma 3.2.2 und die Dominanz der Wurzel $\varphi_{c_{1}}$ gegenüber $\varphi_{c_{1}}^{*}$, dass kein Glied der linearen Rekursion $\{\overline{a}\}$ verschwindet.
+Damit gilt für jede lineare Rekursion $\{a\}$ deren Folgeglieder durch Gl.(\ref{snatch}) festgelegt werden: 
+\begin{align*}
+\zeta_{\{a\}}(-(2i + 1))\in{\Q},\,\,\text{für}\,\, i\in \N_{0}.
+\end{align*} 
+\section{Die Klasse $\zeta$ und Hypertranszendenz}
+\subsection{Vorbemerkung}
+In diesem Kapitel werden wir uns auf Grund des Resultates von Steuding aus \cite{Steuding} über die Fibonacci Zeta-Funktion $\zeta_{\{F\}}\in \zeta$, auf die Suche nach weiteren Elementen der Klasse $\zeta$ begeben, welche keiner algebraischen Differential-Gleichung genügen, also hypertranszendent sind.
+\subsection{Die Hypertranszendez für Dirichlet-Reihen im Allgemeinen}
+Wir geben hier kurz ein wichtiges Resultat von Reich, welches unter \cite{Reich} zu finden ist, wieder und verweisen für eine detailliertere Betrachtung der Hypertranszendenz von Dirichlet-Reihen auf \cite{Reich} und \cite{Ostrowski}.
+\begin{Definition}
+Es bezeichne $\mathfrak{D}$\label{Hypertranszendenz} die Menge aller gewöhnlichen Dirichlet-Reihen $f(s)=\sum_{n=1}^{\infty}a_{n}n^{-s}$ welche den beiden folgenden Bedingungen genügen:
+\begin{itemize}
+\item Die zugehörige Abszisse der absoluten Konvergenz ist endlich: $\overline{\sigma}(f) < \infty$,
+\item Die Menge aller Teiler der Indizes $n$ mit $a_{n}\neq 0$ enthält unendlich viele Primzahlen.
+\end{itemize}
+\end{Definition}
+Darüber hinaus verwenden wir folgende Abkürzung: Sei $\nu\in \N_{0}$, dann schreiben wir
+\begin{align*}
+\underline{f}^{[\nu]}(s)=\left(f(s),\,f'(s),\ldots,f^{\nu}(s)\right).
+\end{align*}
+In \cite{Reich} beweist Reich für obige Menge $\mathfrak{D}$:
+\begin{Satz}
+\par
+Sei $f\in \mathfrak{D}$ und $h_{0}<h_{1}<\ldots < h_{m}$ irgendwelche reellen Zahlen. Desweiteren seien $\nu_{0},\,\nu_{1},\,\ldots\,,\nu_{m}\in\N_{0}$ und $\sigma_{0} > \overline{\sigma}(f)- h_{0}$.
+Schließlich setzen wir noch $k:=\sum_{j=0}^{m}(\nu_{j}+1)$. Falls $\Phi: {\C}^{k}\to {\C}$ ganz ist und die Differenzen-Differential-Gleichung
+$$
+\Phi\left(\underline{f}^{[\nu_{0}]}(s+h_{0}),\underline{f}^{[\nu_{1}]}(s+h_{1}),\ldots,\underline{f}^{[\nu_{m}]}(s+h_{m})\right)=0
+$$
+für alle $s$ mit $\text{Re}(s)>\sigma_{0}$ erfüllt ist, dann verschwindet $\Phi$ identisch.
+\end{Satz}
+Um dieses Resultat auf die Klasse $\zeta$ anwenden zu können, benötigen wir ein Lemma von Pólya aus \cite {Polya}:
+\begin{Lemma}
+\par
+Sei $(a_{n})$ eine rekurrente Folge ganzer Zahlen, für welche die Menge der Primteiler von $(a_{n})$,
+$$
+\textsl{P}:=\left\{p\in\mathbb P; \exists n : p | a_{n}\right\},
+$$
+endlich ist. Dann existieren natürliche Zahlen $N$ und $j_{0}$ sowie ganze Zahlen $d_{l}$, $1\leq l \leq N$, mit
+$$
+a_{l+j\cdot N}= a_{l+ j_{0}\cdot N}\cdot d_{l}^{j-j_{0}}
+$$
+für $j\geq j_{0}$, $1 \leq l \leq N$.
+\end{Lemma}
+\subsection{Hypertranszendente Elemente der Klasse $\zeta$}
+Erfüllt nun eine lineare Rekursion $\{a\}$ die Voraussetzung aus dem Lemma von Pólya, dann besitzt insbesondere die Teilfolge $(a_{N+j\cdot N})_{j\in\N_{0}}$ von $\{a\}$ für $j\geq j_{0}$ einen festen Teiler. Folglich würde uns eine Bedingung, unter der keine solche Teilfolge von $\{a\}$ einen festen Teiler besitzt, die Mächtigkeit $|P|=\infty$ der obigen Menge $\textsl{P}$ garantieren. Diese Überlegungen und der Satz von Reich führen uns zu dieser Schlussfolgerung:
+\begin{Korollar}
+Sei $\zeta_{\{a\}}\in \zeta$ und $\varphi_{1},\ldots,\varphi_{l}$ die charakteristischen Wurzeln von $\{a\}$. Dann genügt $\zeta_{\{a\}}$ keiner algebraischen Differential-Gleichung, falls gilt:
+\begin{align*}
+\left\{\varphi_{i}^{n}; 1\leq i \leq l, n\in\N\right\}\cap \N = \emptyset.
+\end{align*} 
+\end{Korollar}
+\begin{proof}
+Zunächst zeigen wir, dass für ein festgewähltes $m\in\N$ jede Teilfolge $(a_{m\cdot n})_{n\in\N}$ der linearen Rekursion $\{a\}$ aus der Menge $\mathfrak{C}^{l}$ wieder ein Element der Menge $\mathfrak{C}^{l}$ ist:
+\par
+Wegen Korollar 1.5.1 \textbf{i)} existieren Konstanten $\alpha_{1},\ldots, \alpha_{l}$, sodass sich jedes Folgenglied von $\{a\}$ in der Form
+\begin{align*}
+a_{n}=\sum_{i=1}^{l}\alpha_{i}\varphi_{i}^{n},\,\, n\in\N,
+\end{align*}
+darstellen lässt. Folglich besitzt jedes Glied der Teilfolge $(a_{m\cdot n})_{n\in\N}$ die Darstellung
+\begin{align*}
+a_{m\cdot n}=\sum_{i=1}^{l}\alpha_{i}\left(\varphi_{i}^{m}\right)^{n},\,\, n\in\N.
+\end{align*}
+Damit können wir die Potenzen $\varphi_{i}^{m}$ der charakteristischen Wurzeln von $\{a\}$ als charakteristische Wurzeln einer Rekursion für die Teilfolge $(a_{m\cdot n})_{n\in\N}$ auffassen. Insbesondere verstehen wir unter
+\begin{align*}
+P_{m}(z):=\prod_{i=1}^{l}(z-\varphi_{i}^{m})=:z^{l}-\sum_{j=1}^{l}d_{j}z^{l-j}
+\end{align*}
+das charakteristische Polynom einer Rekursion für die Teilfolge $(a_{m\cdot n})_{n\in\N}$.
+\par
+Korollar 1.5.1 \textbf{ii)} garantiert uns nun, dass die Teilfolge $(a_{m\cdot n})_{n\in\N} $ eine Lösung der linearen Rekursion
+\begin{align*}
+b_{n}=\sum_{j=1}^{l}d_{j}b_{n-j},\,\, n\in\N,
+\end{align*}
+ist, wobei die Koeffizienten $d_{j}$ nach Satz 3.2.1 wieder ganzzahlig sind. Damit ist die Rekursion der Teilfolge $(a_{m\cdot n})_{n\in\N} $ wieder ein Element der Menge $\mathfrak C^{l}$, wobei wir im Folgenden berücksichtigen müssen, dass jedes Element $a_{m\cdot n}$ eine Umindizierung erfährt, also den Index $n$ erhält. Um Missverständlichkeiten auszuschließen kennzeichnen wir daher diese Teilfolge besonders durch:
+\begin{align*}
+a_{m\cdot n}:=a^{*}_{n}.
+\end{align*}
+\par
+Wir beweisen nun unsere Aussage durch Kontraposition:
+\par
+Angenommen die Rekursion $\{a\}$ besitzt trotz der oben genannten Voraussetzungen nur endlich viele Primteiler, dann existieren nach dem Satz von Pólya natürliche Zahlen $N$ und $j_{0}$, sodass die Teilfolge $(a_{N(1+j)})_{j\in\N_{0}}$ für $j\geq j_{0}$ die Darstellung
+\begin{align*}
+a_{N(1+j)}=a_{N(1+j_{0})}d_ {N}^{j-j_{0}},
+\end{align*}
+für eine ganze Zahl $d_{N}$ besitzt.
+Berücksichtigen wir die neue Indizierung, die die Rekursion der Teilfolge $(a_{N(1+j)})_{j\in\N_{0}}$ verleiht, so besitzt das Element $a_{N(1+j)}$ die Gestalt $a^{*}_{1+j}$.
+Insgesamt erhalten wir in der neuen Indizierung für $j\geq j_{0}$:
+\begin{align}
+a^{*}_{1+j}=a^{*}_{1+j_{0}}d_ {N}^{j-j_{0}}.\label{must die}
+\end{align}
+Wir verwenden nun die Tatsache, dass sich für hinreichend großes $j\in \N_{0}$ das Element $a^{*}_{1+j}$ als Rekursion mit ganzzahligen Koeffizienten $r_{i},\, 1\leq i \leq t$, schreiben lässt:
+\begin{align}
+a^{*}_{1+j}=\sum_{i=1}^{t}r_{i}a^{*}_{1+j-i}.\label{Romeo}
+\end{align}
+Für $j\geq j_{0}+t-1$ können wir dann Gl.(\ref{must die}) in Gl.$(\ref{Romeo})$ einsetzen:
+\begin{align*}
+a^{*}_{1+j_{0}}d_ {N}^{j-j_{0}}=a^{*}_{1+j}=\sum_{i=1}^{t}r_{i}a^{*}_{1+j-i}=\sum_{i=1}^{t}r_{i}a^{*}_{1+j_{0}}d_ {N}^{j-i-j_{0}}.
+\end{align*} 
+Durch Kürzen erhalten wir
+\begin{align*}
+d_ {N}^{j-j_{0}}=\sum_{i=1}^{t}r_{i}d_ {N}^{j-i-j_{0}},
+\end{align*}
+was bedeutet, dass die Zahl $d_{N}$ charakteristische Wurzel der linearen Rekursion für die Teilfolge $(a^{*}_{1+j})_{j\in\N_{0}}$ ist. Nach Voraussetzung ist aber die Zahl $d_{N}$ ganz, ein Widerspruch zur Voraussetzung.
+\end{proof}
+Wir können nun einen alternativen Beweis zu Steudings Beweis der Hypertranszendenz der Fibonacci Zeta-Funktion $\zeta_{F}$ aus \cite{Steuding} liefern:
+\begin{Lemma}
+\par
+Die Fibonacci Zeta-Funktion $\zeta_{F}$ ist hypertranszendent. 
+\end{Lemma}
+\begin{proof}
+Wegen Korollar 5.3.1 reicht es aus zu zeigen, dass natürliche Potenzen der charakteristischen Wurzeln 
+$$
+\varphi_{1}=\frac{1+\sqrt{5}}{2}\,\,\text{und}\,\,\varphi_{2}=\frac{1-\sqrt{5}}{2}
+$$
+nicht in den natürlichen Zahlen $\N$ liegen.
+Offensichtlich müssen wir dabei die Aussage nur für die Nenner der charakteristischen Wurzeln $\varphi_{1}$ und $\varphi_{2}$ verifizieren.
+Angenommen es existiert ein $n\in\N$ und ein $m\in\N$ mit
+\begin{align}
+\left(1+\sqrt{5}\right)^{n} =\sum_{k=0}^{n}\binom{n}{k}\sqrt{5}^k = m.\label{Space}
+\end{align}
+Wir sortieren nun Gl.($\ref{Space}$) nach geraden und ungeraden Potenzen der irrationalen Zahl $\sqrt{5}$:
+\begin{align*}
+m=\sum_{k=0}^{n}\binom{n}{k}\sqrt{5}^k&=\sum_{k=0}^{\left\lfloor \frac{n}{2}\right\rfloor}\binom{n}{2k}5^{k}+\sum_{k=0}^{\left\lfloor \frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}\sqrt{5}^{2k+1}\\
+&=\sum_{k=0}^{\left\lfloor \frac{n}{2}\right\rfloor}\binom{n}{2k}5^{k}+\sqrt{5}\sum_{k=0}^{\left\lfloor \frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}5^{k}\\
+&=:a+\sqrt{5}\cdot b.
+\end{align*}
+Wir erkennen sofort das $a$ und $b$ natürliche Zahlen sind.
+Folglich würde gelten
+$$
+\sqrt{5}=\frac{m - a}{b}\in\Q.
+$$
+Ein Widerspruch.
+Der Beweis für $\left(1-\sqrt{5}\right)^{n}\notin\N$ für alle $n\in\N$ erfolgt vollkommen analog. Damit ist die Aussage bewiesen.
+\end{proof}  
+\newpage
+\section{Anhang}$\label{Anhang}$
+\thispagestyle{plain}
+\subsection{Ergebnisse der Funktionentheorie}
+\begin{Satz}\textbf{(Weierstraß)} Vgl. $\cite{Freitag}$ S. 100.
+\par
+Sei $\mathfrak {F}\subset {\C}$ ein Gebiet und $f_{n}$ eine in $\mathfrak {F}$ gegen $f$ gleichmäßig konvergente Folge holomorpher Funktionen.
+Dann gilt:
+\begin{itemize}
+\item $f$ ist holomorph in $\mathfrak {F}$.
+\item Für jedes $k\in\N$ konvergiert $f^{(k)}$ lokal gleichmäßig in $\mathfrak {F}$
+gegen $f^{(k)}.
+$\end{itemize}
+\end{Satz}
+\begin{Satz}(\textbf{Identitätsprinzip für holomorphe Funktionen}) Vgl. \cite{Freitag} S. 119. 
+\par
+Sei $f:\mathfrak{F}\rightarrow{\C}$ eine von der Nullfunktion verschiedene analytische Funktion auf dem Gebiet $\mathfrak{F}\subset {\C}$. Dann liegt die Menge $\mathfrak{N}(f)$ der Nullstellen  von $f$ diskret in $\mathfrak{F}$.
+\end{Satz}$\label{Nsh}$
+\begin{proof}
+Angenommen die Menge $\mathfrak{N}(f)$ besitzt einen Häufungspunkt $a\in\mathfrak{F}$. Nach Voraussetzung läßt sich dann $f$ um $a$ in eine Potenzreihe entwickeln:
+\begin{align*}
+f(z) = \sum_{n=0}^{\infty}a_{n}(z-a)^{n},\quad |z-a| < r.
+\end{align*}
+Da $a\in\mathfrak{F}$ ein Häufungspunkt von $\mathfrak{N}(f)$ ist, gibt es in jeder Umgebung von $a$ Punkte $z\neq a$ mit $f(z)=0$. Hieraus folgt wegen der Stetigkeit von $f$
+\begin{align*}
+a_{0}=f(a)=0.
+\end{align*} 
+Wenden wir nun denselben Schluss auf die Reihe $\frac{f(z)}{z-a} = a_{1} + a_{2}(z-a) + \ldots$
+an, so erhalten wir $a_{1}=0$ usw. Die Koeffizienten der Potenzreihe verschwinden also.
+Wir erhalten $f(z)=0$ in einer vollen Umgebung von $a$. (Sogar in der größten offenen Kreisscheibe um $a$, welche in 
+$\mathfrak F$ enthalten ist).
+Die Menge $\mathfrak{U}$ = $\left\{z \in  \mathfrak{F} ; \text{z ist Häufungspunkt von }\mathfrak{N}(f)\right\}$
+ist also offen.
+\par
+Trivialerweise ist aber auch die Menge 
+          $\mathfrak{V}$ = $\left\{z \in   \mathfrak{F}; \text{z ist kein Häufungspunkt von} \mathfrak{N}(f)\right\}$ offen.
+Die Funktion
+$$
+g:
+              \left\{ \begin{array} {ccc}
+               \mathfrak{F}& \rightarrow & \mathbb{R} \\
+              z & \rightarrow & g(z) := \left\{ \begin{array} {ccc}
+                                         1 & \text{für} & z\in \mathfrak{U}\\
+                                         0 & \text{für} & z\in \mathfrak{V}
+                                        \end{array}\right.
+              
+              \end{array}\right.
+$$
+ist lokal konstant, da $\mathfrak{U}$ und $\mathfrak{V}$ offen sind. Nun ist aber $\mathfrak{F}$ zusammenhängend, $g$ also konstant.
+\newpage
+Da $\mathfrak{U}$ nicht leer ist, folgt $\mathfrak{V}=\emptyset$ und damit $f\equiv 0$. 
+\end{proof}
+\begin{Satz}\textbf{(Majorantenkriterium von Weierstrass.)} Vgl. \cite{Remmert} S. 81. 
+\par
+Es sei $f_{\nu}:\, X\rightarrow {\C}$ eine Funktionenfolge und $A\neq\emptyset $ eine Teilmenge von $X$. Desweiteren sei $M_{\nu}$ eine Folge reeller Zahlen mit
+\begin{align*}
+\left|f_{\nu}(x)\right|\leq M_{\nu},\,\nu\in\N,\,x \in A\,\text{und}\,\sum_{\nu=1}^{\infty}M_{\nu} < \infty.
+\end{align*}
+Dann konvergiert die Reihe $\sum_{\nu=1}^{\infty}f_{\nu}$ gleichmäßig in $A$.
+\end{Satz}
+\begin{proof}
+Für alle $n > m$ und $x\in A$ gilt:
+\begin{align*}
+\left|\sum_{\nu = m+1}^{n}f_{\nu}(x)\right|\leq |\sum_{\nu = m+1}^{n}\left|f_{\nu}(x)\right|\leq \sum_{\nu = m+1}^{n} M_{\nu} < \infty.
+\end{align*}
+Damit existiert aber zu jedem $\epsilon > 0$ ein $n_{0}\in\N$, sodass
+\begin{align*}
+\sum_{\nu= m + 1}^{n}M_{\nu} < \epsilon
+\end{align*}
+für alle $n>m\geq n_{0}$. Dies bedeutet aber, dass die Reihe $\sum_{\nu=1}^{\infty}f_{\nu}$ nach dem Cauchyschen Kriterium in $A$ gleichmäßig konvergiert. 
+\end{proof} 
+\subsection{Ergebnisse der Analysis}
+\textbf{Multinomialsatz:}
+\par
+Für jedes $m\in \N$,\,$n\in \N_{0}$ und $x_{1},\ldots,x_{m} \in {\C} $ gilt:
+\begin{align*}
+(x_{1} +\ldots +x_{m})^{n} = \sum_{|\alpha|=n}\binom{n}{\alpha}x^{\alpha}
+\end{align*}
+wobei $\alpha = (\alpha_{1},\ldots,\alpha_{m})\in \N_{0}^{m}$ 
+einen Multiindex bezeichnet und $|\alpha|=\alpha_{1}+\ldots+\alpha_{m}$ die Ordnung von $\alpha$ ist. Die Multinomialkoeffizienten sind definiert durch
+\begin{align*}
+\binom{n}{\alpha}:= \frac{n!}{\alpha!}\qquad \text{für}\quad \alpha!:= \alpha_{1}!\cdot\ldots\cdot\alpha_{m}!
+\end{align*}
+und die Monome $x^{\alpha}$ sind definiert durch:
+\begin{align*}
+x^{\alpha}:= x_{1}^{\alpha_{1}}\cdot\ldots\cdot x_{1}^{\alpha_{m}}\qquad (x_{1},\ldots,x_{m})\in \mathbb {R}^{m}
+\end{align*}
+\begin{proof}
+Wir beweisen den Multinomialsatz durch eine Induktion nach $m\in N$:
+\par
+\textbf{(IA):}\,Sei $m=1$, dann gilt $\left|\alpha\right|=\alpha_{1}=n$ und  $x^{\alpha}=x_{1}^{\alpha_{1}}$, also folgt die Behauptung.
+\par
+\textbf{(IV):}\,Die Aussage sei nun bereits für ein $m\in\N$ bewiesen.
+\par
+\textbf{(IS):}\,Schluss von $m$ auf $m+1$:
+\par
+Unter Verwendung der binomischen Formel erhalten wir:
+\begin{align*}
+\left(x_{1}+ \ldots + x_{m}+ x_{m+1}\right)^{n}&\,\,=\sum_{k=0}^{n}\binom{n}{k}x_{m+1}^{n-k}\left(x_{1}+ \ldots + x_{m}\right)^{k}\\
+&\stackrel{\text{\textbf{(IV)}}}{=}\sum_{k=0}^{n}\binom{n}{k}x_{m+1}^{n-k}\sum_{|\alpha|=k}\binom{k}{\alpha}x^{\alpha}\\                        &\,\,=\sum_{k=0}^{n}\sum_{|\alpha|=k}\frac{n!}{k!(n-k)!}\frac{k!}{\alpha_{1}!\cdot\ldots\cdot\alpha_{m}!}x_{1}^{\alpha_{1}}\cdot\ldots\cdot x_{m}^{\alpha_{m}}\cdot x_{m+1}^{n-k}.                    
+\end{align*}
+Wir setzen nun
+\begin{align*}
+\beta = \left(\beta_{1},\ldots,\beta_{m+1}\right)\in \N_{0}^{m+1},\,\text{mit}\, 
+\beta_{i}=\begin{cases}
+          \alpha_{i} & \text{für}\,\, 1\leq i\leq m,\\
+          n - k & \text{sonst}.
+           \end{cases}
+\end{align*}
+Damit gilt:
+\begin{align*}
+\sum_{k=0}^{n}\sum_{|\alpha|=k}\frac{n!}{k!(n-k)!}\frac{k!}{\alpha_{1}!\cdot\ldots\cdot\alpha_{m}!}x_{1}^{\alpha_{1}}\cdot\ldots\cdot x_{m}^{\alpha_{m}}\cdot x_{m+1}^{n-k}
+&=\sum_{|\beta|=n}\frac{n!}{\beta_{1}!\cdot\ldots\cdot\beta_{m+1}!}x_{1}^{\beta_{1}}\cdot\ldots\cdot x_{m+1}^{\beta_{m+1}}\\
+&=\sum_{|\beta|=n}\binom{n}{\beta}x^{\beta}.
+\end{align*}
+\end{proof}
+\textbf{Doppelreihensatz:} Vgl. \cite{Königsberger} S. 71.
+\par
+Die Familie $\left(a_{ik}\right)_{(i,k)\in I\times K}$ sei summierbar. Dann ist jede der Familien $\left(a_{ik}\right)_{i\in I}$ und $\left(a_{ik}\right)_{k\in K}$ summierbar, und es gilt
+\begin{align*}
+\sum_{(i,k)\in I\times K}a_{ik}= \sum_{i \in I}\left(\sum_{k \in K}a_{ik}\right) = \sum_{k \in K}\left(\sum_{i \in I}a_{ik}\right).
+\end{align*}
+\begin{Satz} Vgl. \cite{Fritzsche} S. 299.
+\par
+Die Binomialreihe $B(x):=\sum_{n=0}^{\infty}\binom{\alpha}{n}x^{n}$ konvergiert für $|x|<1$ gegen $\left(1 + x\right)^{\alpha}$.
+\end{Satz} 
+\begin{proof}
+Wir bestimmen den Konvergenzradius der Reihe mit der Quotientenregel: 
+\begin{align*}
+\left|\frac{\binom{\alpha}{n}}{\binom{\alpha}{n+1}}\right|&=\left|\frac{\alpha(\alpha-1)\cdot\ldots\cdot(\alpha-n+1)}{\alpha(\alpha-1)\cdot\ldots\cdot(\alpha-n)}\right|\cdot\frac{(n+1)!}{n!}\\
+&=\frac{n+1}{|\alpha-n|}=\frac{1+\frac{1}{n}}{1-\frac{\alpha}{n}},
+\end{align*}
+und dieser Ausdruck konvergiert gegen 1. Damit ist aber $B(x)$ auf dem offenen Intervall $]-1;1[$ differenzierbar und es gilt:
+\begin{align*}
+B^{'}(x)&=\sum_{n=1}^{\infty}n\cdot\binom{\alpha}{n}x^{n-1}=\sum_{n=0}^{\infty}(n+1)\cdot\binom{\alpha}{n+1}x^{n}\\
+        &=\alpha\cdot\sum_{n=0}^{\infty}\binom{\alpha-1}{n}x^{n}.
+\end{align*}
+Damit folgt:
+\begin{align*}
+\left(1+x\right)B^{'}(x)&=\alpha \cdot \left(\sum_{n=0}^{\infty}\binom{\alpha-1}{n}x^{n}+\sum_{n=0}^{\infty}\binom{\alpha-1}{n}x^{n+1}\right)\\
+&=\alpha \cdot \left(1 + \sum_{n=1}^{\infty}\left(\binom{\alpha-1}{n}+\binom{\alpha-1}{n-1}\right)x^{n}\right)\\
+&=\alpha \cdot \left(1 + \sum_{n=1}^{\infty}\binom{\alpha}{n}x^{n}\right)=\alpha \cdot B(x).
+\end{align*}
+Setzen wir nun
+\begin{align*}
+h(x):=\frac{B(x)}{\left(1 + x\right)^{\alpha}},
+\end{align*}
+so folgt:
+\begin{align*}
+h^{'}(x)&=\frac{\left(1 + x\right)^{\alpha}B^{'}(x)-B(x)\alpha\left(1 + x\right)^{\alpha-1}}{\left(1 + x\right)^{2\alpha}}\\
+        &=\frac{\left(1 + x\right)^{\alpha-1}}{\left(1 + x\right)^{2\alpha}}\cdot \left(\left(1+x\right)B^{'}(x)-\alpha B(x)\right)\equiv 0.
+\end{align*}
+Demnach muss $h(x)$ konstant sein und wegen $h(0)=1$ folgt, dass $B(x)=\left(1 + x\right)^{\alpha}$ für $|x|< 1$ ist.
+\end{proof}
+\newpage
+\section{Verzeichnis der verwendeten Symbole}
+$\Delta$\dotfill\pageref{Delta}\\
+$E$\dotfill\pageref{shiftoperator}\\ 
+%$I$\dotfill\pageref{Identitätsoperator}\\
+$W(t)$\dotfill\pageref{Matrix von Casorati}\\
+$P(\varphi)$\dotfill\pageref{Feuer}\\
+$\varphi_{1},\ldots,\varphi_{k}$\dotfill\pageref{charkteristische Wurzeln}\\
+$\sigma_{i},1\leq i \leq k$\dotfill\pageref{Ball}\\
+$s=\sigma+it$\dotfill\pageref{komplex}\\
+$\left\lfloor x \right\rfloor$\dotfill\pageref{Gaus-Klammer}\\
+$\tilde{\Delta}$\dotfill\pageref{tildedelta}\\
+$\sigma_{0}$\dotfill\pageref{Konvergenzabszisse}\\ 
+$W(s_{0},\alpha)$\dotfill\pageref{Winkelhalbebene}\\
+$A(x)$\dotfill\pageref{Summen}\\
+$A(x,y)$\dotfill\pageref{Summen}\\
+$o,O$\dotfill\pageref{Landau}\\
+$\mathbb{H}_{\sigma_{0}}$\dotfill\pageref{Halbebene}\\
+$\overline{\sigma}$\dotfill\pageref{absoluter Kvgzabs}\\
+$\zeta_{\{F\}}$\dotfill\pageref{Fibonacci Zeta-Funktion}\\
+$(F_{n})_{n\in\N}$\dotfill\pageref{Fibonacci-Zahlen}\\
+$\zeta_{\{a\}}$\dotfill\pageref{allg Zeta}\\
+$\{a\}$\dotfill\pageref{Index}\\
+$\mathfrak R^{l}$\dotfill\pageref{Rekursionsmenge}\\
+$\mathfrak C^{l}$\dotfill\pageref{Rekursionsteilmenge}\\
+$\zeta$\dotfill\pageref{Klasse Zeta}\\
+$\varphi$\dotfill\pageref{phi}\\
+$\beta$\dotfill\pageref{beta}\\
+$|\beta|$\dotfill\pageref{Multiordnung}\\
+$\binom{k}{\beta}$\dotfill\pageref{Multinomialkoeffizient}\\
+$\varphi^{\beta}$\dotfill\pageref{Monome}\\
+$J$\dotfill\pageref{J}\\
+$\alpha$\dotfill\pageref{alpha}\\
+$\mathfrak P$\dotfill\pageref{Singularitätenmenge}\\
+%$\text{Log}$\dotfill\pageref{komplexer Logarithmus}\\
+%$\log$\dotfill\pageref{reeller Logarithmus}\\
+$\rho_{k,m}(\beta)$\dotfill\pageref{Singularität}\\
+$\tilde{\mathfrak P}$\dotfill\pageref{reelle Polstellen}\\
+$\mathfrak A_{m,n}(\alpha)$\dotfill\pageref{Anzahl}\\
+$B_{\varphi,n,m}(s)$\dotfill\pageref{Desperado}\\
+$\sigma^{k}_{\varphi,n,m}(d)$\dotfill\pageref{Morella}\\
+$\mathfrak{D}$\dotfill\pageref{Hypertranszendenz}\\
+\newpage
+\section{Literaturverzeichnis}
+\thispagestyle{plain}
+\begin{thebibliography}{DiplRS}
+\bibitem[1]{Apostol}  APOSTOL T. M., {\it Introduction to analytic Number Theory}, Springer-Verlag, (1976).
+\bibitem[2]{Benzaghou}  BENZAGHOU B., {\it Algébres de Hadamard}, Bull. Soc. Math. France \textbf{98} (1970), 209 - 252.
+\bibitem[3]{Erdös}  ERDÖS P.,  MAXSEIN TH.,  SMITH P.R., {\it Primzahlpotenzen in rekurrenten Folgen}, Analysis 10, 71-83 (1990).
+\bibitem[4]{Graham}  EVEREST G., VAN DER POORTEN A.,  SHPARLINSKI I. AND  WARD T., {\it Recurrence sequences}, AMS Mathematical Surveys and Monographs, \textbf{104} (2003).
+\bibitem[5]{Freitag}  FREITAG E., BUSAM R., {\it Funktionentheorie}, Springer-Verlag, (1993).
+\bibitem[6]{Fritzsche}  FRITZSCHE K., {\it Grundkurs Analysis 1:} Differentiation und Integration in einer Veränderlichen,
+                        Spektrum Akademischer Verlag, (2005).
+\bibitem[7]{Hardy}  HARDY G.H. AND RIESZ M., {\it The general theory of Dirichlet´s series}, Cambridge tracts in mathematics an mathematical physics, \textbf{18} (1915), Cambridge University Press, (1952).
+\bibitem[8]{Kelley}  KELLEY W. G. AND PETERSON A. C., {\it Difference Equations: an introduction with applications}, Academic Press, INC., (1991)
+\bibitem[9]{Königsberger}  KÖNIGSBERGER K., {\it Analysis 1}, Springer-Verlag, (2004).
+\bibitem[10]{Lidl}  LIDL R.,  NIEDERREITER H., {\it Introduction to finite fields and their applications}, Cambridge University Press, (1986).
+\bibitem[11]{L.Navas} NAVAS L., {\it Analytic continuation of the Fibonacci Dirichlet series}, Fibonacci Q., \textbf{39} (2001), 409-418.
+\bibitem[12]{Ostrowski} OSTROWSKI A., {\it Über Dirichletsche Reihen und algebraische Differentialgleichungen}, Math. Z., \textbf{8} (1920), 241-298. 
+\bibitem[13]{Parent}  PARENT D.P., {\it Exercises in Number Theory}, Springer-Verlag, (1984).
+\bibitem[14]{Polya}  PÓLYA G., {\it Arithmetische Eigenschaften der Reihenentwicklung rationaler Funktionen}, J. Reine Angew. Math., \textbf{151}  (1921), 1-31.
+\bibitem[15]{Poonen}  POONEN B., {\it Linear recursive sequences},\\
+ http://mathcircle.berkeley.edu/BMC6/ps/linear.pdf.
+\bibitem[16]{Reich}  REICH A., {\it Über Dirichletsche Reihen und algebraische Differentialgleichungen}, Analysis, \textbf{4} (1984), 27-44.
+\bibitem[17]{Remmert}  REMMERT R., {\it Funktionentheorie I}, Springer-Verlag, (1989).  
+\bibitem[18]{Shorey}  SHOREY T.N., TIJDEMAN R., {\it Exponential Diophantine Equations}, Cambridge University Press, (1986).   
+\bibitem[19]{Steuding}  STEUDING J., {\it The Fibonacci Zeta-Function is Hypertranszendental}, Cubo 10, No. 3, 133-136 (2008). 
+\end{thebibliography}
+\begin{titlepage}
+\section*{Erklärung:}
+\noindent {\large Die vorliegende Diplomarbeit wurde am Institut für Mathematik  der Universität Würzburg nach einem Thema von Herrn Prof.\,Dr. Jörn~Steuding erstellt.
+\newline Hiermit versichere ich, dass ich diese Arbeit selbstständig angefertigt und dazu nur die angegebenen Quellen verwendet habe.
+
+\vspace{1.5cm}
+
+\noindent Würzburg, den \today
+
+\vspace{0.5cm}
+
+\raggedleft Michael Krasser\quad\quad \par}
+
+\vfill
+\end{titlepage}
+\end{document}
